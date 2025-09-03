@@ -15,13 +15,12 @@
 </head>
 
 <body class="bg-gray-50">
-
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
-                <a href="#" class="flex items-center">
+                <a href="/" class="flex items-center">
                     <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
                         class="h-10 w-10 mr-3 rounded-full shadow-md">
                     <div class="flex flex-col">
@@ -167,182 +166,189 @@
 
 
     <!-- Property Search Section -->
-    <section class="property-search min-h-screen flex items-center justify-center py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-5xl font-bold text-gray-800 text-center mb-16 tracking-tight" data-aos="fade-up">
-                Find Your Perfect <span class="text-blue-600">Property</span>
-            </h2>
-            <div class="max-w-4xl mx-auto">
-                <div
-                    class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-2xl border-2 border-gray-300 p-10 backdrop-blur-sm">
-                    <!-- Tab Navigation -->
-                    <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8">
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-white border-b-3 border-blue-600 bg-blue-500 rounded-t-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 active"
-                            data-tab="buy">
-                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                                </path>
-                            </svg>
-                            Buy
-                        </button>
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300 mx-2"
-                            data-tab="rent">
-                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v-2H7v-2H4a1 1 0 01-1-1v-4c0-2.946 2.011-5.422 4.751-6.161M15 7a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0v6a2 2 0 01-2 2m-2-8H9M7 10v4h3v-4z">
-                                </path>
-                            </svg>
-                            Rent
-                        </button>
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300"
-                            data-tab="roommate">
-                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                </path>
-                            </svg>
-                            Roommate
-                        </button>
-                    </div>
+    <section class="property-search flex items-center justify-center py-20 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div
+                class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-2xl border-2 border-gray-300 p-10 backdrop-blur-sm">
+                <!-- Tab Navigation -->
+                <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8">
+                    <button
+                        class="tab-btn px-8 py-4 font-semibold text-white border-b-3 border-blue-600 bg-blue-500 rounded-t-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 active"
+                        data-tab="buy">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                        Buy
+                    </button>
+                    <button
+                        class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300 mx-2"
+                        data-tab="rent">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v-2H7v-2H4a1 1 0 01-1-1v-4c0-2.946 2.011-5.422 4.751-6.161M15 7a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0v6a2 2 0 01-2 2m-2-8H9M7 10v4h3v-4z">
+                            </path>
+                        </svg>
+                        Rent
+                    </button>
+                    <button
+                        class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300"
+                        data-tab="roommate">
+                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                        Roommate
+                    </button>
+                </div>
 
-                    <!-- Buy Tab -->
-                    <div id="buy-tab" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Select Your Location</option>
-                                    <option value="1">Dhaka</option>
-                                    <option value="3">Khulna</option>
-                                    <option value="4">Chittagong</option>
-                                    <option value="5">Sylhet</option>
-                                    <option value="6">Rajshahi</option>
-                                    <option value="7">Rangpur</option>
-                                    <option value="8">Barisal</option>
-                                    <option value="9">Gazipur</option>
-                                    <option value="10">Narayanganj</option>
-                                    <option value="11">Comilla</option>
-                                    <option value="12">Bogra</option>
-                                    <option value="14">Kuakata</option>
-                                    <option value="16">Coxs Bazar</option>
-                                    <option value="17">Tangail</option>
-                                    <option value="18">Mymensingh</option>
-                                    <option value="19">Naogaon</option>
-                                    <option value="20">Noakhali</option>
-                                    <option value="21">Munshiganj</option>
-                                    <option value="22">Chandpur</option>
-                                    <option value="23">Moulvibazar</option>
-                                </select>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Property Type</option>
-                                    <option>Commercial Mess</option>
-                                    <option>Independent Mess</option>
-                                    <option>Hostel</option>
-                                    <option>Paying Guest</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                    </svg>
-                                    Search Properties
-                                </button>
-                            </div>
+                <!-- Buy Tab -->
+                <div id="buy-tab" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Select Your Location</option>
+                                <option value="1">Dhaka</option>
+                                <option value="3">Khulna</option>
+                                <option value="4">Chittagong</option>
+                                <option value="5">Sylhet</option>
+                                <option value="6">Rajshahi</option>
+                                <option value="7">Rangpur</option>
+                                <option value="8">Barisal</option>
+                                <option value="9">Gazipur</option>
+                                <option value="10">Narayanganj</option>
+                                <option value="11">Comilla</option>
+                                <option value="12">Bogra</option>
+                                <option value="14">Kuakata</option>
+                                <option value="16">Coxs Bazar</option>
+                                <option value="17">Tangail</option>
+                                <option value="18">Mymensingh</option>
+                                <option value="19">Naogaon</option>
+                                <option value="20">Noakhali</option>
+                                <option value="21">Munshiganj</option>
+                                <option value="22">Chandpur</option>
+                                <option value="23">Moulvibazar</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Property Type</option>
+                                <option>Commercial Mess</option>
+                                <option>Independent Mess</option>
+                                <option>Hostel</option>
+                                <option>Paying Guest</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button
+                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                Search Properties
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Rent Tab -->
-                    <div id="rent-tab" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Select Your Location</option>
-                                    <option>Dhaka</option>
-                                    <option>Chittagong</option>
-                                    <option>Sylhet</option>
-                                    <option>Rajshahi</option>
-                                </select>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Property Type</option>
-                                    <option>Apartment</option>
-                                    <option>House</option>
-                                    <option>Commercial Space</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                    </svg>
-                                    Search Rentals
-                                </button>
-                            </div>
+                <!-- Rent Tab -->
+                <div id="rent-tab" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Select Your Location</option>
+                                <option>Dhaka</option>
+                                <option>Chittagong</option>
+                                <option>Sylhet</option>
+                                <option>Rajshahi</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Property Type</option>
+                                <option>Apartment</option>
+                                <option>House</option>
+                                <option>Commercial Space</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button
+                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                Search Rentals
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Roommate Tab -->
-                    <div id="roommate-tab" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Select Your Location</option>
-                                    <option>Dhaka</option>
-                                    <option>Chittagong</option>
-                                    <option>Sylhet</option>
-                                </select>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Gender Preference</label>
-                                <select
-                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                    <option>Gender Preference</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Any</option>
-                                </select>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                        </path>
-                                    </svg>
-                                    Find Roommates
-                                </button>
-                            </div>
+                <!-- Roommate Tab -->
+                <div id="roommate-tab" class="tab-content hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Select Your Location</option>
+                                <option>Dhaka</option>
+                                <option>Chittagong</option>
+                                <option>Sylhet</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Gender Preference</label>
+                            <select
+                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                <option>Gender Preference</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Any</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button
+                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                                Find Roommates
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -429,6 +435,289 @@
             </div><br>
         </div>
     </footer>
+
+    <script>
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Initialize AOS
+        AOS.init();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden', !menuOpen);
+            menuBtn.innerHTML = menuOpen
+                ? '<i data-feather="x" class="w-7 h-7"></i>'
+                : '<i data-feather="menu" class="w-7 h-7"></i>';
+            feather.replace();
+        });
+
+        // Desktop dropdown functionality
+        const desktopDropdowns = document.querySelectorAll('.dropdown-container');
+        let activeDropdown = null;
+
+        // Wait for feather icons to be initialized
+        setTimeout(() => {
+            desktopDropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('button');
+                const menu = dropdown.querySelector('.absolute');
+
+                // Click handler for dropdown button
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Check if this dropdown is currently open
+                    const isCurrentlyOpen = menu.classList.contains('opacity-100');
+
+                    // Close all open dropdowns first
+                    closeAllDropdowns();
+
+                    // If this dropdown wasn't open, open it
+                    if (!isCurrentlyOpen) {
+                        openDropdown(dropdown);
+                    }
+                });
+
+                // Prevent dropdown from closing when clicking inside the menu
+                menu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            });
+        }, 100);
+
+        function openDropdown(dropdown) {
+            const menu = dropdown.querySelector('.absolute');
+            const chevron = dropdown.querySelector('button svg');
+
+            menu.classList.remove('opacity-0', 'invisible');
+            menu.classList.add('opacity-100', 'visible');
+
+            // Force chevron rotation using SVG element
+            if (chevron) {
+                chevron.style.transform = 'rotate(180deg)';
+                chevron.style.transition = 'transform 0.3s ease';
+            }
+
+            activeDropdown = dropdown;
+        }
+
+        function closeDropdown(dropdown) {
+            const menu = dropdown.querySelector('.absolute');
+            const chevron = dropdown.querySelector('button svg');
+
+            menu.classList.remove('opacity-100', 'visible');
+            menu.classList.add('opacity-0', 'invisible');
+
+            // Reset chevron rotation using SVG element
+            if (chevron) {
+                chevron.style.transform = 'rotate(0deg)';
+                chevron.style.transition = 'transform 0.3s ease';
+            }
+
+            if (activeDropdown === dropdown) {
+                activeDropdown = null;
+            }
+        }
+
+        function closeAllDropdowns() {
+            desktopDropdowns.forEach(dropdown => {
+                const menu = dropdown.querySelector('.absolute');
+                const chevron = dropdown.querySelector('button svg');
+
+                menu.classList.remove('opacity-100', 'visible');
+                menu.classList.add('opacity-0', 'invisible');
+
+                if (chevron) {
+                    chevron.style.transform = 'rotate(0deg)';
+                    chevron.style.transition = 'transform 0.3s ease';
+                }
+            });
+            activeDropdown = null;
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            // Close mobile menu if clicking outside
+            if (menuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                menuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+                feather.replace();
+            }
+
+            // Close desktop dropdowns if clicking outside
+            let clickedInsideDropdown = false;
+            desktopDropdowns.forEach(dropdown => {
+                if (dropdown.contains(e.target)) {
+                    clickedInsideDropdown = true;
+                }
+            });
+
+            if (!clickedInsideDropdown && activeDropdown) {
+                closeAllDropdowns();
+            }
+        });
+
+        // Mobile submenu toggle with smooth transitions
+        setTimeout(() => {
+            document.querySelectorAll('[data-toggle="mobile-submenu"]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const submenu = button.nextElementSibling;
+                    const chevron = button.querySelector('svg');
+                    const isOpen = !submenu.classList.contains('hidden');
+
+                    if (isOpen) {
+                        // Closing animation
+                        submenu.style.maxHeight = '0px';
+                        submenu.style.opacity = '0';
+                        submenu.style.paddingTop = '0';
+                        submenu.style.paddingBottom = '0';
+
+                        setTimeout(() => {
+                            submenu.classList.add('hidden');
+                            submenu.style.maxHeight = '';
+                            submenu.style.opacity = '';
+                            submenu.style.paddingTop = '';
+                            submenu.style.paddingBottom = '';
+                        }, 300);
+
+                        // Reset chevron rotation
+                        if (chevron) {
+                            chevron.style.transform = 'rotate(0deg)';
+                            chevron.style.transition = 'transform 0.3s ease';
+                        }
+                    } else {
+                        // Opening animation
+                        submenu.classList.remove('hidden');
+                        submenu.style.maxHeight = '0px';
+                        submenu.style.opacity = '0';
+                        submenu.style.paddingTop = '0';
+                        submenu.style.paddingBottom = '0';
+
+                        // Force reflow
+                        submenu.offsetHeight;
+
+                        // Animate to full height
+                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                        submenu.style.opacity = '1';
+                        submenu.style.paddingTop = '0.5rem';
+                        submenu.style.paddingBottom = '0.5rem';
+
+                        // Rotate chevron
+                        if (chevron) {
+                            chevron.style.transform = 'rotate(180deg)';
+                            chevron.style.transition = 'transform 0.3s ease';
+                        }
+                    }
+                });
+            });
+        }, 100);
+
+        // Close dropdowns on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (activeDropdown) {
+                    closeAllDropdowns();
+                }
+                if (menuOpen) {
+                    menuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+                    feather.replace();
+                }
+            }
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto slide
+        if (slides.length > 0) {
+            setInterval(nextSlide, 5000);
+            showSlide(0); // Initial setup
+        }
+
+        // Manual controls
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Remove active class from all tabs
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-600', 'active');
+                        btn.classList.add('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+                    });
+
+                    // Add active class to clicked tab
+                    this.classList.add('bg-blue-500', 'text-white', 'border-blue-600', 'active');
+                    this.classList.remove('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // Show target tab content
+                    const targetContent = document.getElementById(targetTab + '-tab');
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.group');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        })
+    </script>
+
 </body>
 
 </html>
