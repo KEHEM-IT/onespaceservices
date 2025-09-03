@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
+    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                        class="h-10 w-10 mr-3 rounded-full shadow-md">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl text-gray-900">One Reach Services</span>
+                        <span class="text-sm text-gray-600">Land • Living • Lifestyle</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                    <a href="#commercial"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Architecture
+                    </a>
+
+                    <!-- Desktop Dropdown: Design -->
+                    <div class="relative dropdown-container">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            Design <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#residential"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Residential
+                                Design</a>
+                            <a href="#interior"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Interior
+                                Design</a>
+                            <a href="#landscape"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Landscape</a>
+                        </div>
+                    </div>
+
+                    <a href="#building"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Building Solutions
+                    </a>
+
+                    <!-- Desktop Dropdown: Properties -->
+                    <div class="relative dropdown-container">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            Properties <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#buy"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Buy
+                                Property</a>
+                            <a href="#sell"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Sell
+                                Property</a>
+                            <a href="#rent"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Rent
+                                Property</a>
+                        </div>
+                    </div>
+
+                    <a href="#contact"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Contact
+                    </a>
+                    <a href="#about"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        About Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i data-feather="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-white border-t shadow-lg hidden">
+            <div class="px-4 py-4 space-y-2">
+
+                <a href="#commercial"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Architecture</a>
+
+                <!-- Mobile Submenu: Design -->
+                <div class="border-b border-gray-100">
+                    <button
+                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        data-toggle="mobile-submenu">
+                        Design
+                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                        style="transition-property: max-height, opacity, padding;">
+                        <a href="#residential"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Residential
+                            Design</a>
+                        <a href="#interior"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Interior
+                            Design</a>
+                        <a href="#landscape"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Landscape</a>
+                    </div>
+                </div>
+
+                <a href="#building"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Building
+                    Solutions</a>
+
+                <!-- Mobile Submenu: Properties -->
+                <div class="border-b border-gray-100">
+                    <button
+                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        data-toggle="mobile-submenu">
+                        Properties
+                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                        style="transition-property: max-height, opacity, padding;">
+                        <a href="#buy"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Buy
+                            Property</a>
+                        <a href="#sell"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Sell
+                            Property</a>
+                        <a href="#rent"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Rent
+                            Property</a>
+                    </div>
+                </div>
+
+                <a href="#contact"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Contact</a>
+                <a href="#about"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">About
+                    Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="relative h-screen overflow-hidden">
+        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920" alt="Modern Building"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">BUILDING YOUR DREAMS</h1>
+                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Where Vision Meets Precision
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920" alt="Home Interior"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">Fix Your Home with One-Reach</h1>
+                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Transforming Spaces,
+                        Enhancing Lives</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920" alt="Construction"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">EXCELLENCE IN CONSTRUCTION</h1>
+                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Building Tomorrow's Landmarks
+                        Today</p>
+                </div>
+            </div>
+        </div>
+        <button id="prevBtn"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full">
+            <i data-feather="chevron-left" class="w-6 h-6"></i>
+        </button>
+        <button id="nextBtn"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full">
+            <i data-feather="chevron-right" class="w-6 h-6"></i>
+        </button>
+    </section>
+
+    <!-- Property Search Section -->
+    <section class="property-search min-h-screen flex items-center justify-center py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-gray-800 text-center mb-16 tracking-tight" data-aos="fade-up">
+                Find Your Perfect <span class="text-blue-600">Property</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-2xl border-2 border-gray-300 p-10 backdrop-blur-sm">
+                    <!-- Tab Navigation -->
+                    <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8">
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-white border-b-3 border-blue-600 bg-blue-500 rounded-t-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 active"
+                            data-tab="buy">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                            Buy
+                        </button>
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300 mx-2"
+                            data-tab="rent">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v-2H7v-2H4a1 1 0 01-1-1v-4c0-2.946 2.011-5.422 4.751-6.161M15 7a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0v6a2 2 0 01-2 2m-2-8H9M7 10v4h3v-4z">
+                                </path>
+                            </svg>
+                            Rent
+                        </button>
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300"
+                            data-tab="roommate">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                            Roommate
+                        </button>
+                    </div>
+
+                    <!-- Buy Tab -->
+                    <div id="buy-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option value="1">Dhaka</option>
+                                    <option value="3">Khulna</option>
+                                    <option value="4">Chittagong</option>
+                                    <option value="5">Sylhet</option>
+                                    <option value="6">Rajshahi</option>
+                                    <option value="7">Rangpur</option>
+                                    <option value="8">Barisal</option>
+                                    <option value="9">Gazipur</option>
+                                    <option value="10">Narayanganj</option>
+                                    <option value="11">Comilla</option>
+                                    <option value="12">Bogra</option>
+                                    <option value="14">Kuakata</option>
+                                    <option value="16">Coxs Bazar</option>
+                                    <option value="17">Tangail</option>
+                                    <option value="18">Mymensingh</option>
+                                    <option value="19">Naogaon</option>
+                                    <option value="20">Noakhali</option>
+                                    <option value="21">Munshiganj</option>
+                                    <option value="22">Chandpur</option>
+                                    <option value="23">Moulvibazar</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Property Type</option>
+                                    <option>Commercial Mess</option>
+                                    <option>Independent Mess</option>
+                                    <option>Hostel</option>
+                                    <option>Paying Guest</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button id="search-property"
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                    Search Properties
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rent Tab -->
+                    <div id="rent-tab" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option>Dhaka</option>
+                                    <option>Chittagong</option>
+                                    <option>Sylhet</option>
+                                    <option>Rajshahi</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Property Type</option>
+                                    <option>Apartment</option>
+                                    <option>House</option>
+                                    <option>Commercial Space</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                    Search Rentals
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roommate Tab -->
+                    <div id="roommate-tab" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option>Dhaka</option>
+                                    <option>Chittagong</option>
+                                    <option>Sylhet</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Gender Preference</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Gender Preference</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Any</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    Find Roommates
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- SERVICE CARD -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="users" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Consultation</h3>
+                    <p class="text-gray-600">Expert advice for your dream project</p>
+                </div>
+
+                <!-- SITE DEVELOPMENT -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="map" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Site Development</h3>
+                    <p class="text-gray-600">Complete site preparation and development</p>
+                </div>
+
+                <!-- PROJECT MANAGEMENT -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i data-feather="clipboard" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Project Management</h3>
+                    <p class="text-gray-600">End-to-end project oversight</p>
+                </div>
+
+                <!-- COST MANAGEMENT -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <i data-feather="dollar-sign" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Cost Management</h3>
+                    <p class="text-gray-600">Efficient budget planning and control</p>
+                </div>
+
+                <!-- DESIGN-BUILD -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="tool" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Design-Build</h3>
+                    <p class="text-gray-600">Seamless integration of design and construction</p>
+                </div>
+
+                <!-- DESIGN IMPLEMENTATION -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="layout" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Design Implementation</h3>
+                    <p class="text-gray-600">Bringing creative concepts into reality</p>
+                </div>
+
+                <!-- ELECTRICAL SERVICES -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <i data-feather="zap" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Electrical Services</h3>
+                    <p class="text-gray-600">Reliable electrical planning and installation</p>
+                </div>
+
+                <!-- MECHANICAL CONSTRUCTION -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <i data-feather="settings" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Mechanical Construction</h3>
+                    <p class="text-gray-600">Expert solutions for mechanical systems</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-blue-100">
+        <div class="container mx-auto px-4">
+            <!-- HEADING -->
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-aos="fade-up">
+                Why Choose Us
+            </h2>
+
+            <!-- GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="check-circle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reliable Service</h3>
+                    <p class="text-gray-600">From land purchase to key handover</p>
+                </div>
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="award" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Technical Expertise</h3>
+                    <p class="text-gray-600">In design, electrical, and plumbing</p>
+                </div>
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="trending-up" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">End-to-End Support</h3>
+                    <p class="text-gray-600">Complete project lifecycle management</p>
+                </div>
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="users" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Skilled & Experienced</h3>
+                    <p class="text-gray-600">Professional team with years of experience</p>
+                </div>
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="tag" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Affordable Prices</h3>
+                    <p class="text-gray-600">Competitive pricing without compromising quality</p>
+                </div>
+
+                <!-- CARD -->
+                <div class="group bg-white p-8 rounded-2xl shadow-md border border-gray-200 text-center transition duration-300 hover:shadow-xl hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full bg-green-100 text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
+                        <i data-feather="shield" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">100% Satisfaction</h3>
+                    <p class="text-gray-600">Guaranteed satisfaction with every project</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="relative py-24 bg-white overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div
+                class="absolute top-10 right-10 w-72 h-72 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float">
+            </div>
+            <div class="absolute bottom-10 left-10 w-64 h-64 bg-indigo-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+                style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float"
+                style="animation-delay: 4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Heading -->
+            <div class="text-center mb-16">
+                <div
+                    class="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+                    Get In Touch
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Contact
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                        Us
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    We'd love to hear from you. Let's start a conversation and bring your ideas to life!
+                </p>
+            </div>
+
+            <!-- Contact Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+
+                <!-- Left Side - Info -->
+                <div class="space-y-8">
+                    <!-- Intro Text -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Let's Connect</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Ready to discuss your project? We're here to help you every step of the way. Reach out
+                            through any of the channels below.
+                        </p>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i data-feather="phone" class="w-7 h-7"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Phone</h4>
+                                <div class="space-y-1">
+                                    <p class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer">
+                                        +8801712757397</p>
+                                    <p class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer">
+                                        +8801732370479</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address Card -->
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i data-feather="map-pin" class="w-7 h-7"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Address</h4>
+                                <p class="text-gray-600 leading-relaxed">44, Tatipara, Zindabazar<br>Sylhet, Bangladesh
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="group relative">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                        </div>
+                        <div
+                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i data-feather="mail" class="w-7 h-7"></i>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Email</h4>
+                                <p class="text-gray-600 hover:text-green-600 transition-colors cursor-pointer">
+                                    hello@company.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Form -->
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl"></div>
+                    <div class="relative bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
+                        <div class="text-center mb-8">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-3">Send Us a Message</h3>
+                            <p class="text-gray-600">Fill out the form below and we'll get back to you soon</p>
+                        </div>
+
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <input type="text" placeholder="Your Name"
+                                        class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
+                                </div>
+                                <div class="relative">
+                                    <input type="email" placeholder="Your Email"
+                                        class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <input type="text" placeholder="Subject"
+                                    class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
+                            </div>
+
+                            <div class="relative">
+                                <textarea placeholder="Your Message" rows="5"
+                                    class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white resize-none"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 relative overflow-hidden group">
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <span class="mr-2">Send Message</span>
+                                    <i data-feather="send"
+                                        class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"></i>
+                                </span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Company Info -->
+                <div>
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach" class="h-14 w-14 mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">One-Reach Services</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Your One Stop Solution for Land, Living, and Lifestyle.
+                        Building trust through innovation and quality service.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="transition hover:text-blue-400">About Us</a></li>
+                        <li><a href="#services" class="transition hover:text-blue-400">Our Services</a></li>
+                        <li><a href="#projects" class="transition hover:text-blue-400">Projects</a></li>
+                        <li><a href="#contact" class="transition hover:text-blue-400">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Our Expertise</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="transition hover:text-blue-400">Consultation</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Design & Build</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Electrical & Mechanical</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Get in Touch</h4>
+                    <p class="flex items-center mb-3 transition hover:brightness-125">
+                        <i data-feather="map-pin" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        44, Tatipara, Zindabazar, Sylhet, Bangladesh
+                    </p>
+                    <p class="flex items-center mb-3 transition hover:brightness-125">
+                        <i data-feather="phone" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        +8801712757397 / +8801732370479
+                    </p>
+                    <p class="flex items-center transition hover:brightness-125">
+                        <i data-feather="mail" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        info@one-reachbd.com
+                    </p>
+
+                    <!-- Social Links -->
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500 text-sm">
+                &copy; 2024 One-Reach. All rights reserved. | Developed by <a class="hover:text-blue-400"
+                    href="https://kehem.com">KEHEM IT</a>
+            </div><br>
+        </div>
+    </footer>
+
+    <script>
+
+        const searchProperty = document.getElementById('search-property');
+        searchProperty.addEventListener('click', () => {
+            window.location.href = '/search.html';
+        });
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Initialize AOS
+        AOS.init();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden', !menuOpen);
+            menuBtn.innerHTML = menuOpen
+                ? '<i data-feather="x" class="w-7 h-7"></i>'
+                : '<i data-feather="menu" class="w-7 h-7"></i>';
+            feather.replace();
+        });
+
+        // Desktop dropdown functionality
+        const desktopDropdowns = document.querySelectorAll('.dropdown-container');
+        let activeDropdown = null;
+
+        // Wait for feather icons to be initialized
+        setTimeout(() => {
+            desktopDropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('button');
+                const menu = dropdown.querySelector('.absolute');
+
+                // Click handler for dropdown button
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Check if this dropdown is currently open
+                    const isCurrentlyOpen = menu.classList.contains('opacity-100');
+
+                    // Close all open dropdowns first
+                    closeAllDropdowns();
+
+                    // If this dropdown wasn't open, open it
+                    if (!isCurrentlyOpen) {
+                        openDropdown(dropdown);
+                    }
+                });
+
+                // Prevent dropdown from closing when clicking inside the menu
+                menu.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            });
+        }, 100);
+
+        function openDropdown(dropdown) {
+            const menu = dropdown.querySelector('.absolute');
+            const chevron = dropdown.querySelector('button svg');
+
+            menu.classList.remove('opacity-0', 'invisible');
+            menu.classList.add('opacity-100', 'visible');
+
+            // Force chevron rotation using SVG element
+            if (chevron) {
+                chevron.style.transform = 'rotate(180deg)';
+                chevron.style.transition = 'transform 0.3s ease';
+            }
+
+            activeDropdown = dropdown;
+        }
+
+        function closeDropdown(dropdown) {
+            const menu = dropdown.querySelector('.absolute');
+            const chevron = dropdown.querySelector('button svg');
+
+            menu.classList.remove('opacity-100', 'visible');
+            menu.classList.add('opacity-0', 'invisible');
+
+            // Reset chevron rotation using SVG element
+            if (chevron) {
+                chevron.style.transform = 'rotate(0deg)';
+                chevron.style.transition = 'transform 0.3s ease';
+            }
+
+            if (activeDropdown === dropdown) {
+                activeDropdown = null;
+            }
+        }
+
+        function closeAllDropdowns() {
+            desktopDropdowns.forEach(dropdown => {
+                const menu = dropdown.querySelector('.absolute');
+                const chevron = dropdown.querySelector('button svg');
+
+                menu.classList.remove('opacity-100', 'visible');
+                menu.classList.add('opacity-0', 'invisible');
+
+                if (chevron) {
+                    chevron.style.transform = 'rotate(0deg)';
+                    chevron.style.transition = 'transform 0.3s ease';
+                }
+            });
+            activeDropdown = null;
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            // Close mobile menu if clicking outside
+            if (menuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                menuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+                feather.replace();
+            }
+
+            // Close desktop dropdowns if clicking outside
+            let clickedInsideDropdown = false;
+            desktopDropdowns.forEach(dropdown => {
+                if (dropdown.contains(e.target)) {
+                    clickedInsideDropdown = true;
+                }
+            });
+
+            if (!clickedInsideDropdown && activeDropdown) {
+                closeAllDropdowns();
+            }
+        });
+
+        // Mobile submenu toggle with smooth transitions
+        setTimeout(() => {
+            document.querySelectorAll('[data-toggle="mobile-submenu"]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const submenu = button.nextElementSibling;
+                    const chevron = button.querySelector('svg');
+                    const isOpen = !submenu.classList.contains('hidden');
+
+                    if (isOpen) {
+                        // Closing animation
+                        submenu.style.maxHeight = '0px';
+                        submenu.style.opacity = '0';
+                        submenu.style.paddingTop = '0';
+                        submenu.style.paddingBottom = '0';
+
+                        setTimeout(() => {
+                            submenu.classList.add('hidden');
+                            submenu.style.maxHeight = '';
+                            submenu.style.opacity = '';
+                            submenu.style.paddingTop = '';
+                            submenu.style.paddingBottom = '';
+                        }, 300);
+
+                        // Reset chevron rotation
+                        if (chevron) {
+                            chevron.style.transform = 'rotate(0deg)';
+                            chevron.style.transition = 'transform 0.3s ease';
+                        }
+                    } else {
+                        // Opening animation
+                        submenu.classList.remove('hidden');
+                        submenu.style.maxHeight = '0px';
+                        submenu.style.opacity = '0';
+                        submenu.style.paddingTop = '0';
+                        submenu.style.paddingBottom = '0';
+
+                        // Force reflow
+                        submenu.offsetHeight;
+
+                        // Animate to full height
+                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
+                        submenu.style.opacity = '1';
+                        submenu.style.paddingTop = '0.5rem';
+                        submenu.style.paddingBottom = '0.5rem';
+
+                        // Rotate chevron
+                        if (chevron) {
+                            chevron.style.transform = 'rotate(180deg)';
+                            chevron.style.transition = 'transform 0.3s ease';
+                        }
+                    }
+                });
+            });
+        }, 100);
+
+        // Close dropdowns on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (activeDropdown) {
+                    closeAllDropdowns();
+                }
+                if (menuOpen) {
+                    menuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+                    feather.replace();
+                }
+            }
+        });
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto slide
+        if (slides.length > 0) {
+            setInterval(nextSlide, 5000);
+            showSlide(0); // Initial setup
+        }
+
+        // Manual controls
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const targetTab = this.getAttribute('data-tab');
+
+                    // Remove active class from all tabs
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-600', 'active');
+                        btn.classList.add('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+                    });
+
+                    // Add active class to clicked tab
+                    this.classList.add('bg-blue-500', 'text-white', 'border-blue-600', 'active');
+                    this.classList.remove('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+
+                    // Show target tab content
+                    const targetContent = document.getElementById(targetTab + '-tab');
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.group');
+
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-2px)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const button = form.querySelector('button[type="submit"]');
+                button.innerHTML = `
+                    <span class="relative z-10 flex items-center justify-center">
+                        <span class="mr-2">Sending...</span>
+                        <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    </span>
+                `;
+
+                setTimeout(() => {
+                    button.innerHTML = `
+                        <span class="relative z-10 flex items-center justify-center">
+                            <span class="mr-2">Message Sent!</span>
+                            <i data-feather="check" class="w-5 h-5"></i>
+                        </span>
+                    `;
+                    feather.replace();
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

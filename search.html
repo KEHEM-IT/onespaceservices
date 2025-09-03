@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
+    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                        class="h-10 w-10 mr-3 rounded-full shadow-md">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl text-gray-900">One Reach Services</span>
+                        <span class="text-sm text-gray-600">Land • Living • Lifestyle</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                    <a href="#commercial"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Architecture
+                    </a>
+
+                    <!-- Desktop Dropdown: Design -->
+                    <div class="relative dropdown-container">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            Design <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#residential"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Residential
+                                Design</a>
+                            <a href="#interior"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Interior
+                                Design</a>
+                            <a href="#landscape"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Landscape</a>
+                        </div>
+                    </div>
+
+                    <a href="#building"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Building Solutions
+                    </a>
+
+                    <!-- Desktop Dropdown: Properties -->
+                    <div class="relative dropdown-container">
+                        <button
+                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            Properties <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#buy"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Buy
+                                Property</a>
+                            <a href="#sell"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Sell
+                                Property</a>
+                            <a href="#rent"
+                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Rent
+                                Property</a>
+                        </div>
+                    </div>
+
+                    <a href="#contact"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Contact
+                    </a>
+                    <a href="#about"
+                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        About Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i data-feather="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-white border-t shadow-lg hidden">
+            <div class="px-4 py-4 space-y-2">
+
+                <a href="#commercial"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Architecture</a>
+
+                <!-- Mobile Submenu: Design -->
+                <div class="border-b border-gray-100">
+                    <button
+                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        data-toggle="mobile-submenu">
+                        Design
+                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                        style="transition-property: max-height, opacity, padding;">
+                        <a href="#residential"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Residential
+                            Design</a>
+                        <a href="#interior"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Interior
+                            Design</a>
+                        <a href="#landscape"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Landscape</a>
+                    </div>
+                </div>
+
+                <a href="#building"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Building
+                    Solutions</a>
+
+                <!-- Mobile Submenu: Properties -->
+                <div class="border-b border-gray-100">
+                    <button
+                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        data-toggle="mobile-submenu">
+                        Properties
+                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                        style="transition-property: max-height, opacity, padding;">
+                        <a href="#buy"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Buy
+                            Property</a>
+                        <a href="#sell"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Sell
+                            Property</a>
+                        <a href="#rent"
+                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Rent
+                            Property</a>
+                    </div>
+                </div>
+
+                <a href="#contact"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Contact</a>
+                <a href="#about"
+                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">About
+                    Us</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Property Search Section -->
+    <section class="property-search min-h-screen flex items-center justify-center py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold text-gray-800 text-center mb-16 tracking-tight" data-aos="fade-up">
+                Find Your Perfect <span class="text-blue-600">Property</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-2xl border-2 border-gray-300 p-10 backdrop-blur-sm">
+                    <!-- Tab Navigation -->
+                    <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8">
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-white border-b-3 border-blue-600 bg-blue-500 rounded-t-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 active"
+                            data-tab="buy">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                </path>
+                            </svg>
+                            Buy
+                        </button>
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300 mx-2"
+                            data-tab="rent">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v-2H7v-2H4a1 1 0 01-1-1v-4c0-2.946 2.011-5.422 4.751-6.161M15 7a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0v6a2 2 0 01-2 2m-2-8H9M7 10v4h3v-4z">
+                                </path>
+                            </svg>
+                            Rent
+                        </button>
+                        <button
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300"
+                            data-tab="roommate">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                </path>
+                            </svg>
+                            Roommate
+                        </button>
+                    </div>
+
+                    <!-- Buy Tab -->
+                    <div id="buy-tab" class="tab-content">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option value="1">Dhaka</option>
+                                    <option value="3">Khulna</option>
+                                    <option value="4">Chittagong</option>
+                                    <option value="5">Sylhet</option>
+                                    <option value="6">Rajshahi</option>
+                                    <option value="7">Rangpur</option>
+                                    <option value="8">Barisal</option>
+                                    <option value="9">Gazipur</option>
+                                    <option value="10">Narayanganj</option>
+                                    <option value="11">Comilla</option>
+                                    <option value="12">Bogra</option>
+                                    <option value="14">Kuakata</option>
+                                    <option value="16">Coxs Bazar</option>
+                                    <option value="17">Tangail</option>
+                                    <option value="18">Mymensingh</option>
+                                    <option value="19">Naogaon</option>
+                                    <option value="20">Noakhali</option>
+                                    <option value="21">Munshiganj</option>
+                                    <option value="22">Chandpur</option>
+                                    <option value="23">Moulvibazar</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Property Type</option>
+                                    <option>Commercial Mess</option>
+                                    <option>Independent Mess</option>
+                                    <option>Hostel</option>
+                                    <option>Paying Guest</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                    Search Properties
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rent Tab -->
+                    <div id="rent-tab" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option>Dhaka</option>
+                                    <option>Chittagong</option>
+                                    <option>Sylhet</option>
+                                    <option>Rajshahi</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Property Type</option>
+                                    <option>Apartment</option>
+                                    <option>House</option>
+                                    <option>Commercial Space</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                    Search Rentals
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roommate Tab -->
+                    <div id="roommate-tab" class="tab-content hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Select Your Location</option>
+                                    <option>Dhaka</option>
+                                    <option>Chittagong</option>
+                                    <option>Sylhet</option>
+                                </select>
+                            </div>
+                            <div class="relative">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Gender Preference</label>
+                                <select
+                                    class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                    <option>Gender Preference</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Any</option>
+                                </select>
+                            </div>
+                            <div class="flex items-end">
+                                <button
+                                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
+                                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                                        </path>
+                                    </svg>
+                                    Find Roommates
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Company Info -->
+                <div>
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach" class="h-14 w-14 mb-4">
+                    <h3 class="text-xl font-bold text-white mb-2">One-Reach Services</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Your One Stop Solution for Land, Living, and Lifestyle.
+                        Building trust through innovation and quality service.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="transition hover:text-blue-400">About Us</a></li>
+                        <li><a href="#services" class="transition hover:text-blue-400">Our Services</a></li>
+                        <li><a href="#projects" class="transition hover:text-blue-400">Projects</a></li>
+                        <li><a href="#contact" class="transition hover:text-blue-400">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Our Expertise</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="transition hover:text-blue-400">Consultation</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Design & Build</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Electrical & Mechanical</a></li>
+                        <li><a href="#" class="transition hover:text-blue-400">Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Get in Touch</h4>
+                    <p class="flex items-center mb-3 transition hover:brightness-125">
+                        <i data-feather="map-pin" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        44, Tatipara, Zindabazar, Sylhet, Bangladesh
+                    </p>
+                    <p class="flex items-center mb-3 transition hover:brightness-125">
+                        <i data-feather="phone" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        +8801712757397 / +8801732370479
+                    </p>
+                    <p class="flex items-center transition hover:brightness-125">
+                        <i data-feather="mail" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        info@one-reachbd.com
+                    </p>
+
+                    <!-- Social Links -->
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500 text-sm">
+                &copy; 2024 One-Reach. All rights reserved. | Developed by <a class="hover:text-blue-400"
+                    href="https://kehem.com">KEHEM IT</a>
+            </div><br>
+        </div>
+    </footer>
+</body>
+
+</html>
