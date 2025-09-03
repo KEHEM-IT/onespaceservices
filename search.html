@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
+    <title>Property Search Results</title>
     <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -163,178 +164,565 @@
             </div>
         </div>
     </nav>
-
-
-    <!-- Property Search Section -->
-    <section class="property-search flex items-center justify-center py-20 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div
-                class="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-2xl border-2 border-gray-300 p-10 backdrop-blur-sm">
-                <!-- Tab Navigation -->
-                <div class="flex flex-wrap justify-center border-b border-gray-200 mb-8">
-                    <button
-                        class="tab-btn px-8 py-4 font-semibold text-white border-b-3 border-blue-600 bg-blue-500 rounded-t-lg transition-all duration-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 active"
-                        data-tab="buy">
-                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                            </path>
-                        </svg>
-                        Buy
-                    </button>
-                    <button
-                        class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300 mx-2"
-                        data-tab="rent">
-                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v-2H7v-2H4a1 1 0 01-1-1v-4c0-2.946 2.011-5.422 4.751-6.161M15 7a2 2 0 00-2-2m2 2a2 2 0 012 2m0 0v6a2 2 0 01-2 2m-2-8H9M7 10v4h3v-4z">
-                            </path>
-                        </svg>
-                        Rent
-                    </button>
-                    <button
-                        class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-t-lg transition-all duration-300"
-                        data-tab="roommate">
-                        <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                        Roommate
-                    </button>
+    <br><br>
+    <!-- Search Results Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Results Header -->
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8" data-aos="fade-up"
+                data-aos-delay="100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Properties in Dhaka</h2>
+                        <p class="text-gray-600">Found <span class="font-semibold text-blue-600" id="totalProperties">12
+                                properties</span> matching your criteria</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <button
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200 flex items-center">
+                            <i class="fas fa-save mr-2"></i>
+                            Save Search
+                        </button>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Buy Tab -->
-                <div id="buy-tab" class="tab-content">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Advanced Filters & Sorting -->
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm mb-8" data-aos="fade-up"
+                data-aos-delay="200">
+                <div class="p-6">
+                    <div class="flex flex-wrap gap-4 items-center justify-between">
+                        <!-- Sorting Dropdown -->
                         <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Select Your Location</option>
-                                <option value="1">Dhaka</option>
-                                <option value="3">Khulna</option>
-                                <option value="4">Chittagong</option>
-                                <option value="5">Sylhet</option>
-                                <option value="6">Rajshahi</option>
-                                <option value="7">Rangpur</option>
-                                <option value="8">Barisal</option>
-                                <option value="9">Gazipur</option>
-                                <option value="10">Narayanganj</option>
-                                <option value="11">Comilla</option>
-                                <option value="12">Bogra</option>
-                                <option value="14">Kuakata</option>
-                                <option value="16">Coxs Bazar</option>
-                                <option value="17">Tangail</option>
-                                <option value="18">Mymensingh</option>
-                                <option value="19">Naogaon</option>
-                                <option value="20">Noakhali</option>
-                                <option value="21">Munshiganj</option>
-                                <option value="22">Chandpur</option>
-                                <option value="23">Moulvibazar</option>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
+                            <select id="sortSelect"
+                                class="w-48 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
+                                <option value="default">Most Relevant</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                                <option value="oldest">Oldest First</option>
+                                <option value="area-large">Area: Largest First</option>
+                                <option value="area-small">Area: Smallest First</option>
+                                <option value="bedrooms">Bedrooms: Most First</option>
                             </select>
                         </div>
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Property Type</option>
-                                <option>Commercial Mess</option>
-                                <option>Independent Mess</option>
-                                <option>Hostel</option>
-                                <option>Paying Guest</option>
-                            </select>
-                        </div>
-                        <div class="flex items-end">
-                            <button
-                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                                Search Properties
+
+                        <!-- Filter Toggle -->
+                        <button id="filterToggle"
+                            class="flex items-center px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="fas fa-filter mr-2"></i>
+                            Advanced Filters
+                        </button>
+
+                        <!-- View Toggle -->
+                        <div class="flex border border-gray-300 rounded-lg">
+                            <button id="gridView"
+                                class="px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-l-lg transition-colors bg-blue-50 text-blue-600">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button id="listView"
+                                class="px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-r-lg transition-colors">
+                                <i class="fas fa-list"></i>
                             </button>
                         </div>
                     </div>
-                </div>
 
-                <!-- Rent Tab -->
-                <div id="rent-tab" class="tab-content hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Select Your Location</option>
-                                <option>Dhaka</option>
-                                <option>Chittagong</option>
-                                <option>Sylhet</option>
-                                <option>Rajshahi</option>
-                            </select>
+                    <!-- Advanced Filters (Hidden by default) -->
+                    <div id="advancedFilters" class="mt-6 hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Price Range (BDT)</label>
+                                <div class="flex space-x-2">
+                                    <input type="number" id="minPrice" placeholder="Min"
+                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <input type="number" id="maxPrice" placeholder="Max"
+                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms</label>
+                                <select id="bedroomFilter"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Area (Sq ft)</label>
+                                <select id="areaFilter"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Any Size</option>
+                                    <option value="500">500+ sq ft</option>
+                                    <option value="800">800+ sq ft</option>
+                                    <option value="1200">1200+ sq ft</option>
+                                    <option value="1800">1800+ sq ft</option>
+                                    <option value="2500">2500+ sq ft</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <select id="typeFilter"
+                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">All Types</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="house">House</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="duplex">Duplex</option>
+                                    <option value="penthouse">Penthouse</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Property Type</option>
-                                <option>Apartment</option>
-                                <option>House</option>
-                                <option>Commercial Space</option>
-                            </select>
-                        </div>
-                        <div class="flex items-end">
-                            <button
-                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                                Search Rentals
+                        <div class="mt-4 flex gap-3">
+                            <button id="applyFilters"
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-check mr-2"></i>Apply Filters
                             </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roommate Tab -->
-                <div id="roommate-tab" class="tab-content hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Select Your Location</option>
-                                <option>Dhaka</option>
-                                <option>Chittagong</option>
-                                <option>Sylhet</option>
-                            </select>
-                        </div>
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Gender Preference</label>
-                            <select
-                                class="w-full p-4 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 active:border-blue-600 hover:border-gray-400 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                <option>Gender Preference</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Any</option>
-                            </select>
-                        </div>
-                        <div class="flex items-end">
-                            <button
-                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl font-semibold">
-                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                    </path>
-                                </svg>
-                                Find Roommates
+                            <button id="clearFilters"
+                                class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-times mr-2"></i>Clear All
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Properties Grid -->
+            <div id="propertiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Property Card 1 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="25000" data-bedrooms="3" data-area="1100" data-date="2024-08-15" data-type="apartment"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Rent</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="1">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Modern Apartment in Gulshan</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Uttara Sector-7, Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    3 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    2 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    1,100 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳25,000<span
+                                    class="text-sm font-normal text-gray-500">/month</span></div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="8500000" data-bedrooms="4" data-area="1800" data-date="2024-07-20" data-type="house"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Sale</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="2">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Luxury House in Banani</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Banani, Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    4 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    3 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    1,800 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳85,00,000</div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="35000" data-bedrooms="2" data-area="950" data-date="2024-09-01" data-type="apartment"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Rent</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="3">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cozy Apartment in Dhanmondi</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Dhanmondi 15, Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    2 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    2 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    950 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳35,000<span
+                                    class="text-sm font-normal text-gray-500">/month</span></div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="12500000" data-bedrooms="5" data-area="2500" data-date="2024-06-10" data-type="villa"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Sale</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="4">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Spacious Villa in Bashundhara</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Bashundhara R/A, Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    5 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    4 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    2,500 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳1,25,00,000</div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 5 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="18000" data-bedrooms="1" data-area="600" data-date="2024-08-25" data-type="apartment"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Rent</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="5">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Studio Apartment in Mirpur</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Mirpur-10, Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    1 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    1 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    600 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳18,000<span
+                                    class="text-sm font-normal text-gray-500">/month</span></div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 6 -->
+                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-price="45000" data-bedrooms="3" data-area="1400" data-date="2024-08-30" data-type="duplex"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                            alt="Property" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
+                                Rent</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <button
+                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
+                                data-property-id="6">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Duplex in Wari</h3>
+                        <p class="text-gray-600 mb-3 flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Wari, Old Dhaka
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex space-x-4 text-sm text-gray-600">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i>
+                                    3 Bed
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-bath mr-1"></i>
+                                    3 Bath
+                                </span>
+                                <span class="flex items-center">
+                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
+                                    1,400 sqft
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-2xl font-bold text-blue-600">৳45,000<span
+                                    class="text-sm font-normal text-gray-500">/month</span></div>
+                            <button
+                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
+    <script>
+        // Filter Toggle Functionality
+        const filterToggle = document.getElementById('filterToggle');
+        const advancedFilters = document.getElementById('advancedFilters');
+
+        filterToggle.addEventListener('click', function () {
+            advancedFilters.classList.toggle('open');
+            const icon = this.querySelector('svg');
+            if (advancedFilters.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // View Toggle Functionality
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+        const propertiesContainer = document.getElementById('propertiesContainer');
+
+        gridView.addEventListener('click', function () {
+            propertiesContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+            gridView.classList.add('bg-blue-500', 'text-white');
+            gridView.classList.remove('text-gray-700');
+            listView.classList.remove('bg-blue-500', 'text-white');
+            listView.classList.add('text-gray-700');
+        });
+
+        listView.addEventListener('click', function () {
+            propertiesContainer.className = 'grid grid-cols-1 gap-4';
+            listView.classList.add('bg-blue-500', 'text-white');
+            listView.classList.remove('text-gray-700');
+            gridView.classList.remove('bg-blue-500', 'text-white');
+            gridView.classList.add('text-gray-700');
+
+            // Modify cards for list view
+            const cards = document.querySelectorAll('.property-card');
+            cards.forEach(card => {
+                if (propertiesContainer.className.includes('grid-cols-1 gap-4')) {
+                    card.classList.add('md:flex');
+                    const img = card.querySelector('img');
+                    const content = card.querySelector('.p-6');
+                    if (img && content) {
+                        img.parentElement.classList.add('md:w-1/3');
+                        content.classList.add('md:w-2/3');
+                    }
+                } else {
+                    card.classList.remove('md:flex');
+                    const img = card.querySelector('img');
+                    const content = card.querySelector('.p-6');
+                    if (img && content) {
+                        img.parentElement.classList.remove('md:w-1/3');
+                        content.classList.remove('md:w-2/3');
+                    }
+                }
+            });
+        });
+
+        // Complex Sorting System
+        const sortSelect = document.getElementById('sortSelect');
+
+        sortSelect.addEventListener('change', function () {
+            const sortBy = this.value;
+            const cards = Array.from(document.querySelectorAll('.property-card'));
+
+            cards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'price-low':
+                        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+                    case 'price-high':
+                        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+                    case 'newest':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'oldest':
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    case 'area-large':
+                        return parseInt(b.dataset.area) - parseInt(a.dataset.area);
+                    case 'area-small':
+                        return parseInt(a.dataset.area) - parseInt(b.dataset.area);
+                    case 'bedrooms':
+                        return parseInt(b.dataset.bedrooms) - parseInt(a.dataset.bedrooms);
+                    default:
+                        return 0;
+                }
+            });
+
+            // Clear container and re-append sorted cards
+            propertiesContainer.innerHTML = '';
+            cards.forEach(card => propertiesContainer.appendChild(card));
+        });
+
+        // Add smooth scrolling animation when sorting
+        sortSelect.addEventListener('change', function () {
+            propertiesContainer.style.opacity = '0.5';
+            setTimeout(() => {
+                propertiesContainer.style.opacity = '1';
+            }, 300);
+        });
+
+        // Favorite button functionality
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('button') && e.target.closest('button').querySelector('svg')) {
+                const button = e.target.closest('button');
+                const svg = button.querySelector('svg');
+                if (svg && svg.getAttribute('viewBox') === '0 0 24 24' && svg.querySelector('path[d*="4.318"]')) {
+                    svg.classList.toggle('text-red-500');
+                    svg.classList.toggle('text-gray-600');
+                    if (svg.classList.contains('text-red-500')) {
+                        svg.setAttribute('fill', 'currentColor');
+                    } else {
+                        svg.setAttribute('fill', 'none');
+                    }
+                }
+            }
+        });
+    </script>
 
 
 
