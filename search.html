@@ -14,6 +14,18 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
     <script src="index.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body class="bg-gray-50">
@@ -166,447 +178,520 @@
         </div>
     </nav>
     <br><br>
-    <!-- Search Results Section -->
-    <section class="py-8 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Results Header -->
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 mb-8" data-aos="fade-up"
-                data-aos-delay="200">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Properties in Dhaka</h2>
-                        <p class="text-gray-600">Found <span class="font-semibold text-blue-600" id="totalProperties">12
-                                properties</span> matching your criteria</p>
-                    </div>
-                    <div class="mt-4 md:mt-0">
-                        <button
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors duration-200 flex items-center">
-                            <i class="fas fa-save mr-2"></i>
-                            Save Search
-                        </button>
-                    </div>
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-2xl">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-home text-3xl"></i>
+                    <h1 class="text-3xl font-bold">One Space Services</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="glass-effect px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300">
+                        <i class="fas fa-user mr-2"></i>Login
+                    </button>
+                    <button
+                        class="bg-white text-purple-600 px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                        List Property
+                    </button>
                 </div>
             </div>
 
-            <!-- Advanced Filters & Sorting -->
-            <div class="bg-white border border-gray-200 rounded-xl shadow-sm mb-8" data-aos="fade-up"
-                data-aos-delay="100">
-                <div class="p-6">
-                    <div class="flex flex-wrap gap-4 items-center justify-between">
-                        <!-- Sorting Dropdown -->
-                        <div class="relative">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
-                            <select id="sortSelect"
-                                class="w-48 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white">
-                                <option value="default">Most Relevant</option>
-                                <option value="price-low">Price: Low to High</option>
-                                <option value="price-high">Price: High to Low</option>
-                                <option value="newest">Newest First</option>
-                                <option value="oldest">Oldest First</option>
-                                <option value="area-large">Area: Largest First</option>
-                                <option value="area-small">Area: Smallest First</option>
-                                <option value="bedrooms">Bedrooms: Most First</option>
-                            </select>
-                        </div>
-
-                        <!-- Filter Toggle -->
-                        <button id="filterToggle"
-                            class="flex items-center px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-filter mr-2"></i>
-                            Advanced Filters
-                        </button>
-
-                        <!-- View Toggle -->
-                        <div class="flex border border-gray-300 rounded-lg">
-                            <button id="gridView"
-                                class="px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-l-lg transition-colors bg-blue-50 text-blue-600">
-                                <i class="fas fa-th-large"></i>
-                            </button>
-                            <button id="listView"
-                                class="px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-r-lg transition-colors">
-                                <i class="fas fa-list"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Advanced Filters (Hidden by default) -->
-                    <div id="advancedFilters" class="mt-6 hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Price Range (BDT)</label>
-                                <div class="flex space-x-2">
-                                    <input type="number" id="minPrice" placeholder="Min"
-                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                    <input type="number" id="maxPrice" placeholder="Max"
-                                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms</label>
-                                <select id="bedroomFilter"
-                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                    <option value="">Any</option>
-                                    <option value="1">1+</option>
-                                    <option value="2">2+</option>
-                                    <option value="3">3+</option>
-                                    <option value="4">4+</option>
-                                    <option value="5">5+</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Area (Sq ft)</label>
-                                <select id="areaFilter"
-                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                    <option value="">Any Size</option>
-                                    <option value="500">500+ sq ft</option>
-                                    <option value="800">800+ sq ft</option>
-                                    <option value="1200">1200+ sq ft</option>
-                                    <option value="1800">1800+ sq ft</option>
-                                    <option value="2500">2500+ sq ft</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
-                                <select id="typeFilter"
-                                    class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                                    <option value="">All Types</option>
-                                    <option value="apartment">Apartment</option>
-                                    <option value="house">House</option>
-                                    <option value="villa">Villa</option>
-                                    <option value="duplex">Duplex</option>
-                                    <option value="penthouse">Penthouse</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex gap-3">
-                            <button id="applyFilters"
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
-                                <i class="fas fa-check mr-2"></i>Apply Filters
-                            </button>
-                            <button id="clearFilters"
-                                class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors">
-                                <i class="fas fa-times mr-2"></i>Clear All
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Properties Grid -->
-            <div id="propertiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Property Card 1 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="25000" data-bedrooms="3" data-area="1100" data-date="2024-08-15" data-type="apartment"
-                    data-aos="fade-up" data-aos-delay="100">
+            <!-- Search Bar -->
+            <div class="glass-effect rounded-2xl p-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Rent</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="1">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
+                        <i class="fas fa-map-marker-alt absolute left-3 top-3 text-white opacity-70"></i>
+                        <input type="text" id="locationInput" placeholder="Enter location..."
+                            class="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Modern Apartment in Gulshan</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Uttara Sector-7, Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    3 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    2 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    1,100 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳25,000<span
-                                    class="text-sm font-normal text-gray-500">/month</span></div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Card 2 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="8500000" data-bedrooms="4" data-area="1800" data-date="2024-07-20" data-type="house"
-                    data-aos="fade-up" data-aos-delay="200">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Sale</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="2">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
+                        <i class="fas fa-bed absolute left-3 top-3 text-white opacity-70"></i>
+                        <select id="bedroomSelect"
+                            class="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 appearance-none">
+                            <option value="">Bedrooms</option>
+                            <option value="1">1 Bedroom</option>
+                            <option value="2">2 Bedrooms</option>
+                            <option value="3">3 Bedrooms</option>
+                            <option value="4">4+ Bedrooms</option>
+                        </select>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Luxury House in Banani</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Banani, Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    4 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    3 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    1,800 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳85,00,000</div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Card 3 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="35000" data-bedrooms="2" data-area="950" data-date="2024-09-01" data-type="apartment"
-                    data-aos="fade-up" data-aos-delay="100">
                     <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Rent</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="3">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
+                        <i class="fas fa-dollar-sign absolute left-3 top-3 text-white opacity-70"></i>
+                        <select id="priceRange"
+                            class="w-full pl-10 pr-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 appearance-none">
+                            <option value="">Price Range</option>
+                            <option value="10000-25000">৳10K - ৳25K</option>
+                            <option value="25000-50000">৳25K - ৳50K</option>
+                            <option value="50000-100000">৳50K - ৳100K</option>
+                            <option value="100000+">৳100K+</option>
+                        </select>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cozy Apartment in Dhanmondi</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Dhanmondi 15, Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    2 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    2 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    950 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳35,000<span
-                                    class="text-sm font-normal text-gray-500">/month</span></div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
+                    <button onclick="searchProperties()"
+                        class="bg-secondary hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </button>
                 </div>
-
-                <!-- Property Card 4 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="12500000" data-bedrooms="5" data-area="2500" data-date="2024-06-10" data-type="villa"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Sale</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="4">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Spacious Villa in Bashundhara</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Bashundhara R/A, Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    5 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    4 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    2,500 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳1,25,00,000</div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Card 5 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="18000" data-bedrooms="1" data-area="600" data-date="2024-08-25" data-type="apartment"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Rent</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="5">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Studio Apartment in Mirpur</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Mirpur-10, Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    1 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    1 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    600 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳18,000<span
-                                    class="text-sm font-normal text-gray-500">/month</span></div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Card 6 -->
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    data-price="45000" data-bedrooms="3" data-area="1400" data-date="2024-08-30" data-type="duplex"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-                            alt="Property" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">For
-                                Rent</span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <button
-                                class="favorite-btn bg-white bg-opacity-90 hover:bg-opacity-100 p-2 rounded-full transition-all"
-                                data-property-id="6">
-                                <i class="far fa-heart text-gray-600"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Duplex in Wari</h3>
-                        <p class="text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            Wari, Old Dhaka
-                        </p>
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="flex space-x-4 text-sm text-gray-600">
-                                <span class="flex items-center">
-                                    <i class="fas fa-bed mr-1"></i>
-                                    3 Bed
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-bath mr-1"></i>
-                                    3 Bath
-                                </span>
-                                <span class="flex items-center">
-                                    <i class="fas fa-expand-arrows-alt mr-1"></i>
-                                    1,400 sqft
-                                </span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <div class="text-2xl font-bold text-blue-600">৳45,000<span
-                                    class="text-sm font-normal text-gray-500">/month</span></div>
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Results Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Properties in Dhaka</h2>
+                <p class="text-gray-600 flex items-center">
+                    <i class="fas fa-check-circle text-secondary mr-2"></i>
+                    Found <span id="resultCount" class="font-semibold text-primary">12</span> properties matching your
+                    criteria
+                </p>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                <!-- View Toggle -->
+                <div class="bg-white rounded-lg shadow-md p-1 flex">
+                    <button id="gridView" onclick="toggleView('grid')"
+                        class="px-3 py-2 rounded-md bg-primary text-white transition-all duration-300">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button id="listView" onclick="toggleView('list')"
+                        class="px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+
+                <!-- Sort Options -->
+                <div class="relative">
+                    <select id="sortBy" onchange="sortProperties()"
+                        class="bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none">
+                        <option value="default">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                        <option value="area">Area Size</option>
+                    </select>
+                    <i class="fas fa-chevron-down absolute right-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property Grid -->
+        <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Properties will be dynamically loaded here -->
+        </div>
+
+        <!-- Loading Animation -->
+        <div id="loadingAnimation" class="hidden text-center py-12">
+            <div class="search-animation">
+                <i class="fas fa-search text-4xl text-primary mb-4"></i>
+                <p class="text-gray-600">Searching for properties...</p>
+            </div>
+        </div>
+
+        <!-- No Results -->
+        <div id="noResults" class="hidden text-center py-12">
+            <i class="fas fa-home text-6xl text-gray-300 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 mb-2">No Properties Found</h3>
+            <p class="text-gray-500">Try adjusting your search criteria or explore other areas.</p>
+        </div>
+    </main>
+
+    <!-- Property Details Modal -->
+    <div id="propertyModal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-96 overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modalContent">
+                    <!-- Modal content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Property data
+        const properties = [
+            {
+                id: 1,
+                title: "Modern Apartment in Uttara Sector-7",
+                location: "Uttara Sector-7, Dhaka",
+                price: 35000,
+                bedrooms: 3,
+                bathrooms: 2,
+                area: 1200,
+                type: "Apartment",
+                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
+                features: ["Parking", "Gym", "Security", "Generator"],
+                description: "Beautiful modern apartment with all amenities in prime Uttara location."
+            },
+            {
+                id: 2,
+                title: "Luxury Villa in Banani",
+                location: "Banani, Dhaka",
+                price: 85000,
+                bedrooms: 4,
+                bathrooms: 3,
+                area: 2200,
+                type: "Villa",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+                features: ["Swimming Pool", "Garden", "Parking", "Security"],
+                description: "Spacious luxury villa in the heart of Banani with premium amenities."
+            },
+            {
+                id: 3,
+                title: "Cozy Studio in Dhanmondi 15",
+                location: "Dhanmondi 15, Dhaka",
+                price: 18000,
+                bedrooms: 1,
+                bathrooms: 1,
+                area: 650,
+                type: "Studio",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
+                features: ["Furnished", "AC", "Internet"],
+                description: "Perfect studio apartment for young professionals in Dhanmondi."
+            },
+            {
+                id: 4,
+                title: "Family Home in Bashundhara R/A",
+                location: "Bashundhara R/A, Dhaka",
+                price: 65000,
+                bedrooms: 4,
+                bathrooms: 3,
+                area: 1800,
+                type: "House",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop",
+                features: ["Garden", "Garage", "Security", "Playground"],
+                description: "Spacious family home in well-planned Bashundhara residential area."
+            },
+            {
+                id: 5,
+                title: "Modern Flat in Mirpur-10",
+                location: "Mirpur-10, Dhaka",
+                price: 28000,
+                bedrooms: 2,
+                bathrooms: 2,
+                area: 900,
+                type: "Apartment",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+                features: ["Lift", "Security", "Backup Power"],
+                description: "Well-maintained apartment in developing Mirpur area."
+            },
+            {
+                id: 6,
+                title: "Heritage Property in Old Dhaka",
+                location: "Wari, Old Dhaka",
+                price: 22000,
+                bedrooms: 3,
+                bathrooms: 2,
+                area: 1100,
+                type: "Traditional",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
+                features: ["Traditional Architecture", "Central Location", "Heritage Value"],
+                description: "Beautiful traditional property in historic Old Dhaka area."
+            }
+        ];
+
+        let currentView = 'grid';
+        let filteredProperties = [...properties];
+
+        // Initialize the page
+        function init() {
+            renderProperties();
+            updateResultCount();
+        }
+
+        // Render properties based on current view
+        function renderProperties() {
+            const grid = document.getElementById('propertyGrid');
+            grid.innerHTML = '';
+
+            filteredProperties.forEach((property, index) => {
+                const propertyCard = createPropertyCard(property);
+                propertyCard.style.animationDelay = `${index * 0.1}s`;
+                propertyCard.classList.add('fade-in');
+                grid.appendChild(propertyCard);
+            });
+        }
+
+        // Create property card element
+        function createPropertyCard(property) {
+            const card = document.createElement('div');
+            card.className = 'property-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer';
+            card.onclick = () => openPropertyModal(property);
+
+            card.innerHTML = `
+                <div class="relative">
+                    <img src="${property.image}" alt="${property.title}" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                            ${property.type}
+                        </span>
+                    </div>
+                    <div class="absolute top-4 right-4">
+                        <button class="bg-white bg-opacity-80 text-gray-600 p-2 rounded-full hover:bg-opacity-100 transition-all duration-300">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 truncate">${property.title}</h3>
+                    <p class="text-gray-600 mb-3 flex items-center">
+                        <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                        ${property.location}
+                    </p>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-2xl font-bold text-primary">৳${property.price.toLocaleString()}/mo</span>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600">
+                            <span><i class="fas fa-bed mr-1"></i>${property.bedrooms}</span>
+                            <span><i class="fas fa-bath mr-1"></i>${property.bathrooms}</span>
+                            <span><i class="fas fa-expand mr-1"></i>${property.area} sqft</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${property.features.slice(0, 3).map(feature =>
+                `<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs">${feature}</span>`
+            ).join('')}
+                        ${property.features.length > 3 ?
+                    `<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs">+${property.features.length - 3} more</span>`
+                    : ''
+                }
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300">
+                            <i class="fas fa-phone mr-2"></i>Call
+                        </button>
+                        <button class="flex-1 border border-primary text-primary hover:bg-primary hover:text-white py-2 px-4 rounded-lg font-medium transition-all duration-300">
+                            <i class="fas fa-envelope mr-2"></i>Email
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Open property details modal
+        function openPropertyModal(property) {
+            const modal = document.getElementById('propertyModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = property.title;
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <img src="${property.image}" alt="${property.title}" class="w-full h-64 object-cover rounded-lg mb-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <i class="fas fa-bed text-primary text-2xl mb-2"></i>
+                                <p class="text-gray-600">Bedrooms</p>
+                                <p class="font-semibold">${property.bedrooms}</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <i class="fas fa-bath text-primary text-2xl mb-2"></i>
+                                <p class="text-gray-600">Bathrooms</p>
+                                <p class="font-semibold">${property.bathrooms}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Price</h4>
+                            <p class="text-3xl font-bold text-primary">৳${property.price.toLocaleString()}/month</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Location</h4>
+                            <p class="text-gray-600 flex items-center">
+                                <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                ${property.location}
+                            </p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Description</h4>
+                            <p class="text-gray-600">${property.description}</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-2">Features & Amenities</h4>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${property.features.map(feature =>
+                `<div class="flex items-center">
+                                        <i class="fas fa-check text-secondary mr-2"></i>
+                                        <span class="text-gray-600">${feature}</span>
+                                    </div>`
+            ).join('')}
+                            </div>
+                        </div>
+                        
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-primary hover:bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-phone mr-2"></i>Contact Agent
+                            </button>
+                            <button class="flex-1 border border-primary text-primary hover:bg-primary hover:text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300">
+                                <i class="fas fa-calendar mr-2"></i>Schedule Visit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('propertyModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Toggle between grid and list view
+        function toggleView(viewType) {
+            currentView = viewType;
+            const gridBtn = document.getElementById('gridView');
+            const listBtn = document.getElementById('listView');
+            const grid = document.getElementById('propertyGrid');
+
+            if (viewType === 'grid') {
+                gridBtn.className = 'px-3 py-2 rounded-md bg-primary text-white transition-all duration-300';
+                listBtn.className = 'px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300';
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+            } else {
+                listBtn.className = 'px-3 py-2 rounded-md bg-primary text-white transition-all duration-300';
+                gridBtn.className = 'px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300';
+                grid.className = 'space-y-4';
+            }
+            renderProperties();
+        }
+
+        // Search properties
+        function searchProperties() {
+            const location = document.getElementById('locationInput').value.toLowerCase();
+            const bedrooms = document.getElementById('bedroomSelect').value;
+            const priceRange = document.getElementById('priceRange').value;
+
+            // Show loading animation
+            showLoading();
+
+            setTimeout(() => {
+                filteredProperties = properties.filter(property => {
+                    let matches = true;
+
+                    if (location && !property.location.toLowerCase().includes(location)) {
+                        matches = false;
+                    }
+
+                    if (bedrooms && property.bedrooms.toString() !== bedrooms) {
+                        matches = false;
+                    }
+
+                    if (priceRange) {
+                        const [min, max] = priceRange.split('-').map(Number);
+                        if (max) {
+                            if (property.price < min || property.price > max) {
+                                matches = false;
+                            }
+                        } else {
+                            if (property.price < min) {
+                                matches = false;
+                            }
+                        }
+                    }
+
+                    return matches;
+                });
+
+                hideLoading();
+                renderProperties();
+                updateResultCount();
+
+                if (filteredProperties.length === 0) {
+                    showNoResults();
+                } else {
+                    hideNoResults();
+                }
+            }, 1000);
+        }
+
+        // Sort properties
+        function sortProperties() {
+            const sortBy = document.getElementById('sortBy').value;
+
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProperties.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProperties.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    filteredProperties.sort((a, b) => b.id - a.id);
+                    break;
+                case 'area':
+                    filteredProperties.sort((a, b) => b.area - a.area);
+                    break;
+                default:
+                    filteredProperties = [...properties];
+            }
+
+            renderProperties();
+        }
+
+        // Update result count
+        function updateResultCount() {
+            document.getElementById('resultCount').textContent = filteredProperties.length;
+        }
+
+        // Show/hide loading animation
+        function showLoading() {
+            document.getElementById('propertyGrid').classList.add('hidden');
+            document.getElementById('loadingAnimation').classList.remove('hidden');
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingAnimation').classList.add('hidden');
+            document.getElementById('propertyGrid').classList.remove('hidden');
+        }
+
+        // Show/hide no results
+        function showNoResults() {
+            document.getElementById('propertyGrid').classList.add('hidden');
+            document.getElementById('noResults').classList.remove('hidden');
+        }
+
+        function hideNoResults() {
+            document.getElementById('noResults').classList.add('hidden');
+            document.getElementById('propertyGrid').classList.remove('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('propertyModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize the application
+        init();
+    </script>
 
     <script>
         // Filter Toggle Functionality

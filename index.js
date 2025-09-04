@@ -529,3 +529,4 @@ function formatPrice(price) {
 function formatArea(area) {
   return new Intl.NumberFormat("en-US").format(area) + " sqft";
 }
+
