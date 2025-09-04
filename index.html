@@ -256,7 +256,7 @@
                     <!-- Tab Navigation -->
                     <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
                         <button
-                            class="tab-btn px-8 py-4 font-semibold text-white border-b-4 border-blue-600 rounded-t-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 active mx-1"
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 border-b-4 border-blue-600 rounded-t-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 active mx-1"
                             data-tab="buy">
                             <i class="fas fa-home mr-2"></i>
                             Buy Property
@@ -271,7 +271,7 @@
                             class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
                             data-tab="roommate">
                             <i class="fas fa-users mr-2"></i>
-                            Find Roommate
+                            Search
                         </button>
                         <button
                             class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
@@ -348,7 +348,7 @@
                                 <button id="search-property"
                                     class="search-btn-hover w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
                                     <i class="fas fa-search mr-2"></i>
-                                    Search Properties
+                                    Search
                                 </button>
                             </div>
                         </div>
@@ -405,7 +405,7 @@
                                 <button
                                     class="search-btn-hover w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-4 focus:ring-green-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
                                     <i class="fas fa-search mr-2"></i>
-                                    Search Rentals
+                                    Search
                                 </button>
                             </div>
                         </div>
@@ -459,7 +459,7 @@
                                 <button
                                     class="search-btn-hover w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
                                     <i class="fas fa-search mr-2"></i>
-                                    Find Roommates
+                                    Search
                                 </button>
                             </div>
                         </div>
@@ -515,7 +515,7 @@
                                 <button
                                     class="search-btn-hover w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white py-4 px-6 rounded-xl hover:from-orange-700 hover:to-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
                                     <i class="fas fa-search mr-2"></i>
-                                    Find Services
+                                    Search
                                 </button>
                             </div>
                         </div>
@@ -710,162 +710,159 @@
         </div>
     </section>
 
-    <section id="contact" class="relative py-24 bg-white overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div
-                class="absolute top-10 right-10 w-72 h-72 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float">
-            </div>
-            <div class="absolute bottom-10 left-10 w-64 h-64 bg-indigo-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
-                style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float"
-                style="animation-delay: 4s;"></div>
-        </div>
 
-        <div class="container mx-auto px-6 relative z-10">
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
             <!-- Heading -->
-            <div class="text-center mb-16">
-                <div
-                    class="inline-flex items-center px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-4">
-                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
-                    Get In Touch
-                </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                    Contact
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                        Us
-                    </span>
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked <span class="text-primary">Questions</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    We'd love to hear from you. Let's start a conversation and bring your ideas to life!
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Find quick answers to common questions. Click on a question to reveal the answer.
+                </p>
+            </div>
+
+            <!-- FAQ List -->
+            <div class="space-y-4">
+                <!-- Item -->
+                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50">
+                        <span>How can I book a property with One-Reach Services?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-5 text-gray-600">
+                            You can contact us directly through our form or visit our office. Our team will guide you
+                            through the process of selecting and booking your desired property.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50">
+                        <span>Do you provide legal assistance for property purchases?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-5 text-gray-600">
+                            Yes, we assist with legal documentation, verification, and ensure that all transactions are
+                            safe and transparent.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50">
+                        <span>Can I schedule a site visit before making a decision?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-5 text-gray-600">
+                            Absolutely! We encourage our clients to schedule site visits. Our team will arrange
+                            everything for a smooth experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+                    <button
+                        class="faq-toggle w-full flex justify-between items-center p-5 text-left text-lg font-semibold text-gray-900 hover:bg-gray-50">
+                        <span>What types of services does One-Reach provide?</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="p-5 text-gray-600">
+                            We offer comprehensive solutions including land sales, real estate consultancy, property
+                            management, and lifestyle services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('rotate-180');
+                } else {
+                    // close other open items
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+    </script>
+
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <!-- Heading -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Get in <span class="text-blue-600">Touch</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Have questions about buying or selling property? Send us a message and our team will get back to you
+                    soon.
                 </p>
             </div>
 
             <!-- Contact Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-
-                <!-- Left Side - Info -->
-                <div class="space-y-8">
-                    <!-- Intro Text -->
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Let's Connect</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed">
-                            Ready to discuss your project? We're here to help you every step of the way. Reach out
-                            through any of the channels below.
-                        </p>
-                    </div>
-
-                    <!-- Phone Card -->
-                    <div class="group relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                        </div>
-                        <div
-                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <i data-feather="phone" class="w-7 h-7"></i>
-                            </div>
-                            <div class="ml-6">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Phone</h4>
-                                <div class="space-y-1">
-                                    <p class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer">
-                                        +8801712757397</p>
-                                    <p class="text-gray-600 hover:text-blue-600 transition-colors cursor-pointer">
-                                        +8801732370479</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Address Card -->
-                    <div class="group relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                        </div>
-                        <div
-                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <i data-feather="map-pin" class="w-7 h-7"></i>
-                            </div>
-                            <div class="ml-6">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Address</h4>
-                                <p class="text-gray-600 leading-relaxed">44, Tatipara, Zindabazar<br>Sylhet, Bangladesh
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Email Card -->
-                    <div class="group relative">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                        </div>
-                        <div
-                            class="relative flex items-center bg-gray-50 hover:bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-                            <div
-                                class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <i data-feather="mail" class="w-7 h-7"></i>
-                            </div>
-                            <div class="ml-6">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-1">Email</h4>
-                                <p class="text-gray-600 hover:text-green-600 transition-colors cursor-pointer">
-                                    hello@company.com</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Form -->
+                <div class="p-8 bg-white rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your Name"
+                            class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <input type="email" placeholder="Your Email"
+                            class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <input type="text" placeholder="Subject"
+                            class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
+                        <textarea rows="4" placeholder="Your Message"
+                            class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 resize-none"></textarea>
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
 
-                <!-- Right Side - Form -->
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl"></div>
-                    <div class="relative bg-white rounded-3xl shadow-2xl p-10 border border-gray-100">
-                        <div class="text-center mb-8">
-                            <h3 class="text-3xl font-bold text-gray-900 mb-3">Send Us a Message</h3>
-                            <p class="text-gray-600">Fill out the form below and we'll get back to you soon</p>
-                        </div>
-
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div class="relative">
-                                    <input type="text" placeholder="Your Name"
-                                        class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
-                                </div>
-                                <div class="relative">
-                                    <input type="email" placeholder="Your Email"
-                                        class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
-                                </div>
-                            </div>
-
-                            <div class="relative">
-                                <input type="text" placeholder="Subject"
-                                    class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white">
-                            </div>
-
-                            <div class="relative">
-                                <textarea placeholder="Your Message" rows="5"
-                                    class="w-full p-4 rounded-xl border-2 border-gray-200 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 bg-gray-50 focus:bg-white resize-none"></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 relative overflow-hidden group">
-                                <span class="relative z-10 flex items-center justify-center">
-                                    <span class="mr-2">Send Message</span>
-                                    <i data-feather="send"
-                                        class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"></i>
-                                </span>
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                                </div>
-                            </button>
-                        </form>
+                <!-- Image -->
+                <div class="relative rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                        alt="Real Estate Office" class="w-full h-[500px] object-cover rounded-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h4 class="text-2xl font-bold">Your Dream Property Awaits</h4>
+                        <p class="text-gray-200">We make buying & selling easier.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 pt-16">
@@ -1258,8 +1255,8 @@
                 }, 2000);
             });
         });
-    
-    
+
+
     </script>
 </body>
 
