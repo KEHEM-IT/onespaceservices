@@ -309,18 +309,3 @@ const lazyLoadImages = () => {
 // Initialize lazy loading
 lazyLoadImages();
 
-// Add error handling for form submissions
-window.addEventListener("error", function (e) {
-  console.error("An error occurred:", e.error);
-  // Show user-friendly error message
-  const errorDiv = document.createElement("div");
-  errorDiv.className =
-    "fixed top-4 right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg z-50";
-  errorDiv.innerHTML =
-    '<i class="fas fa-exclamation-triangle mr-2"></i>Something went wrong. Please try again.';
-  document.body.appendChild(errorDiv);
-
-  setTimeout(() => {
-    errorDiv.remove();
-  }, 5000);
-});
