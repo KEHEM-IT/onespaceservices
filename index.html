@@ -27,6 +27,7 @@
                         primary: '#0048a7',
                         secondary: '#85ffff',
                         darkPrimary: '#00306e',
+                        litePrimary: '#0063e4',
 
                     }
                 }
@@ -53,54 +54,38 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex ml-10 space-x-8 items-center">
-                    <a href="#commercial"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Architecture
-                    </a>
 
-                    <!-- Desktop Dropdown: Design -->
-                    <div class="relative dropdown-container">
+                    <!-- Services Dropdown -->
+                    <div class="dropdown-container relative">
                         <button
                             class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
-                            Design <i data-feather="chevron-down"
+                            Services <i data-feather="chevron-down"
                                 class="w-4 h-4 ml-1 transition-transform duration-300"></i>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-56 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="#residential"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 first:rounded-t-md">Residential
+                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#property-management"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
+                                Management</a>
+                            <a href="#architectural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Architectural
                                 Design</a>
-                            <a href="#interior"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200">Interior
+                            <a href="#interior-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
                                 Design</a>
-                            <a href="#landscape"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 last:rounded-b-md">Landscape</a>
-                        </div>
-                    </div>
-
-                    <a href="#building"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Building Solutions
-                    </a>
-
-                    <!-- Desktop Dropdown: Properties -->
-                    <div class="relative dropdown-container">
-                        <button
-                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
-                            Properties <i data-feather="chevron-down"
-                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
-                        </button>
-                        <div
-                            class="absolute left-0 mt-2 w-56  bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="#buy"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 first:rounded-t-md">Buy
-                                Property</a>
-                            <a href="#sell"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200">Sell
-                                Property</a>
-                            <a href="#rent"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 last:rounded-b-md">Rent
-                                Property</a>
+                            <a href="#structural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
+                                Design</a>
+                            <a href="#electrical-plumbing"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
+                                Plumbing Design</a>
+                            <a href="#construction"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
+                            <a href="#landscape-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
+                                Design</a>
+                            <a href="#renovation"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
                         </div>
                     </div>
 
@@ -108,10 +93,36 @@
                         class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         Contact
                     </a>
+
                     <a href="#about"
                         class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         About Us
                     </a>
+                    <!-- Login & User Icon (Desktop) -->
+                    <div class="flex items-center space-x-4 ml-4">
+                        <button
+                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                            Login
+                        </button>
+                        <div class="relative">
+                            <button id="user-btn"
+                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                            </button>
+                            <div
+                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                    <i class="fas fa-user mr-2"></i> John Doe
+                                </div>
+                                <button
+                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -123,59 +134,43 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu (CSS dropdowns) -->
         <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
             <div class="px-4 py-4 space-y-2">
 
-                <a href="#commercial"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Architecture</a>
-
-                <!-- Mobile Submenu: Design -->
+                <!-- Services Dropdown -->
                 <div class="border-b border-gray-400">
-                    <button
-                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded focus:outline-none"
-                        data-toggle="mobile-submenu">
-                        Design
-                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                    </button>
-                    <div class="pl-5 space-y-1 bg-primary hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-                        style="transition-property: max-height, opacity, padding;">
-                        <a href="#residential"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Residential
+                    <input type="checkbox" id="services-mobile" class="peer hidden">
+                    <label for="services-mobile"
+                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
+                        Services
+                        <i data-feather="chevron-down"
+                            class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
+                    </label>
+                    <div
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
+                        <a href="#property-management"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
+                            Management</a>
+                        <a href="#architectural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Architectural
                             Design</a>
-                        <a href="#interior"
+                        <a href="#interior-design"
                             class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
                             Design</a>
-                        <a href="#landscape"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape</a>
-                        <br>
-                    </div>
-                </div>
-
-                <a href="#building"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Building
-                    Solutions</a>
-
-                <!-- Mobile Submenu: Properties -->
-                <div class="border-b border-gray-400">
-                    <button
-                        class="w-full flex justify-between items-center px-3 p-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded focus:outline-none"
-                        data-toggle="mobile-submenu">
-                        Properties
-                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                    </button>
-                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-                        style="transition-property: max-height, opacity, padding;">
-                        <a href="#buy"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Buy
-                            Property</a>
-                        <a href="#sell"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Sell
-                            Property</a>
-                        <a href="#rent"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Rent
-                            Property</a>
-                        <br>
+                        <a href="#structural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                            Design</a>
+                        <a href="#electrical-plumbing"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
+                            & Plumbing Design</a>
+                        <a href="#construction"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
+                        <a href="#landscape-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                            Design</a>
+                        <a href="#renovation"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
                     </div>
                 </div>
 
@@ -184,6 +179,34 @@
                 <a href="#about"
                     class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
                     Us</a>
+
+                <!-- Mobile Login & User Icon -->
+                <div class="flex items-center space-x-4 mt-2">
+                    <button
+                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                        Login
+                    </button>
+                    <!-- Mobile Login & User Icon -->
+                    <div class="flex items-center space-x-4 mt-2 relative">
+                        <button id="mobile-user-btn"
+                            class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                        </button>
+                        <div
+                            class="absolute top-0 left-full ml-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
+                            </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </nav>
@@ -290,8 +313,7 @@
                                             Interior
                                         </div>
                                         <h3 class="text-xl font-bold my-2">Modern Living Room</h3>
-                                        <p
-                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                        <p class="text-sm line-clamp-3 md:line-clamp-7 xl:line-clamp-3">
                                             Elegant contemporary design with comfort. Crafted with attention to detail,
                                             it
                                             blends style and functionality seamlessly. Perfect for modern living spaces,
@@ -314,8 +336,7 @@
                                             Bedroom
                                         </div>
                                         <h3 class="text-xl font-bold my-2">Cozy Bedroom</h3>
-                                        <p
-                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                        <p class="text-sm line-clamp-3 md:line-clamp-7 xl:line-clamp-3">
                                             A soft and cozy bedroom interior designed for relaxation. The balance of
                                             textures and neutral tones ensures peace and comfort, perfect for restful
                                             nights and refreshing mornings.
@@ -334,8 +355,7 @@
                                             Kitchen
                                         </div>
                                         <h3 class="text-xl font-bold my-2">Minimalist Kitchen</h3>
-                                        <p
-                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                        <p class="text-sm line-clamp-3 md:line-clamp-7 xl:line-clamp-3">
                                             A sleek minimalist kitchen that combines functionality with style. Clean
                                             lines and open spaces make it ideal for both daily use and entertaining
                                             guests.
@@ -392,9 +412,9 @@
                 </p>
             </div>
 
-            <div class="max-w-5xl mx-auto">
-                <div class="glass-effect rounded-3xl shadow-2xl border-2 border-white/20 p-10 backdrop-blur-sm"
-                    data-aos="fade-up" data-aos-delay="200">
+            <div class="max-w-6xl mx-auto">
+                <div class="rounded-3xl shadow-2xl border-2 border-white/20 p-10 backdrop-blur-sm" data-aos="fade-up"
+                    data-aos-delay="200">
                     <!-- Tab Navigation -->
                     <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
                         <button
@@ -1192,104 +1212,59 @@
             }
         });
 
-        // Carousel functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
 
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (n + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        }
+        // User dropdown functionality (desktop + mobile)
+        const userButtons = document.querySelectorAll('#user-btn, #mobile-user-btn');
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        userButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent document click from immediately closing
+                const dropdown = btn.nextElementSibling;
+                const isOpen = dropdown.classList.contains('opacity-100');
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Auto slide
-        if (slides.length > 0) {
-            setInterval(nextSlide, 5000);
-            showSlide(0); // Initial setup
-        }
-
-        // Manual controls
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const targetTab = this.getAttribute('data-tab');
-
-                    // Remove active class from all tabs
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-
-                    // Hide all tab contents
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-
-                    // Show target tab content
-                    const targetContent = document.getElementById(targetTab + '-tab');
-                    if (targetContent) {
-                        targetContent.classList.remove('hidden');
-                    }
+                // Close all other user dropdowns first
+                document.querySelectorAll('#user-btn + div, #mobile-user-btn + div').forEach(d => {
+                    d.classList.remove('opacity-100', 'visible');
+                    d.classList.add('opacity-0', 'invisible');
                 });
+
+                // Toggle current dropdown
+                if (!isOpen) {
+                    dropdown.classList.remove('opacity-0', 'invisible');
+                    dropdown.classList.add('opacity-100', 'visible');
+                } else {
+                    dropdown.classList.remove('opacity-100', 'visible');
+                    dropdown.classList.add('opacity-0', 'invisible');
+                }
             });
         });
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.group');
 
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-2px)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-
-            // Form submission
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const button = form.querySelector('button[type="submit"]');
-                button.innerHTML = `
-                    <span class="relative z-10 flex items-center justify-center">
-                        <span class="mr-2">Sending...</span>
-                        <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    </span>
-                `;
-
-                setTimeout(() => {
-                    button.innerHTML = `
-                        <span class="relative z-10 flex items-center justify-center">
-                            <span class="mr-2">Message Sent!</span>
-                            <i data-feather="check" class="w-5 h-5"></i>
-                        </span>
-                    `;
-                    feather.replace();
-                }, 2000);
+        // Close user dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('#user-btn + div, #mobile-user-btn + div').forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('opacity-100', 'visible');
+                    dropdown.classList.add('opacity-0', 'invisible');
+                }
             });
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
