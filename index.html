@@ -7,18 +7,27 @@
     <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
     <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+
+    <!-- Add Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981'
+                        primary: '#0048a7',
+                        secondary: '#85ffff',
+                        darkPrimary: '#00306e',
+
                     }
                 }
             }
@@ -29,7 +38,7 @@
 
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+    <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -37,77 +46,77 @@
                     <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
                         class="h-10 w-10 mr-3 rounded-full shadow-md">
                     <div class="flex flex-col">
-                        <span class="font-bold text-xl text-gray-900">One Reach Services</span>
-                        <span class="text-sm text-gray-600">Land • Living • Lifestyle</span>
+                        <span class="font-bold text-xl text-white">One Reach Services</span>
+                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex ml-10 space-x-8 items-center">
                     <a href="#commercial"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         Architecture
                     </a>
 
                     <!-- Desktop Dropdown: Design -->
                     <div class="relative dropdown-container">
                         <button
-                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
                             Design <i data-feather="chevron-down"
                                 class="w-4 h-4 ml-1 transition-transform duration-300"></i>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            class="absolute left-0 mt-2 w-56 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
                             <a href="#residential"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Residential
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 first:rounded-t-md">Residential
                                 Design</a>
                             <a href="#interior"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Interior
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200">Interior
                                 Design</a>
                             <a href="#landscape"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Landscape</a>
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 last:rounded-b-md">Landscape</a>
                         </div>
                     </div>
 
                     <a href="#building"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         Building Solutions
                     </a>
 
                     <!-- Desktop Dropdown: Properties -->
                     <div class="relative dropdown-container">
                         <button
-                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
+                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
                             Properties <i data-feather="chevron-down"
                                 class="w-4 h-4 ml-1 transition-transform duration-300"></i>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            class="absolute left-0 mt-2 w-56  bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
                             <a href="#buy"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Buy
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 first:rounded-t-md">Buy
                                 Property</a>
                             <a href="#sell"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Sell
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200">Sell
                                 Property</a>
                             <a href="#rent"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Rent
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary hover:text-secondary transition-colors duration-200 last:rounded-b-md">Rent
                                 Property</a>
                         </div>
                     </div>
 
                     <a href="#contact"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         Contact
                     </a>
                     <a href="#about"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         About Us
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-white hover:text-secondary focus:outline-none">
                         <i data-feather="menu" class="w-7 h-7"></i>
                     </button>
                 </div>
@@ -115,41 +124,42 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="bg-white border-t shadow-lg hidden">
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
             <div class="px-4 py-4 space-y-2">
 
                 <a href="#commercial"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Architecture</a>
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Architecture</a>
 
                 <!-- Mobile Submenu: Design -->
-                <div class="border-b border-gray-100">
+                <div class="border-b border-gray-400">
                     <button
-                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded focus:outline-none"
                         data-toggle="mobile-submenu">
                         Design
                         <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                     </button>
-                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
+                    <div class="pl-5 space-y-1 bg-primary hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
                         style="transition-property: max-height, opacity, padding;">
                         <a href="#residential"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Residential
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Residential
                             Design</a>
                         <a href="#interior"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Interior
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
                             Design</a>
                         <a href="#landscape"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Landscape</a>
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape</a>
+                        <br>
                     </div>
                 </div>
 
                 <a href="#building"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Building
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Building
                     Solutions</a>
 
                 <!-- Mobile Submenu: Properties -->
-                <div class="border-b border-gray-100">
+                <div class="border-b border-gray-400">
                     <button
-                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
+                        class="w-full flex justify-between items-center px-3 p-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded focus:outline-none"
                         data-toggle="mobile-submenu">
                         Properties
                         <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
@@ -157,85 +167,217 @@
                     <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
                         style="transition-property: max-height, opacity, padding;">
                         <a href="#buy"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Buy
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Buy
                             Property</a>
                         <a href="#sell"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Sell
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Sell
                             Property</a>
                         <a href="#rent"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Rent
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Rent
                             Property</a>
+                        <br>
                     </div>
                 </div>
 
                 <a href="#contact"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Contact</a>
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
                 <a href="#about"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">About
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
                     Us</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <section class="relative h-screen overflow-hidden">
-        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920" alt="Modern Building"
-                class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center text-white">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">BUILDING YOUR DREAMS</h1>
-                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Where Vision Meets Precision
-                    </p>
+    <!-- Services Section -->
+    <section class="min-h-screen py-20 bg-white flex items-center">
+        <div class="container mx-auto px-4 h-full flex gap-8 flex-wrap md:flex-nowrap">
+            <!-- Left Column - Services (70% width) -->
+            <div class="w-full lg:w-[70%]">
+                <h2 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">Our Services</h2>
+                <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- PROPERTY MANAGEMENT -->
+                    <a href="#property-management"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-building text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Property Management</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive property oversight and maintenance</p>
+                    </a>
+
+                    <!-- ARCHITECTURAL DESIGN -->
+                    <a href="#architectural-design"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-drafting-compass text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Architectural Design</h3>
+                        <p class="text-gray-600 text-sm">Innovative architectural solutions and planning</p>
+                    </a>
+
+                    <!-- INTERIOR DESIGN -->
+                    <a href="#interior-design"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-couch text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Interior Design</h3>
+                        <p class="text-gray-600 text-sm">Beautiful and functional interior spaces</p>
+                    </a>
+
+                    <!-- STRUCTURAL DESIGN -->
+                    <a href="#structural-design"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-sitemap text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Structural Design</h3>
+                        <p class="text-gray-600 text-sm">Safe and efficient structural engineering</p>
+                    </a>
+
+                    <!-- CONSTRUCTION -->
+                    <a href="#construction"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-hard-hat text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Construction</h3>
+                        <p class="text-gray-600 text-sm">Quality construction services from start to finish</p>
+                    </a>
+
+                    <!-- ELECTRICAL & PLUMBING DESIGN -->
+                    <a href="#mep-design"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="600">
+                        <i class="fas fa-tools text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Electrical & Plumbing Design</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive MEP design and installation</p>
+                    </a>
+
+                    <!-- LANDSCAPE DESIGN -->
+                    <a href="#landscape-design"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="700">
+                        <i class="fas fa-seedling text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Landscape Design</h3>
+                        <p class="text-gray-600 text-sm">Creating beautiful outdoor environments</p>
+                    </a>
+
+                    <!-- RENOVATION -->
+                    <a href="#renovation"
+                        class="service-card bg-gray-50 px-2 py-4 rounded-lg text-center border border-gray-200 shadow-sm hover:border-blue-600 hover:shadow-lg block"
+                        data-aos="fade-up" data-aos-delay="800">
+                        <i class="fas fa-hammer text-blue-600 text-4xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Renovation</h3>
+                        <p class="text-gray-600 text-sm">Transform existing spaces with modern updates</p>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920" alt="Home Interior"
-                class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center text-white">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">Fix Your Home with One-Reach</h1>
-                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Transforming Spaces,
-                        Enhancing Lives</p>
+
+            <!-- Right Column - Portfolio Carousel (30% width) -->
+            <div class="md:w-[30%] w-full">
+                <div class="rounded-xl overflow-hidden h-auto" data-aos="fade-up" data-aos-delay="100">
+                    <h2 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">Portfolio</h2>
+
+                    <div
+                        class="carousel-container p-4 bg-gray-50 shadow-lg service-card rounded-lg border border-gray-200">
+                        <!-- Swiper wrapper -->
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="swiper-slide">
+                                    <a href="#portfolio-1"
+                                        class="portfolio-item relative block overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                                            alt="Modern Living Room" class="w-full h-72 object-cover">
+                                        <div
+                                            class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                                            Interior
+                                        </div>
+                                        <h3 class="text-xl font-bold my-2">Modern Living Room</h3>
+                                        <p
+                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                            Elegant contemporary design with comfort. Crafted with attention to detail,
+                                            it
+                                            blends style and functionality seamlessly. Perfect for modern living spaces,
+                                            it
+                                            creates a warm and inviting atmosphere while maintaining sophistication.
+                                            Designed to
+                                            suit both everyday use and special occasions.
+                                        </p>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="swiper-slide">
+                                    <a href="#portfolio-2"
+                                        class="portfolio-item relative block overflow-hidden rounded-xl">
+                                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
+                                            alt="Cozy Bedroom" class="w-full h-72 object-cover">
+                                        <div
+                                            class="absolute top-3 right-3 bg-pink-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                                            Bedroom
+                                        </div>
+                                        <h3 class="text-xl font-bold my-2">Cozy Bedroom</h3>
+                                        <p
+                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                            A soft and cozy bedroom interior designed for relaxation. The balance of
+                                            textures and neutral tones ensures peace and comfort, perfect for restful
+                                            nights and refreshing mornings.
+                                        </p>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="swiper-slide">
+                                    <a href="#portfolio-3"
+                                        class="portfolio-item relative block overflow-hidden rounded-xl">
+                                        <img src="https://plus.unsplash.com/premium_photo-1756066699592-eb346b61309b"
+                                            alt="Minimalist Kitchen" class="w-full h-72 object-cover">
+                                        <div
+                                            class="absolute top-3 right-3 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                                            Kitchen
+                                        </div>
+                                        <h3 class="text-xl font-bold my-2">Minimalist Kitchen</h3>
+                                        <p
+                                            class="text-sm line-clamp-3 md:line-clamp-7 lg:line-clamp-6 xl:line-clamp-5 2xl:line-clamp-3">
+                                            A sleek minimalist kitchen that combines functionality with style. Clean
+                                            lines and open spaces make it ideal for both daily use and entertaining
+                                            guests.
+                                        </p>
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <script>
+                const swiper = new Swiper('.swiper', {
+                    loop: true,
+                    autoplay: {
+                        delay: 3000, // 3s per slide
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            </script>
+
         </div>
-        <div class="carousel-slide absolute inset-0 bg-gradient-to-r from-black/50 to-black/30">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920" alt="Construction"
-                class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="text-center text-white">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4" data-aos="fade-up">EXCELLENCE IN CONSTRUCTION</h1>
-                    <p class="text-xl md:text-2xl" data-aos="fade-up" data-aos-delay="200">Building Tomorrow's Landmarks
-                        Today</p>
-                </div>
-            </div>
-        </div>
-        <button id="prevBtn"
-            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full">
-            <i data-feather="chevron-left" class="w-6 h-6"></i>
-        </button>
-        <button id="nextBtn"
-            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full">
-            <i data-feather="chevron-right" class="w-6 h-6"></i>
-        </button>
     </section>
+
+
+
 
     <!-- Property Search Section -->
     <section
         class="property-search min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
-        <!-- Floating Background Elements -->
-        <div
-            class="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 floating-animation">
-        </div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 floating-animation"
-            style="animation-delay: 2s;"></div>
-        <div class="absolute -bottom-20 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 floating-animation"
-            style="animation-delay: 4s;"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -256,25 +398,25 @@
                     <!-- Tab Navigation -->
                     <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
                         <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 border-b-4 border-blue-600 rounded-t-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 active mx-1"
+                            class="tab-btn px-8 py-4 font-semibold active text-gray-600 rounded-t-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200 mx-1"
                             data-tab="buy">
                             <i class="fas fa-home mr-2"></i>
                             Buy Property
                         </button>
                         <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
                             data-tab="rent">
                             <i class="fas fa-key mr-2"></i>
                             Rent Property
                         </button>
                         <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
                             data-tab="roommate">
                             <i class="fas fa-users mr-2"></i>
                             Search
                         </button>
                         <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
+                            class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
                             data-tab="services">
                             <i class="fas fa-concierge-bell mr-2"></i>
                             Lifestyle Services
@@ -346,7 +488,7 @@
                             </div>
                             <div class="flex items-end">
                                 <button id="search-property"
-                                    class="search-btn-hover w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
+                                    class="search-btn-hover w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
                                     <i class="fas fa-search mr-2"></i>
                                     Search
                                 </button>
@@ -521,112 +663,7 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12" data-aos="fade-up" data-aos-delay="400">
-                    <div class="property-card bg-white rounded-2xl shadow-lg p-6 text-center border border-gray-100">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-home text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-1">2,500+</h3>
-                        <p class="text-gray-600 text-sm">Properties Listed</p>
-                    </div>
-                    <div class="property-card bg-white rounded-2xl shadow-lg p-6 text-center border border-gray-100">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-handshake text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-1">1,200+</h3>
-                        <p class="text-gray-600 text-sm">Happy Clients</p>
-                    </div>
-                    <div class="property-card bg-white rounded-2xl shadow-lg p-6 text-center border border-gray-100">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-users text-purple-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-1">800+</h3>
-                        <p class="text-gray-600 text-sm">Roommates Matched</p>
-                    </div>
-                    <div class="property-card bg-white rounded-2xl shadow-lg p-6 text-center border border-gray-100">
-                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-star text-orange-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-1">4.8/5</h3>
-                        <p class="text-gray-600 text-sm">Average Rating</p>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- SERVICE CARD -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <i data-feather="users" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Consultation</h3>
-                    <p class="text-gray-600">Expert advice for your dream project</p>
-                </div>
-
-                <!-- SITE DEVELOPMENT -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <i data-feather="map" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Site Development</h3>
-                    <p class="text-gray-600">Complete site preparation and development</p>
-                </div>
-
-                <!-- PROJECT MANAGEMENT -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <i data-feather="clipboard" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Project Management</h3>
-                    <p class="text-gray-600">End-to-end project oversight</p>
-                </div>
-
-                <!-- COST MANAGEMENT -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <i data-feather="dollar-sign" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Cost Management</h3>
-                    <p class="text-gray-600">Efficient budget planning and control</p>
-                </div>
-
-                <!-- DESIGN-BUILD -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <i data-feather="tool" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Design-Build</h3>
-                    <p class="text-gray-600">Seamless integration of design and construction</p>
-                </div>
-
-                <!-- DESIGN IMPLEMENTATION -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <i data-feather="layout" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Design Implementation</h3>
-                    <p class="text-gray-600">Bringing creative concepts into reality</p>
-                </div>
-
-                <!-- ELECTRICAL SERVICES -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <i data-feather="zap" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Electrical Services</h3>
-                    <p class="text-gray-600">Reliable electrical planning and installation</p>
-                </div>
-
-                <!-- MECHANICAL CONSTRUCTION -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg text-center border border-gray-200 shadow-sm transition duration-300 hover:border-blue-600 hover:shadow-lg hover:-translate-y-2"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <i data-feather="settings" class="w-12 h-12 text-blue-600 mx-auto mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Mechanical Construction</h3>
-                    <p class="text-gray-600">Expert solutions for mechanical systems</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -1198,13 +1235,11 @@
 
                     // Remove active class from all tabs
                     tabButtons.forEach(btn => {
-                        btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-600', 'active');
-                        btn.classList.add('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+                        btn.classList.remove('active');
                     });
 
                     // Add active class to clicked tab
-                    this.classList.add('bg-blue-500', 'text-white', 'border-blue-600', 'active');
-                    this.classList.remove('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
+                    this.classList.add('active');
 
                     // Hide all tab contents
                     tabContents.forEach(content => {
