@@ -94,7 +94,7 @@
                         Contact
                     </a>
 
-                    <a href="#about"
+                    <a href="about-us.html"
                         class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         About Us
                     </a>
@@ -1006,16 +1006,17 @@
     </footer>
 
     <script>
-
+        AOS.init({
+            duration: 400,
+            easing: 'ease-in-out',
+            once: true
+        });
         const searchProperty = document.getElementById('search-property');
         searchProperty.addEventListener('click', () => {
             window.location.href = 'search.html';
         });
         // Initialize Feather Icons
         feather.replace();
-
-        // Initialize AOS
-        AOS.init();
 
         // Mobile menu toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
