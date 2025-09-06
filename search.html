@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Search Results</title>
+    <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
     <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
-    <script src="index.js"></script>
+
+    <!-- Add Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981'
+                        primary: '#0048a7',
+                        secondary: '#85ffff',
+                        darkPrimary: '#00306e',
+                        litePrimary: '#0063e4'
+
                     }
                 }
             }
@@ -29,8 +38,9 @@
 </head>
 
 <body class="bg-gray-50">
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+    <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -38,437 +48,466 @@
                     <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
                         class="h-10 w-10 mr-3 rounded-full shadow-md">
                     <div class="flex flex-col">
-                        <span class="font-bold text-xl text-gray-900">One Reach Services</span>
-                        <span class="text-sm text-gray-600">Land • Living • Lifestyle</span>
+                        <span class="font-bold text-xl text-white">One Reach Services</span>
+                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex ml-10 space-x-8 items-center">
-                    <a href="#commercial"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Architecture
-                    </a>
 
-                    <!-- Desktop Dropdown: Design -->
-                    <div class="relative dropdown-container">
+                    <!-- Services Dropdown -->
+                    <div class="dropdown-container relative">
                         <button
-                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
-                            Design <i data-feather="chevron-down"
+                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
+                            Services <i data-feather="chevron-down"
                                 class="w-4 h-4 ml-1 transition-transform duration-300"></i>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="#residential"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Residential
+                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#property-management"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
+                                Management</a>
+                            <a href="#architectural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Architectural
                                 Design</a>
-                            <a href="#interior"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Interior
+                            <a href="#interior-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
                                 Design</a>
-                            <a href="#landscape"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Landscape</a>
-                        </div>
-                    </div>
-
-                    <a href="#building"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Building Solutions
-                    </a>
-
-                    <!-- Desktop Dropdown: Properties -->
-                    <div class="relative dropdown-container">
-                        <button
-                            class="flex items-center text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 focus:outline-none">
-                            Properties <i data-feather="chevron-down"
-                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
-                        </button>
-                        <div
-                            class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="#buy"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 first:rounded-t-md">Buy
-                                Property</a>
-                            <a href="#sell"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">Sell
-                                Property</a>
-                            <a href="#rent"
-                                class="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 last:rounded-b-md">Rent
-                                Property</a>
+                            <a href="#structural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
+                                Design</a>
+                            <a href="#electrical-plumbing"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
+                                Plumbing Design</a>
+                            <a href="#construction"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
+                            <a href="#landscape-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
+                                Design</a>
+                            <a href="#renovation"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
                         </div>
                     </div>
 
                     <a href="#contact"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         Contact
                     </a>
-                    <a href="#about"
-                        class="relative text-gray-700 hover:text-blue-600 font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+
+                    <a href="about-us.html"
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
                         About Us
                     </a>
+                    <!-- Login & User Icon (Desktop) -->
+                    <div class="flex items-center space-x-4 ml-4">
+                        <button
+                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                            Login
+                        </button>
+                        <div class="relative">
+                            <button id="user-btn"
+                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                            </button>
+                            <div
+                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                    <i class="fas fa-user mr-2"></i> John Doe
+                                </div>
+                                <button
+                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <button id="mobile-menu-btn" class="text-white hover:text-secondary focus:outline-none">
                         <i data-feather="menu" class="w-7 h-7"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="bg-white border-t shadow-lg hidden">
+        <!-- Mobile Menu (CSS dropdowns) -->
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
             <div class="px-4 py-4 space-y-2">
 
-                <a href="#commercial"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Architecture</a>
-
-                <!-- Mobile Submenu: Design -->
-                <div class="border-b border-gray-100">
-                    <button
-                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
-                        data-toggle="mobile-submenu">
-                        Design
-                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                    </button>
-                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-                        style="transition-property: max-height, opacity, padding;">
-                        <a href="#residential"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Residential
+                <!-- Services Dropdown -->
+                <div class="border-b border-gray-400">
+                    <input type="checkbox" id="services-mobile" class="peer hidden">
+                    <label for="services-mobile"
+                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
+                        Services
+                        <i data-feather="chevron-down"
+                            class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
+                    </label>
+                    <div
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
+                        <a href="#property-management"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
+                            Management</a>
+                        <a href="#architectural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Architectural
                             Design</a>
-                        <a href="#interior"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Interior
+                        <a href="#interior-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
                             Design</a>
-                        <a href="#landscape"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Landscape</a>
-                    </div>
-                </div>
-
-                <a href="#building"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Building
-                    Solutions</a>
-
-                <!-- Mobile Submenu: Properties -->
-                <div class="border-b border-gray-100">
-                    <button
-                        class="w-full flex justify-between items-center px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded focus:outline-none"
-                        data-toggle="mobile-submenu">
-                        Properties
-                        <i data-feather="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                    </button>
-                    <div class="pl-5 space-y-1 hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0"
-                        style="transition-property: max-height, opacity, padding;">
-                        <a href="#buy"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Buy
-                            Property</a>
-                        <a href="#sell"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Sell
-                            Property</a>
-                        <a href="#rent"
-                            class="block py-2 text-gray-700 text-sm font-medium hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">Rent
-                            Property</a>
+                        <a href="#structural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                            Design</a>
+                        <a href="#electrical-plumbing"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
+                            & Plumbing Design</a>
+                        <a href="#construction"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
+                        <a href="#landscape-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                            Design</a>
+                        <a href="#renovation"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
                     </div>
                 </div>
 
                 <a href="#contact"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded border-b border-gray-100">Contact</a>
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
                 <a href="#about"
-                    class="block px-3 py-2 text-gray-700 font-semibold text-base hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200 rounded">About
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
                     Us</a>
+
+                <!-- Mobile Login & User Icon -->
+                <div class="flex items-center space-x-4 mt-2">
+                    <button
+                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                        Login
+                    </button>
+                    <!-- Mobile Login & User Icon -->
+                    <div class="flex items-center space-x-4 mt-2 relative">
+                        <button id="mobile-user-btn"
+                            class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                        </button>
+                        <div
+                            class="absolute top-0 left-full ml-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
+                            </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </nav>
+
     <br><br>
-    <!-- Property Search Section -->
-    <section
-        class="property-search h-auto flex items-center justify-center py-8 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
 
-        <div class="container mx-auto px-4 relative z-10">
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
 
-            <div class="max-w-5xl mx-auto">
-                <div class="glass-effect rounded-3xl shadow-2xl border-2 border-white/20 p-10 backdrop-blur-sm"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <!-- Tab Navigation -->
-                    <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-white border-b-4 border-blue-600 rounded-t-xl transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 active mx-1"
-                            data-tab="buy">
-                            <i class="fas fa-home mr-2"></i>
-                            Buy Property
-                        </button>
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
-                            data-tab="rent">
-                            <i class="fas fa-key mr-2"></i>
-                            Rent Property
-                        </button>
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
-                            data-tab="roommate">
-                            <i class="fas fa-users mr-2"></i>
-                            Search
-                        </button>
-                        <button
-                            class="tab-btn px-8 py-4 font-semibold text-gray-600 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200 rounded-t-xl transition-all duration-300 mx-1"
-                            data-tab="services">
-                            <i class="fas fa-concierge-bell mr-2"></i>
-                            Lifestyle Services
-                        </button>
-                    </div>
+        <!-- Property Search Section -->
+        <section
+            class="property-search  flex items-center justify-center py-20  via-white to-indigo-50 relative overflow-hidden">
 
-                    <!-- Buy Tab -->
-                    <div id="buy-tab" class="tab-content">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-6xl mx-auto">
+                    <div class="rounded-3xl shadow-2xl border-2 border-white/20 p-10 backdrop-blur-sm">
+                        <!-- Tab Navigation -->
+                        <div class="flex flex-wrap justify-center border-b border-gray-200 mb-10">
+                            <button
+                                class="tab-btn px-8 py-4 font-semibold active text-gray-600 rounded-t-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200 mx-1"
+                                data-tab="buy">
+                                <i class="fas fa-home mr-2"></i>
+                                Buy Property
+                            </button>
+                            <button
+                                class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
+                                data-tab="rent">
+                                <i class="fas fa-key mr-2"></i>
+                                Rent Property
+                            </button>
+                            <button
+                                class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
+                                data-tab="roommate">
+                                <i class="fas fa-users mr-2"></i>
+                                Search
+                            </button>
+                            <button
+                                class="tab-btn px-8 py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1"
+                                data-tab="services">
+                                <i class="fas fa-concierge-bell mr-2"></i>
+                                Lifestyle Services
+                            </button>
+                        </div>
+
+                        <!-- Buy Tab -->
+                        <div id="buy-tab" class="tab-content">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                                 <div class="relative">
-                                    <i class="fas fa-map-marker-alt absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Select Your Location</option>
-                                        <option value="dhaka">Dhaka</option>
-                                        <option value="chittagong">Chittagong</option>
-                                        <option value="sylhet">Sylhet</option>
-                                        <option value="khulna">Khulna</option>
-                                        <option value="rajshahi">Rajshahi</option>
-                                        <option value="rangpur">Rangpur</option>
-                                        <option value="barisal">Barisal</option>
-                                        <option value="gazipur">Gazipur</option>
-                                        <option value="narayanganj">Narayanganj</option>
-                                        <option value="comilla">Comilla</option>
-                                        <option value="bogra">Bogra</option>
-                                        <option value="kuakata">Kuakata</option>
-                                        <option value="coxsbazar">Cox's Bazar</option>
-                                        <option value="tangail">Tangail</option>
-                                        <option value="mymensingh">Mymensingh</option>
-                                        <option value="naogaon">Naogaon</option>
-                                        <option value="noakhali">Noakhali</option>
-                                        <option value="munshiganj">Munshiganj</option>
-                                        <option value="chandpur">Chandpur</option>
-                                        <option value="moulvibazar">Moulvibazar</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                                    <div class="relative">
+                                        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Select Your Location</option>
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="chittagong">Chittagong</option>
+                                            <option value="sylhet">Sylhet</option>
+                                            <option value="khulna">Khulna</option>
+                                            <option value="rajshahi">Rajshahi</option>
+                                            <option value="rangpur">Rangpur</option>
+                                            <option value="barisal">Barisal</option>
+                                            <option value="gazipur">Gazipur</option>
+                                            <option value="narayanganj">Narayanganj</option>
+                                            <option value="comilla">Comilla</option>
+                                            <option value="bogra">Bogra</option>
+                                            <option value="kuakata">Kuakata</option>
+                                            <option value="coxsbazar">Cox's Bazar</option>
+                                            <option value="tangail">Tangail</option>
+                                            <option value="mymensingh">Mymensingh</option>
+                                            <option value="naogaon">Naogaon</option>
+                                            <option value="noakhali">Noakhali</option>
+                                            <option value="munshiganj">Munshiganj</option>
+                                            <option value="chandpur">Chandpur</option>
+                                            <option value="moulvibazar">Moulvibazar</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Property Type</label>
                                 <div class="relative">
-                                    <i class="fas fa-building absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Property Type</option>
-                                        <option value="apartment">Apartment</option>
-                                        <option value="house">House</option>
-                                        <option value="villa">Villa</option>
-                                        <option value="land">Land</option>
-                                        <option value="commercial">Commercial Space</option>
-                                        <option value="office">Office Space</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Property Type</label>
+                                    <div class="relative">
+                                        <i class="fas fa-building absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Property Type</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="house">House</option>
+                                            <option value="villa">Villa</option>
+                                            <option value="land">Land</option>
+                                            <option value="commercial">Commercial Space</option>
+                                            <option value="office">Office Space</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Price Range</label>
                                 <div class="relative">
-                                    <i class="fas fa-dollar-sign absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Budget Range</option>
-                                        <option value="1000000-2500000">৳10L - ৳25L</option>
-                                        <option value="2500000-5000000">৳25L - ৳50L</option>
-                                        <option value="5000000-10000000">৳50L - ৳1Cr</option>
-                                        <option value="10000000+">৳1Cr+</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Price Range</label>
+                                    <div class="relative">
+                                        <i class="fas fa-dollar-sign absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Budget Range</option>
+                                            <option value="1000000-2500000">৳10L - ৳25L</option>
+                                            <option value="2500000-5000000">৳25L - ৳50L</option>
+                                            <option value="5000000-10000000">৳50L - ৳1Cr</option>
+                                            <option value="10000000+">৳1Cr+</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-end">
-                                <button id="search-property"
-                                    class="search-btn-hover w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
-                                    <i class="fas fa-search mr-2"></i>
-                                    Search
-                                </button>
+                                <div class="flex items-end">
+                                    <button id="search-property"
+                                        class="search-btn-hover w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
+                                        <i class="fas fa-search mr-2"></i>
+                                        Search
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Rent Tab -->
-                    <div id="rent-tab" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                        <!-- Rent Tab -->
+                        <div id="rent-tab" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                                 <div class="relative">
-                                    <i class="fas fa-map-marker-alt absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Select Your Location</option>
-                                        <option value="dhaka">Dhaka</option>
-                                        <option value="chittagong">Chittagong</option>
-                                        <option value="sylhet">Sylhet</option>
-                                        <option value="rajshahi">Rajshahi</option>
-                                        <option value="khulna">Khulna</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                                    <div class="relative">
+                                        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Select Your Location</option>
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="chittagong">Chittagong</option>
+                                            <option value="sylhet">Sylhet</option>
+                                            <option value="rajshahi">Rajshahi</option>
+                                            <option value="khulna">Khulna</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Property Type</label>
                                 <div class="relative">
-                                    <i class="fas fa-home absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Property Type</option>
-                                        <option value="apartment">Apartment</option>
-                                        <option value="house">House</option>
-                                        <option value="studio">Studio</option>
-                                        <option value="commercial">Commercial Space</option>
-                                        <option value="office">Office Space</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Property Type</label>
+                                    <div class="relative">
+                                        <i class="fas fa-home absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Property Type</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="house">House</option>
+                                            <option value="studio">Studio</option>
+                                            <option value="commercial">Commercial Space</option>
+                                            <option value="office">Office Space</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Monthly Rent</label>
                                 <div class="relative">
-                                    <i class="fas fa-dollar-sign absolute left-4 top-4 text-blue-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Rent Budget</option>
-                                        <option value="10000-25000">৳10K - ৳25K</option>
-                                        <option value="25000-50000">৳25K - ৳50K</option>
-                                        <option value="50000-100000">৳50K - ৳100K</option>
-                                        <option value="100000+">৳100K+</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Monthly Rent</label>
+                                    <div class="relative">
+                                        <i class="fas fa-dollar-sign absolute left-4 top-4 text-blue-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Rent Budget</option>
+                                            <option value="10000-25000">৳10K - ৳25K</option>
+                                            <option value="25000-50000">৳25K - ৳50K</option>
+                                            <option value="50000-100000">৳50K - ৳100K</option>
+                                            <option value="100000+">৳100K+</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="search-btn-hover w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-4 focus:ring-green-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
-                                    <i class="fas fa-search mr-2"></i>
-                                    Search
-                                </button>
+                                <div class="flex items-end">
+                                    <button
+                                        class="search-btn-hover w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 px-6 rounded-xl hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-4 focus:ring-green-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
+                                        <i class="fas fa-search mr-2"></i>
+                                        Search
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Roommate Tab -->
-                    <div id="roommate-tab" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                        <!-- Roommate Tab -->
+                        <div id="roommate-tab" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                                 <div class="relative">
-                                    <i class="fas fa-map-marker-alt absolute left-4 top-4 text-purple-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Select Your Location</option>
-                                        <option value="dhaka">Dhaka</option>
-                                        <option value="chittagong">Chittagong</option>
-                                        <option value="sylhet">Sylhet</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                                    <div class="relative">
+                                        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-purple-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Select Your Location</option>
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="chittagong">Chittagong</option>
+                                            <option value="sylhet">Sylhet</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Accommodation Type</label>
                                 <div class="relative">
-                                    <i class="fas fa-bed absolute left-4 top-4 text-purple-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Accommodation Type</option>
-                                        <option value="mess">Commercial Mess</option>
-                                        <option value="independent_mess">Independent Mess</option>
-                                        <option value="hostel">Hostel</option>
-                                        <option value="paying_guest">Paying Guest</option>
-                                        <option value="shared_apartment">Shared Apartment</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Accommodation
+                                        Type</label>
+                                    <div class="relative">
+                                        <i class="fas fa-bed absolute left-4 top-4 text-purple-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Accommodation Type</option>
+                                            <option value="mess">Commercial Mess</option>
+                                            <option value="independent_mess">Independent Mess</option>
+                                            <option value="hostel">Hostel</option>
+                                            <option value="paying_guest">Paying Guest</option>
+                                            <option value="shared_apartment">Shared Apartment</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Gender Preference</label>
                                 <div class="relative">
-                                    <i class="fas fa-users absolute left-4 top-4 text-purple-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Gender Preference</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="any">Any</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Gender
+                                        Preference</label>
+                                    <div class="relative">
+                                        <i class="fas fa-users absolute left-4 top-4 text-purple-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Gender Preference</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="any">Any</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="search-btn-hover w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
-                                    <i class="fas fa-search mr-2"></i>
-                                    Search
-                                </button>
+                                <div class="flex items-end">
+                                    <button
+                                        class="search-btn-hover w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white py-4 px-6 rounded-xl hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
+                                        <i class="fas fa-search mr-2"></i>
+                                        Search
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Lifestyle Services Tab -->
-                    <div id="services-tab" class="tab-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Service Category</label>
+                        <!-- Lifestyle Services Tab -->
+                        <div id="services-tab" class="tab-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                                 <div class="relative">
-                                    <i class="fas fa-concierge-bell absolute left-4 top-4 text-orange-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Select Service</option>
-                                        <option value="cleaning">Home Cleaning</option>
-                                        <option value="maintenance">Property Maintenance</option>
-                                        <option value="security">Security Services</option>
-                                        <option value="catering">Event Catering</option>
-                                        <option value="gardening">Gardening</option>
-                                        <option value="interior">Interior Design</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Service
+                                        Category</label>
+                                    <div class="relative">
+                                        <i class="fas fa-concierge-bell absolute left-4 top-4 text-orange-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Select Service</option>
+                                            <option value="cleaning">Home Cleaning</option>
+                                            <option value="maintenance">Property Maintenance</option>
+                                            <option value="security">Security Services</option>
+                                            <option value="catering">Event Catering</option>
+                                            <option value="gardening">Gardening</option>
+                                            <option value="interior">Interior Design</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
                                 <div class="relative">
-                                    <i class="fas fa-map-marker-alt absolute left-4 top-4 text-orange-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Select Your Location</option>
-                                        <option value="dhaka">Dhaka</option>
-                                        <option value="chittagong">Chittagong</option>
-                                        <option value="sylhet">Sylhet</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Location</label>
+                                    <div class="relative">
+                                        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-orange-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Select Your Location</option>
+                                            <option value="dhaka">Dhaka</option>
+                                            <option value="chittagong">Chittagong</option>
+                                            <option value="sylhet">Sylhet</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="relative">
-                                <label class="block text-sm font-semibold text-gray-700 mb-3">Service Type</label>
                                 <div class="relative">
-                                    <i class="fas fa-clock absolute left-4 top-4 text-orange-500"></i>
-                                    <select
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
-                                        <option>Service Type</option>
-                                        <option value="one-time">One-time Service</option>
-                                        <option value="weekly">Weekly Service</option>
-                                        <option value="monthly">Monthly Service</option>
-                                        <option value="contract">Long-term Contract</option>
-                                    </select>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-3">Service Type</label>
+                                    <div class="relative">
+                                        <i class="fas fa-clock absolute left-4 top-4 text-orange-500"></i>
+                                        <select
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm">
+                                            <option>Service Type</option>
+                                            <option value="one-time">One-time Service</option>
+                                            <option value="weekly">Weekly Service</option>
+                                            <option value="monthly">Monthly Service</option>
+                                            <option value="contract">Long-term Contract</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flex items-end">
-                                <button
-                                    class="search-btn-hover w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white py-4 px-6 rounded-xl hover:from-orange-700 hover:to-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
-                                    <i class="fas fa-search mr-2"></i>
-                                    Search
-                                </button>
+                                <div class="flex items-end">
+                                    <button
+                                        class="search-btn-hover w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white py-4 px-6 rounded-xl hover:from-orange-700 hover:to-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-lg">
+                                        <i class="fas fa-search mr-2"></i>
+                                        Search
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-8">
+
         <!-- Results Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Properties in Dhaka</h2>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Properties in Dhaka</h3>
                 <p class="text-gray-600 flex items-center">
-                    <i class="fas fa-check-circle text-secondary mr-2"></i>
-                    Found <span id="resultCount" class="font-semibold text-primary">12</span> properties matching your
+                    <i class="fas fa-check-circle text-primary mr-2"></i>
+                    Found  &nbsp;<span class="font-semibold text-primary"><span id="resultCount" ></span> properties</span> &nbsp; matching your
                     criteria
                 </p>
             </div>
@@ -756,7 +795,7 @@
                             <div class="grid grid-cols-2 gap-2">
                                 ${property.features.map(feature =>
                 `<div class="flex items-center">
-                                        <i class="fas fa-check text-secondary mr-2"></i>
+                                        <i class="fas fa-check text-primary mr-2"></i>
                                         <span class="text-gray-600">${feature}</span>
                                     </div>`
             ).join('')}
