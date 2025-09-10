@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+
     <!-- Add Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -31,7 +32,44 @@
             }
         }
     </script>
+    <style>
+        .hero-swiper {
+            width: 100%;
+            height: 100vh;
+        }
 
+        .hero-slide {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: #ffffffd7;
+            opacity: 0.7;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #0048a7;
+            opacity: 1;
+        }
+
+        .property-card {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 72, 167, 0.342);
+            border: 1px solid #ffffff4b;
+        }
+
+        .gradient-overlay {
+            background: #00000088;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50">
@@ -208,345 +246,171 @@
         </div>
     </nav>
 
-    <main class="container mx-auto px-6 py-8">
+    <!-- Hero Section -->
+    <section class="relative flex items-center justify-center text-white min-h-screen overflow-hidden">
+        <!-- Swiper Container -->
+        <div class="hero-swiper absolute inset-0 z-0">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 - Luxury Villa -->
+                <div class="swiper-slide hero-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');">
+                    <div class="gradient-overlay absolute inset-0"></div>
+                </div>
 
-        <!-- Property Search Section -->
-        <section class="property-search flex items-center justify-center py-20 relative overflow-hidden">
+                <!-- Slide 2 - Modern Apartment -->
+                <div class="swiper-slide hero-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gradient-overlay absolute inset-0"></div>
+                </div>
 
-            <div class="container mx-auto relative z-10">
+                <!-- Slide 3 - Family Home -->
+                <div class="swiper-slide hero-slide"
+                    style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="gradient-overlay absolute inset-0"></div>
+                </div>
+            </div>
 
-                <div class="w-full max-w-6xl mx-auto sm:px-4">
-                    <div class="rounded-3xl md:shadow-2xl border-2 border-gray-200 p-4 sm:p-6 lg:p-10 backdrop-blur-sm"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <!-- Tab Navigation -->
-                        <div class="border-b border-gray-200 mb-6 lg:mb-10 overflow-x-auto">
-                            <div class="flex min-w-max px-2 pt-2 justify-center">
-                                <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold active text-gray-600 rounded-t-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
-                                    data-tab="buy">
-                                    <i class="fas fa-home mr-1 sm:mr-2"></i>
-                                    Buy Property
-                                </button>
-                                <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
-                                    data-tab="rent">
-                                    <i class="fas fa-key mr-1 sm:mr-2"></i>
-                                    Rent Property
-                                </button>
-                                <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
-                                    data-tab="roommate">
-                                    <i class="fas fa-users mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                                <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
-                                    data-tab="services">
-                                    <i class="fas fa-concierge-bell mr-1 sm:mr-2"></i>
-                                    Lifestyle Services
-                                </button>
-                            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Content Overlay -->
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <br><br>
+                <!-- Main Heading -->
+                <h2 class="text-2xl md:text-7xl font-bold mb-6 text-shadow">
+                    Find Your Dream <span class="text-secondary">Property</span>
+                </h2><br>
+
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up"
+                    data-aos-delay="200">
+                    Discover exceptional properties that match your lifestyle. From luxury villas to modern apartments,
+                    your perfect home awaits.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12" data-aos="fade-up"
+                    data-aos-delay="400">
+                    <button
+                        class="bg-primary hover:bg-darkPrimary text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl min-w-[200px] group">
+                        <i class="fas fa-search mr-2 group-hover:rotate-12 transition-transform"></i>
+                        Browse Properties
+                    </button>
+                    <button
+                        class="border-2 border-secondary text-secondary hover:bg-secondary hover:text-primary px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 min-w-[200px] group">
+                        <i class="fas fa-phone mr-2 group-hover:animate-bounce"></i>
+                        Contact Agent
+                    </button>
+                </div>
+
+                <!-- Property Quick Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto" data-aos="fade-up"
+                    data-aos-delay="600">
+                    <div
+                        class="property-card rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-3">
+                            <i class="fas fa-home text-secondary"></i>
                         </div>
+                        <h3 class="text-2xl font-bold mb-2">500+</h3>
+                        <p class="text-gray-300">Premium Properties</p>
+                    </div>
 
-                        <!-- Buy Tab -->
-                        <div id="buy-tab" class="tab-content">
-                            <div
-                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Your Location</option>
-                                            <option value="dhaka">Dhaka</option>
-                                            <option value="chittagong">Chittagong</option>
-                                            <option value="sylhet">Sylhet</option>
-                                            <option value="khulna">Khulna</option>
-                                            <option value="rajshahi">Rajshahi</option>
-                                            <option value="rangpur">Rangpur</option>
-                                            <option value="barisal">Barisal</option>
-                                            <option value="gazipur">Gazipur</option>
-                                            <option value="narayanganj">Narayanganj</option>
-                                            <option value="comilla">Comilla</option>
-                                            <option value="bogra">Bogra</option>
-                                            <option value="kuakata">Kuakata</option>
-                                            <option value="coxsbazar">Cox's Bazar</option>
-                                            <option value="tangail">Tangail</option>
-                                            <option value="mymensingh">Mymensingh</option>
-                                            <option value="naogaon">Naogaon</option>
-                                            <option value="noakhali">Noakhali</option>
-                                            <option value="munshiganj">Munshiganj</option>
-                                            <option value="chandpur">Chandpur</option>
-                                            <option value="moulvibazar">Moulvibazar</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Property
-                                        Type</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-building absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Property Type</option>
-                                            <option value="apartment">Apartment</option>
-                                            <option value="house">House</option>
-                                            <option value="villa">Villa</option>
-                                            <option value="land">Land</option>
-                                            <option value="commercial">Commercial Space</option>
-                                            <option value="office">Office Space</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Price
-                                        Range</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-dollar-sign absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Budget Range</option>
-                                            <option value="1000000-2500000">৳10L - ৳25L</option>
-                                            <option value="2500000-5000000">৳25L - ৳50L</option>
-                                            <option value="5000000-10000000">৳50L - ৳1Cr</option>
-                                            <option value="10000000+">৳1Cr+</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center mt-6">
-                                <button id="search-property"
-                                    class="search-btn-hover bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
+                    <div
+                        class="property-card rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-3">
+                            <i class="fas fa-users text-secondary"></i>
                         </div>
+                        <h3 class="text-2xl font-bold mb-2">1000+</h3>
+                        <p class="text-gray-300">Happy Clients</p>
+                    </div>
 
-                        <!-- Rent Tab -->
-                        <div id="rent-tab" class="tab-content hidden">
-                            <div
-                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Your Location</option>
-                                            <option value="dhaka">Dhaka</option>
-                                            <option value="chittagong">Chittagong</option>
-                                            <option value="sylhet">Sylhet</option>
-                                            <option value="rajshahi">Rajshahi</option>
-                                            <option value="khulna">Khulna</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Property
-                                        Type</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-home absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Property Type</option>
-                                            <option value="apartment">Apartment</option>
-                                            <option value="house">House</option>
-                                            <option value="studio">Studio</option>
-                                            <option value="commercial">Commercial Space</option>
-                                            <option value="office">Office Space</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Monthly
-                                        Rent</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-dollar-sign absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Rent Budget</option>
-                                            <option value="10000-25000">৳10K - ৳25K</option>
-                                            <option value="25000-50000">৳25K - ৳50K</option>
-                                            <option value="50000-100000">৳50K - ৳100K</option>
-                                            <option value="100000+">৳100K+</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-green-600 to-green-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-4 focus:ring-green-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
+                    <div
+                        class="property-card rounded-2xl p-6 text-center transform hover:scale-105 transition-all duration-300">
+                        <div class="text-4xl mb-3">
+                            <i class="fas fa-award text-secondary"></i>
                         </div>
-
-                        <!-- Roommate Tab -->
-                        <div id="roommate-tab" class="tab-content hidden">
-                            <div
-                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Your Location</option>
-                                            <option value="dhaka">Dhaka</option>
-                                            <option value="chittagong">Chittagong</option>
-                                            <option value="sylhet">Sylhet</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Accommodation
-                                        Type</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-bed absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Accommodation Type</option>
-                                            <option value="mess">Commercial Mess</option>
-                                            <option value="independent_mess">Independent Mess</option>
-                                            <option value="hostel">Hostel</option>
-                                            <option value="paying_guest">Paying Guest</option>
-                                            <option value="shared_apartment">Shared Apartment</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Gender
-                                        Preference</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-users absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Gender Preference</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="any">Any</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Occupation</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-briefcase absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Occupation</option>
-                                            <option value="student">Student</option>
-                                            <option value="working_professional">Working Professional</option>
-                                            <option value="business">Business Person</option>
-                                            <option value="freelancer">Freelancer</option>
-                                            <option value="teacher">Teacher</option>
-                                            <option value="doctor">Doctor</option>
-                                            <option value="engineer">Engineer</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Lifestyle Services Tab -->
-                        <div id="services-tab" class="tab-content hidden">
-                            <div
-                                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Service
-                                        Category</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-concierge-bell absolute left-3 sm:left-4 top-3 sm:top-4 text-orange-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Service</option>
-                                            <option value="cleaning">Home Cleaning</option>
-                                            <option value="maintenance">Property Maintenance</option>
-                                            <option value="security">Security Services</option>
-                                            <option value="catering">Event Catering</option>
-                                            <option value="gardening">Gardening</option>
-                                            <option value="interior">Interior Design</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-orange-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Select Your Location</option>
-                                            <option value="dhaka">Dhaka</option>
-                                            <option value="chittagong">Chittagong</option>
-                                            <option value="sylhet">Sylhet</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Service
-                                        Type</label>
-                                    <div class="relative">
-                                        <i
-                                            class="fas fa-clock absolute left-3 sm:left-4 top-3 sm:top-4 text-orange-500 text-sm"></i>
-                                        <select
-                                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
-                                            <option>Service Type</option>
-                                            <option value="one-time">One-time Service</option>
-                                            <option value="weekly">Weekly Service</option>
-                                            <option value="monthly">Monthly Service</option>
-                                            <option value="contract">Long-term Contract</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-orange-600 to-orange-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-orange-700 hover:to-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-2">15+</h3>
+                        <p class="text-gray-300">Years Experience</p>
                     </div>
                 </div>
             </div>
-        </section>
 
+        </div>
+
+
+    </section>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            speed: 1500,
+        });
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animate property cards on hover
+            const propertyCards = document.querySelectorAll('.property-card');
+            propertyCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    anime({
+                        targets: this,
+                        scale: 1.05,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // Button hover animations
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function () {
+                    anime({
+                        targets: this,
+                        scale: 1.05,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                button.addEventListener('mouseleave', function () {
+                    anime({
+                        targets: this,
+                        scale: 1,
+                        duration: 200,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+        });
+    </script>
+
+
+    <main class="container mx-auto px-6 py-8">
 
 
         <!-- Results Header -->
@@ -587,6 +451,72 @@
                 </div>
             </div>
         </div>
+        <!-- ADVANCED FILTERS -->
+        <div class="advanced-filter">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
+                <div class="relative w-full max-w-sm">
+                    <div class="relative">
+                        <i
+                            class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
+                        <select
+                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
+                            <option>Select Your Location</option>
+                            <option value="dhaka">Dhaka</option>
+                            <option value="chittagong">Chittagong</option>
+                            <option value="sylhet">Sylhet</option>
+                            <option value="khulna">Khulna</option>
+                            <option value="rajshahi">Rajshahi</option>
+                            <option value="rangpur">Rangpur</option>
+                            <option value="barisal">Barisal</option>
+                            <option value="gazipur">Gazipur</option>
+                            <option value="narayanganj">Narayanganj</option>
+                            <option value="comilla">Comilla</option>
+                            <option value="bogra">Bogra</option>
+                            <option value="kuakata">Kuakata</option>
+                            <option value="coxsbazar">Cox's Bazar</option>
+                            <option value="tangail">Tangail</option>
+                            <option value="mymensingh">Mymensingh</option>
+                            <option value="naogaon">Naogaon</option>
+                            <option value="noakhali">Noakhali</option>
+                            <option value="munshiganj">Munshiganj</option>
+                            <option value="chandpur">Chandpur</option>
+                            <option value="moulvibazar">Moulvibazar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="relative w-full max-w-sm">
+                    <div class="relative">
+                        <i class="fas fa-building absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
+                        <select
+                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
+                            <option>Property Type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="villa">Villa</option>
+                            <option value="land">Land</option>
+                            <option value="commercial">Commercial Space</option>
+                            <option value="office">Office Space</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="relative w-full max-w-sm">
+                    <div class="relative">
+                        <i
+                            class="fas fa-dollar-sign absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
+                        <select
+                            class="w-full pl-8 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 hover:border-gray-300 focus:outline-none transition-all duration-300 bg-white shadow-sm text-sm sm:text-base">
+                            <option>Budget Range</option>
+                            <option value="1000000-2500000">৳10L - ৳25L</option>
+                            <option value="2500000-5000000">৳25L - ৳50L</option>
+                            <option value="5000000-10000000">৳50L - ৳1Cr</option>
+                            <option value="10000000+">৳1Cr+</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
 
         <!-- Property Grid -->
         <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
