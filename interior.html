@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interior Design - One-Reach Services</title>
+    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0048a7',
+                        secondary: '#85ffff',
+                        darkPrimary: '#00306e',
+                        litePrimary: '#0063e4',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .service-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 72, 167, 0.25);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #0048a7 0%, #0063e4 50%, #85ffff 100%);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .icon-animation {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .icon-animation {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+    <script src="main.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navigation (Same as your existing nav) -->
+    <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="/index.html" class="flex items-center">
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                        class="h-10 w-10 mr-3 rounded-full shadow-md">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl text-white">One Reach Services</span>
+                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                    <!-- Services Dropdown -->
+                    <div class="dropdown-container relative">
+                        <button
+                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
+                            Services <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#property-management"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
+                                Management</a>
+                            <a href="interior.html"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary bg-darkPrimary">interior
+                                Design</a>
+                            <a href="#interior-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
+                                Design</a>
+                            <a href="#structural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
+                                Design</a>
+                            <a href="#electrical-plumbing"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
+                                Plumbing Design</a>
+                            <a href="#construction"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
+                            <a href="#landscape-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
+                                Design</a>
+                            <a href="#renovation"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
+                        </div>
+                    </div>
+
+                    <a href="/contact.html"
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Contact
+                    </a>
+
+                    <a href="about-us.html"
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        About Us
+                    </a>
+
+                    <!-- Login & User Icon (Desktop) -->
+                    <div class="flex items-center space-x-4 ml-4">
+                        <button
+                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                            Login
+                        </button>
+                        <div class="relative">
+                            <button id="user-btn"
+                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                            </button>
+                            <div
+                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                    <i class="fas fa-user mr-2"></i> John Doe
+                                </div>
+                                <button
+                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-secondary focus:outline-none">
+                        <i data-feather="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
+            <div class="px-4 py-4 space-y-2">
+                <div class="border-b border-gray-400">
+                    <input type="checkbox" id="services-mobile" class="peer hidden">
+                    <label for="services-mobile"
+                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
+                        Services
+                        <i data-feather="chevron-down"
+                            class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
+                    </label>
+                    <div
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
+                        <a href="#property-management"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
+                            Management</a>
+                        <a href="interior.html"
+                            class="block bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">interior
+                            Design</a>
+                        <a href="#interior-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
+                            Design</a>
+                        <a href="#structural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                            Design</a>
+                        <a href="#electrical-plumbing"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
+                            & Plumbing Design</a>
+                        <a href="#construction"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
+                        <a href="#landscape-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                            Design</a>
+                        <a href="#renovation"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
+                    </div>
+                </div>
+                <a href="/contact.html"
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
+                <a href="/about-us.html"
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
+                    Us</a>
+                <div class="flex items-center space-x-4 mt-2">
+                    <button
+                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                        Login
+                    </button>
+                    <div class="flex items-center space-x-4 mt-2 relative">
+                        <button id="mobile-user-btn"
+                            class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                        </button>
+                        <div
+                            class="absolute top-0 left-full ml-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
+                            </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating-animation absolute top-20 left-10 w-32 h-32 bg-white rounded-full"></div>
+            <div class="floating-animation absolute top-40 right-20 w-24 h-24 bg-white rounded-full"
+                style="animation-delay: -2s;"></div>
+            <div class="floating-animation absolute bottom-32 left-1/3 w-20 h-20 bg-white rounded-full"
+                style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center text-white relative z-10">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Interior <span class="text-secondary">Design</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Transforming visions into extraordinary interior masterpieces. From residential homes to
+                    commercial complexes, we design spaces that inspire and endure.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                        class="glass-effect px-8 py-4 rounded-full text-white font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        <i class="fas fa-drafting-compass mr-2"></i>
+                        Start Your Project
+                    </button>
+                    <button
+                        class="border-2 border-white px-8 py-4 rounded-full text-white font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>
+                        View Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our interior Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From concept to completion, we deliver comprehensive interior solutions tailored to your vision
+                    and needs
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Residential Architecture -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Residential Architecture</h3>
+                    <p class="text-gray-600 mb-6">Designing beautiful homes, apartments, villas, and duplexes that
+                        reflect your lifestyle and dreams.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Custom Homes</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Luxury Villas</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Modern Apartments</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Duplex Designs</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Commercial Architecture -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Commercial Architecture</h3>
+                    <p class="text-gray-600 mb-6">Professional spaces designed for business success, from offices to
+                        retail environments.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Corporate Offices</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Shopping Malls</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Retail Spaces</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Business Centers</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Mixed-Use Developments -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-city text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Mixed-Use Developments</h3>
+                    <p class="text-gray-600 mb-6">Integrated developments combining residential, commercial, and
+                        recreational spaces.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Live-Work-Play Complexes</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Urban Planning</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Community Centers</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Transit-Oriented Development</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Religious Buildings -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-place-of-worship text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Religious Buildings</h3>
+                    <p class="text-gray-600 mb-6">Sacred spaces designed with reverence, tradition, and spiritual
+                        significance.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Mosques</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Temples</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Prayer Halls</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Community Centers</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Hospitality & Leisure -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-hotel text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Hospitality & Leisure</h3>
+                    <p class="text-gray-600 mb-6">Creating memorable experiences through thoughtfully designed
+                        hospitality spaces.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Luxury Hotels</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Resorts</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Restaurants</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Entertainment Venues</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+                <!-- Institutional Buildings -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-university text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Institutional Buildings</h3>
+                    <p class="text-gray-600 mb-6">Educational and healthcare facilities designed for functionality and
+                        inspiration.</p>
+                    <ul class="text-gray-600 space-y-2 mb-6">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Schools & Universities</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Hospitals & Clinics</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Research Centers</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Government Buildings</li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
+                        Contact Us
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Services -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Specialized Design Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Beyond traditional architecture, we offer specialized services that enhance and complete your vision
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Landscape Architecture -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Landscape Architecture</h3>
+                    <p class="text-gray-600 mb-6">Beautiful outdoor spaces including gardens, parks, and rooftop designs
+                        that harmonize with nature.</p>
+                    <div class="space-y-2 text-left">
+                        <div class="flex items-center"><i class="fas fa-seedling text-green-500 mr-3"></i>Garden Design
+                        </div>
+                        <div class="flex items-center"><i class="fas fa-tree text-green-500 mr-3"></i>Park Planning
+                        </div>
+                        <div class="flex items-center"><i class="fas fa-mountain text-green-500 mr-3"></i>Rooftop
+                            Gardens</div>
+                    </div>
+                </div>
+
+                <!-- Master Planning -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-map text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Master Planning</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive development strategies that create cohesive, sustainable
+                        communities and environments.</p>
+                    <div class="space-y-2 text-left">
+                        <div class="flex items-center"><i class="fas fa-drafting-compass text-purple-500 mr-3"></i>Site
+                            Analysis</div>
+                        <div class="flex items-center"><i class="fas fa-road text-purple-500 mr-3"></i>Infrastructure
+                            Planning</div>
+                        <div class="flex items-center"><i class="fas fa-chart-line text-purple-500 mr-3"></i>Growth
+                            Strategy</div>
+                    </div>
+                </div>
+
+                <!-- Sustainable & Green Design -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-recycle text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Sustainable & Green Design</h3>
+                    <p class="text-gray-600 mb-6">Eco-friendly solutions that reduce environmental impact while creating
+                        healthier living and working spaces.</p>
+                    <div class="space-y-2 text-left">
+                        <div class="flex items-center"><i class="fas fa-solar-panel text-cyan-500 mr-3"></i>Renewable
+                            Energy</div>
+                        <div class="flex items-center"><i class="fas fa-tint text-cyan-500 mr-3"></i>Water Conservation
+                        </div>
+                        <div class="flex items-center"><i class="fas fa-certificate text-cyan-500 mr-3"></i>Green
+                            Certifications</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Design Process</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From initial consultation to final delivery, we follow a proven process that ensures exceptional
+                    results
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                            1</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Consultation</h3>
+                        <p class="text-gray-600">Understanding your vision, requirements, and project goals through
+                            detailed discussions.</p>
+                    </div>
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                            2</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Design Development</h3>
+                        <p class="text-gray-600">Creating conceptual designs and developing detailed interior plans
+                            tailored to your needs.</p>
+                    </div>
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                            3</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Approval & Documentation</h3>
+                        <p class="text-gray-600">Preparing construction documents and securing necessary permits and
+                            approvals.</p>
+                    </div>
+
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div
+                            class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                            4</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Project Delivery</h3>
+                        <p class="text-gray-600">Overseeing construction and ensuring your interior vision comes to
+                            life perfectly.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gradient-to-br from-primary to-darkPrimary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Choose Our interior Services</h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Experience, innovation, and dedication to excellence in every project we undertake
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-20 h-20 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Award-Winning Designs</h3>
+                    <p class="text-gray-300">Recognized for innovative and outstanding interior solutions across
+                        various project types.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="w-20 h-20 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Expert Team</h3>
+                    <p class="text-gray-300">Skilled architects and designers with years of experience in diverse
+                        interior disciplines.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="w-20 h-20 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Innovation Focus</h3>
+                    <p class="text-gray-300">Cutting-edge design approaches using the latest technology and sustainable
+                        practices.</p>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div
+                        class="w-20 h-20 bg-secondary bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Client-Centered</h3>
+                    <p class="text-gray-300">Collaborative approach ensuring your vision is at the heart of every design
+                        decision.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Bring Your Vision to Life?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Let's discuss your interior project and create something extraordinary together
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                        class="bg-secondary text-darkPrimary px-8 py-4 rounded-full font-semibold text-lg hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Get Free Consultation
+                    </button>
+                    <button
+                        class="border-2 border-secondary text-secondary px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary hover:text-darkPrimary transition-all duration-300 transform hover:scale-105">
+                        View Our Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkPrimary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                            class="h-12 w-12 mr-3 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-bold">One Reach Services</h3>
+                            <p class="text-secondary">Land • Living • Lifestyle</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Your trusted partner for comprehensive interior design services. From residential homes to
+                        commercial complexes, we create spaces that inspire and endure.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Residential
+                                Design</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Commercial
+                                Architecture</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Interior Design</a>
+                        </li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Landscape
+                                Architecture</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Construction</a>
+                        </li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Renovation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                            <span>123 Architecture Street<br>Design City, DC 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3"></i>
+                            <span>info@onereachservices.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-secondary mr-3"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 One Reach Services. All rights reserved. | Designed with excellence and innovation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Dropdown functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Desktop dropdown
+            const dropdownContainer = document.querySelector('.dropdown-container');
+            const dropdown = dropdownContainer.querySelector('div');
+            const chevron = dropdownContainer.querySelector('i[data-feather="chevron-down"]');
+
+            dropdownContainer.addEventListener('mouseenter', function () {
+                dropdown.classList.remove('opacity-0', 'invisible');
+                dropdown.classList.add('opacity-100', 'visible');
+                chevron.style.transform = 'rotate(180deg)';
+            });
+
+            dropdownContainer.addEventListener('mouseleave', function () {
+                dropdown.classList.add('opacity-0', 'invisible');
+                dropdown.classList.remove('opacity-100', 'visible');
+                chevron.style.transform = 'rotate(0deg)';
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // User dropdown functionality
+            const userBtn = document.getElementById('user-btn');
+            const userDropdown = userBtn.nextElementSibling;
+            const mobileUserBtn = document.getElementById('mobile-user-btn');
+            const mobileUserDropdown = mobileUserBtn.nextElementSibling;
+
+            userBtn.addEventListener('click', function () {
+                userDropdown.classList.toggle('opacity-0');
+                userDropdown.classList.toggle('invisible');
+            });
+
+            mobileUserBtn.addEventListener('click', function () {
+                mobileUserDropdown.classList.toggle('opacity-0');
+                mobileUserDropdown.classList.toggle('invisible');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!userBtn.contains(event.target) && !userDropdown.contains(event.target)) {
+                    userDropdown.classList.add('opacity-0', 'invisible');
+                }
+                if (!mobileUserBtn.contains(event.target) && !mobileUserDropdown.contains(event.target)) {
+                    mobileUserDropdown.classList.add('opacity-0', 'invisible');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-opacity-95');
+            } else {
+                nav.classList.remove('bg-opacity-95');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
