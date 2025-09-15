@@ -42,88 +42,103 @@
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20 2xl:h-24">
                 <!-- Logo -->
                 <a href="/index.html" class="flex items-center">
-                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
-                        class="h-10 w-10 mr-3 rounded-full shadow-md">
-                    <div class="flex flex-col">
-                        <span class="font-bold text-xl text-white">One Reach Services</span>
-                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
-                    </div>
+                    <img src="/statics/onespace-logo.jpg" alt="One-Reach"
+                        class="h-10 w-10 md:h-16 md:w-16 mr-3 rounded-full shadow-md">
+                    <span class="font-bold text:xl md:text-2xl text-white hover:text-blue-400">ONE REACH SERVICES</span>
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                <div class="hidden md:flex ml-10 space-x-6 items-center">
 
-                    <!-- Services Dropdown -->
+                    <!-- Services Dropdown (Desktop) -->
                     <div class="dropdown-container relative">
                         <button
-                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
-                            Services <i data-feather="chevron-down"
-                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                            class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                            <span
+                                class="flex items-center gap-2 px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+                                Services <i data-feather="chevron-down" class="transition-transform duration-300"></i>
+                            </span>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="/property.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
-                                Management</a>
+                            class="absolute right-0 mt-4 w-72 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+
                             <a href="/architectural.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Architectural
-                                Design</a>
-                            <a href="/interior.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500  first:rounded-t-md">Architectural
                                 Design</a>
                             <a href="/structural.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Structural
                                 Design</a>
                             <a href="/electrical.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
-                                Plumbing Design</a>
-                            <a href="/construction.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
-                            <a href="/landscape.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Electrical
                                 Design</a>
-                            <a href="/renovation.html"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
+                            <a href="/mechanical.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Mechanical
+                                Design</a>
+                            <a href="/plumbing.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Plumbing
+                                &
+                                Water Services</a>
+                            <a href="/interior.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Interior
+                                Design & Implementation</a>
+                            <a href="/landscape.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Landscape
+                                Design</a>
+                            <a href="/construction.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Construction
+                                Services</a>
+                            <a href="/project-management.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Project
+                                Management & Consultancy</a>
+                            <a href="/maintenance.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Building
+                                Maintenance & Facility
+                                Management</a>
+                            <a href="/land-development.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500  last:rounded-b-md">Land
+                                Development &
+                                Real Estate Services</a>
                         </div>
                     </div>
 
+
+                    <!-- Other Nav Buttons (styled same as Services) -->
                     <a href="/contact.html"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Contact
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                        <span
+                            class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                            Contact
+                        </span>
                     </a>
 
-                    <a href="about-us.html"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        About Us
+                    <a href="/about-us.html"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                        <span
+                            class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                            About Us
+                        </span>
                     </a>
-                    <!-- Login & User Icon (Desktop) -->
-                    <div class="flex items-center space-x-4 ml-4">
-                        <button
-                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                            Login
+
+                    <!-- Login & User Icon -->
+                    <div class="relative">
+                        <button id="user-btn"
+                            class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-6 h-6 text-gray-800"></i>
                         </button>
-                        <div class="relative">
-                            <button id="user-btn"
-                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
-                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
-                            </button>
-                            <div
-                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
-                                    <i class="fas fa-user mr-2"></i> John Doe
-                                </div>
-                                <button
-                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
-                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-                                </button>
+                        <div
+                            class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
                             </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
                         </div>
                     </div>
-
-
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -135,60 +150,79 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (CSS dropdowns) -->
-        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden overflow-y-auto h-[90vh]">
             <div class="px-4 py-4 space-y-2">
 
-                <!-- Services Dropdown -->
-                <div class="border-b border-gray-400">
+                <!-- Services Dropdown (Mobile) -->
+                <div class="">
                     <input type="checkbox" id="services-mobile" class="peer hidden">
                     <label for="services-mobile"
-                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
-                        Services
+                        class="w-full relative inline-flex items-center justify-between px-4 py-2 text-lg font-semibold rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 text-white cursor-pointer">
+                        <span class="flex items-center gap-2">Services</span>
                         <i data-feather="chevron-down"
                             class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
                     </label>
                     <div
-                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
-                        <a href="/property-management"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
-                            Management</a>
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-[1000px] transition-all duration-300">
+
                         <a href="/architectural.html"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Architectural
-                            Design</a>
-                        <a href="/interior.html"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Architectural
                             Design</a>
                         <a href="/structural.html"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Structural
                             Design</a>
                         <a href="/electrical.html"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
-                            & Plumbing Design</a>
-                        <a href="/construction"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
-                        <a href="/landscape.html"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Electrical
                             Design</a>
-                        <a href="/renovation"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
+                        <a href="/mechanical.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Mechanical
+                            Design</a>
+                        <a href="/plumbing.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Plumbing
+                            &
+                            Water Services</a>
+                        <a href="/interior.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Interior
+                            Design & Implementation</a>
+                        <a href="/landscape.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Landscape
+                            Design</a>
+                        <a href="/construction.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Construction
+                            Services</a>
+                        <a href="/project-management.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Project
+                            Management & Consultancy</a>
+                        <a href="/maintenance.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Building
+                            Maintenance & Facility Management</a>
+                        <a href="/land-development.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Land
+                            Development & Real Estate Services</a>
                     </div>
                 </div>
 
+                <!-- Other Mobile Navs -->
                 <a href="/contact.html"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
-                <a href="/about-us.html"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
-                    Us</a>
+                    class="block relative inline-flex items-center justify-center w-full p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                    <span
+                        class="px-4 py-2 w-full text-center font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                        Contact
+                    </span>
+                </a>
 
-                <!-- Mobile Login & User Icon -->
+                <a href="/about-us.html"
+                    class="block relative inline-flex items-center justify-center w-full p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                    <span
+                        class="px-4 py-2 w-full text-center font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                        About Us
+                    </span>
+                </a>
+
+                <!-- Mobile Login & User -->
                 <div class="flex items-center space-x-4 mt-2">
-                    <button
-                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                        Login
-                    </button>
-                    <!-- Mobile Login & User Icon -->
-                    <div class="flex items-center space-x-4 mt-2 relative">
+                    <div class="relative">
                         <button id="mobile-user-btn"
                             class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
                             <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
@@ -204,13 +238,11 @@
                             </button>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
     </nav>
+
 
     <!-- Services Section -->
     <section class="min-h-screen py-20 bg-white flex items-center">
@@ -818,7 +850,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- FAQ -->
     <section id="faq" class="py-20 bg-white">

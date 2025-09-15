@@ -125,3 +125,11 @@ body {
 .social-icon:hover {
   transform: translateY(-3px) scale(1.1);
 }
+
+.nav-border {
+  background-color: #014CAF;
+  border: 3px solid #0D7FE2;
+  border-radius: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  text-shadow: 0 4px 4px 0 #000000d8;
+}
