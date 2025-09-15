@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+:root {
+  --primary: #0048a7;
+  --secondary: #85ffff;
+  --darkPrimary: #00306e;
+  --litePrimary: #0063e4;
+}
+
 body {
   font-family: "Inter", sans-serif;
 }
@@ -127,9 +134,65 @@ body {
 }
 
 .nav-border {
-  background-color: #014CAF;
-  border: 3px solid #0D7FE2;
+  background-color: #014caf;
+  border: 3px solid #0d7fe2;
   border-radius: 0.3rem;
   padding: 0.2rem 0.5rem;
-  text-shadow: 0 4px 4px 0 #000000d8;
+  text-shadow: 0 4px 4px #000000d8;
+}
+
+.service-card {
+  position: relative;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1;
+  transition: all 0.3s ease;
+  z-index: 4;
+}
+
+.service-card .circular-boundary {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 130%;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.service-card .service-name {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  height: 4rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 3px solid var(--primary);
+  padding: 0.4rem;
+  background: linear-gradient(to top, var(--primary), #5494e9);
+  width: 100%;
+  transition: background 0.3s ease;
+}
+.service-card .service-name:hover {
+  background: linear-gradient(to bottom, var(--primary), #5494e9);
+  transition: background 0.3s ease;
+}
+.service-card .service-img {
+  position: absolute;
+  bottom: 4.5rem;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  img {
+    width: 100%;
+  }
 }
