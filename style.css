@@ -236,3 +236,7 @@ body {
     padding: 1rem;
   }
 }
+.pattern-bricks {
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='40' height='20'> <rect width='40' height='20' fill='white'/> <path d='M0 0h40v20H0z M20 0v20 M0 10h40' stroke='lightgray' stroke-width='1'/></svg>");
+  background-repeat: repeat;
+}
