@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
       tabButtons.forEach((btn) => {
         btn.classList.remove("active");
         btn.classList.remove("text-white");
-        btn.classList.add("text-gray-600");
+        btn.classList.add("text-white");
         btn.style.background = "";
         btn.style.boxShadow = "";
       });
 
       // Add active class to clicked button
       button.classList.add("active");
-      button.classList.remove("text-gray-600");
+      button.classList.remove("text-white");
       button.classList.add("text-white");
 
       // Hide all tab contents
