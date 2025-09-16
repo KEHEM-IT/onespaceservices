@@ -141,13 +141,19 @@ body {
   text-shadow: 0 4px 4px #000000d8;
 }
 
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
 .service-card {
   position: relative;
   background-color: var(--primary);
   border-radius: 0.5rem;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 1;
+  height: 12rem;
   transition: all 0.3s ease;
   z-index: 4;
 }
@@ -157,8 +163,8 @@ body {
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%;
-  height: 130%;
+  width: 95%;
+  height: 120%;
   background-color: #fff;
   border-radius: 50%;
   transition: all 0.3s ease;
@@ -188,11 +194,40 @@ body {
 .service-card .service-img {
   position: absolute;
   bottom: 4.5rem;
-  width: 90%;
+  width: 80%;
+  height: 60%;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+}
 
-  img {
-    width: 100%;
+.service-card .service-img img {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease;
+}
+
+.service-card .service-img img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .service-card {
+    height: 18rem;
+  }
+  .service-card .service-img {
+    width: 90%;
+    height: 70%;
   }
 }
