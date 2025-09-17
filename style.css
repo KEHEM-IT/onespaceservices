@@ -204,6 +204,19 @@ body {
   align-items: flex-end;
 }
 
+.service-card .service-img::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-image: url("./statics/shadow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+}
+
 .service-card .service-img img {
   width: auto;
   height: 100%;
@@ -317,7 +330,6 @@ body {
 .gredient-10 {
   background: linear-gradient(135deg, #400013, #990033);
 }
-
 
 .card-content .choose-header {
   margin-top: 2rem;
