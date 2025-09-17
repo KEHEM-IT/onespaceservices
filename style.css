@@ -383,6 +383,13 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 1rem;
   }
+  
+  .choose-gridder {
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 1rem;
+  }
+  
 }
 
 @media screen and (max-width: 768px) {
