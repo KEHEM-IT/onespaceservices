@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One-Reach Services - Your One Stop Solution for Land, Living, and Lifestyle</title>
-    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <title>Search Properties - One-Reach Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
-
-    <!-- Add Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
+    <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -28,102 +18,179 @@
                         primary: '#0048a7',
                         secondary: '#85ffff',
                         darkPrimary: '#00306e',
-                        litePrimary: '#0063e4'
-
+                        litePrimary: '#0063e4',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
                     }
                 }
             }
         }
     </script>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceSubtle {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .property-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .search-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50">
-
+<body>
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20 2xl:h-24">
                 <!-- Logo -->
                 <a href="/index.html" class="flex items-center">
-                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
-                        class="h-10 w-10 mr-3 rounded-full shadow-md">
-                    <div class="flex flex-col">
-                        <span class="font-bold text-xl text-white">One Reach Services</span>
-                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
-                    </div>
+                    <img src="/statics/onespace-logo.jpg" alt="One-Reach"
+                        class="h-10 w-10 md:h-16 md:w-16 mr-3 rounded-full shadow-md">
+                    <span class="font-bold text:xl md:text-2xl text-white hover:text-blue-400">ONE REACH SERVICES</span>
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                <div class="hidden md:flex ml-10 space-x-6 items-center">
 
-                    <!-- Services Dropdown -->
+                    <!-- Services Dropdown (Desktop) -->
                     <div class="dropdown-container relative">
                         <button
-                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
-                            Services <i data-feather="chevron-down"
-                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                            class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                            <span
+                                class="flex items-center gap-2 px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
+                                Services <i data-feather="chevron-down" class="transition-transform duration-300"></i>
+                            </span>
                         </button>
                         <div
-                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                            <a href="#property-management"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
+                            class="absolute right-0 mt-4 w-72 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+
+                            <a href="/architectural.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500  first:rounded-t-md">Architectural
+                                Design</a>
+                            <a href="/structural.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Structural
+                                Design</a>
+                            <a href="/electrical.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Electrical
+                                Design</a>
+                            <a href="/mechanical.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Mechanical
+                                Design</a>
+                            <a href="/plumbing.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Plumbing
+                                &
+                                Water Services</a>
+                            <a href="/interior.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Interior
+                                Design & Implementation</a>
+                            <a href="/landscape.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Landscape
+                                Design</a>
+                            <a href="/construction.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Construction
+                                Services</a>
+                            <a href="/project-management.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Project
+                                Management & Consultancy</a>
+                            <a href="/maintenance.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500 ">Building
+                                Maintenance & Facility
                                 Management</a>
-                            <a href="#architectural-design"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Architectural
-                                Design</a>
-                            <a href="#interior-design"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
-                                Design</a>
-                            <a href="#structural-design"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
-                                Design</a>
-                            <a href="#electrical-plumbing"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
-                                Plumbing Design</a>
-                            <a href="#construction"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
-                            <a href="#landscape-design"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
-                                Design</a>
-                            <a href="#renovation"
-                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
+                            <a href="/land-development.html"
+                                class="block px-4 py-2 text-l font-medium text-white hover:text-secondary border-green-500  last:rounded-b-md">Land
+                                Development &
+                                Real Estate Services</a>
                         </div>
                     </div>
 
+
+                    <!-- Other Nav Buttons (styled same as Services) -->
                     <a href="/contact.html"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        Contact
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                        <span
+                            class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                            Contact
+                        </span>
                     </a>
 
-                    <a href="about-us.html"
-                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
-                        About Us
+                    <a href="/about-us.html"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                        <span
+                            class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                            About Us
+                        </span>
                     </a>
-                    <!-- Login & User Icon (Desktop) -->
-                    <div class="flex items-center space-x-4 ml-4">
-                        <button
-                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                            Login
+
+                    <!-- Login & User Icon -->
+                    <div class="relative">
+                        <button id="user-btn"
+                            class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-6 h-6 text-gray-800"></i>
                         </button>
-                        <div class="relative">
-                            <button id="user-btn"
-                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
-                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
-                            </button>
-                            <div
-                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
-                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
-                                    <i class="fas fa-user mr-2"></i> John Doe
-                                </div>
-                                <button
-                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
-                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
-                                </button>
+                        <div
+                            class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
                             </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
                         </div>
                     </div>
-
-
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -135,60 +202,79 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (CSS dropdowns) -->
-        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden overflow-y-auto h-[90vh]">
             <div class="px-4 py-4 space-y-2">
 
-                <!-- Services Dropdown -->
-                <div class="border-b border-gray-400">
+                <!-- Services Dropdown (Mobile) -->
+                <div class="">
                     <input type="checkbox" id="services-mobile" class="peer hidden">
                     <label for="services-mobile"
-                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
-                        Services
+                        class="w-full relative inline-flex items-center justify-between px-4 py-2 text-lg font-semibold rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 text-white cursor-pointer">
+                        <span class="flex items-center gap-2">Services</span>
                         <i data-feather="chevron-down"
                             class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
                     </label>
                     <div
-                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
-                        <a href="#property-management"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
-                            Management</a>
-                        <a href="#architectural-design"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Architectural
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-[1000px] transition-all duration-300">
+
+                        <a href="/architectural.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Architectural
                             Design</a>
-                        <a href="#interior-design"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
+                        <a href="/structural.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Structural
                             Design</a>
-                        <a href="#structural-design"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                        <a href="/electrical.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Electrical
                             Design</a>
-                        <a href="#electrical-plumbing"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
-                            & Plumbing Design</a>
-                        <a href="#construction"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
-                        <a href="#landscape-design"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                        <a href="/mechanical.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Mechanical
                             Design</a>
-                        <a href="#renovation"
-                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
+                        <a href="/plumbing.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Plumbing
+                            &
+                            Water Services</a>
+                        <a href="/interior.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Interior
+                            Design & Implementation</a>
+                        <a href="/landscape.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Landscape
+                            Design</a>
+                        <a href="/construction.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Construction
+                            Services</a>
+                        <a href="/project-management.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Project
+                            Management & Consultancy</a>
+                        <a href="/maintenance.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Building
+                            Maintenance & Facility Management</a>
+                        <a href="/land-development.html"
+                            class="block hover:bg-darkPrimary p-2 text-lg font-medium text-white hover:text-secondary rounded">Land
+                            Development & Real Estate Services</a>
                     </div>
                 </div>
 
+                <!-- Other Mobile Navs -->
                 <a href="/contact.html"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
-                <a href="/about-us.html"
-                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
-                    Us</a>
+                    class="block relative inline-flex items-center justify-center w-full p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                    <span
+                        class="px-4 py-2 w-full text-center font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                        Contact
+                    </span>
+                </a>
 
-                <!-- Mobile Login & User Icon -->
+                <a href="/about-us.html"
+                    class="block relative inline-flex items-center justify-center w-full p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 focus:ring-4 focus:outline-none focus:ring-cyan-200">
+                    <span
+                        class="px-4 py-2 w-full text-center font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                        About Us
+                    </span>
+                </a>
+
+                <!-- Mobile Login & User -->
                 <div class="flex items-center space-x-4 mt-2">
-                    <button
-                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                        Login
-                    </button>
-                    <!-- Mobile Login & User Icon -->
-                    <div class="flex items-center space-x-4 mt-2 relative">
+                    <div class="relative">
                         <button id="mobile-user-btn"
                             class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
                             <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
@@ -204,50 +290,45 @@
                             </button>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
     </nav>
 
-    <br><br>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-8">
-
+    <!-- Hero Search Section -->
+    <section class="mt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
         <!-- Property Search Section -->
         <section class="property-search flex items-center justify-center py-20 relative overflow-hidden">
 
-            <div class="container mx-auto relative z-10">
-
-                <div class="w-full max-w-6xl mx-auto sm:px-4">
-                    <div class="rounded-3xl md:shadow-2xl border-2 border-gray-200 p-4 sm:p-6 lg:p-10 backdrop-blur-sm"
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="w-full max-w-6xl mx-auto px-2 sm:px-4">
+                    <div class="rounded-3xl shadow-2xl bg-primary border-2 border-gray-500 p-4 sm:p-6 lg:p-10 backdrop-blur-sm"
                         data-aos="fade-up" data-aos-delay="200">
                         <!-- Tab Navigation -->
-                        <div class="border-b border-gray-200 mb-6 lg:mb-10 overflow-x-auto">
+                        <div class="border-b border-gray-400 mb-6 lg:mb-10 overflow-x-auto">
                             <div class="flex min-w-max px-2 pt-2 justify-center">
                                 <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold active text-gray-600 rounded-t-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
+                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold active text-white rounded-t-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-200 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
                                     data-tab="buy">
                                     <i class="fas fa-home mr-1 sm:mr-2"></i>
                                     Buy Property
                                 </button>
                                 <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
+                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-white focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
                                     data-tab="rent">
                                     <i class="fas fa-key mr-1 sm:mr-2"></i>
                                     Rent Property
                                 </button>
                                 <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
+                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-white focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
                                     data-tab="roommate">
                                     <i class="fas fa-users mr-1 sm:mr-2"></i>
                                     Search
                                 </button>
                                 <button
-                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-gray-600 focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
+                                    class="tab-btn px-4 sm:px-6 lg:px-8 py-3 sm:py-3 lg:py-4 font-semibold text-white focus:outline-none focus:ring-4 rounded-t-xl transition-all duration-300 mx-1 sm:mx-1 text-sm sm:text-sm lg:text-base whitespace-nowrap"
                                     data-tab="services">
                                     <i class="fas fa-concierge-bell mr-1 sm:mr-2"></i>
                                     Lifestyle Services
@@ -261,7 +342,7 @@
                                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Location</label>
                                     <div class="relative">
                                         <i
                                             class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
@@ -292,8 +373,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Property
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Property
                                         Type</label>
                                     <div class="relative">
                                         <i
@@ -311,7 +391,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Price
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Price
                                         Range</label>
                                     <div class="relative">
                                         <i
@@ -327,13 +407,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center mt-6">
-                                <button id="search-property"
-                                    class="search-btn-hover bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
                         </div>
 
                         <!-- Rent Tab -->
@@ -342,7 +415,7 @@
                                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Location</label>
                                     <div class="relative">
                                         <i
                                             class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-blue-500 text-sm"></i>
@@ -358,8 +431,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Property
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Property
                                         Type</label>
                                     <div class="relative">
                                         <i
@@ -376,8 +448,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Monthly
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Monthly
                                         Rent</label>
                                     <div class="relative">
                                         <i
@@ -393,13 +464,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-green-600 to-green-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-4 focus:ring-green-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
                         </div>
 
                         <!-- Roommate Tab -->
@@ -408,7 +472,7 @@
                                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Location</label>
                                     <div class="relative">
                                         <i
                                             class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
@@ -423,7 +487,7 @@
                                 </div>
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Accommodation
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Accommodation
                                         Type</label>
                                     <div class="relative">
                                         <i
@@ -440,8 +504,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Gender
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Gender
                                         Preference</label>
                                     <div class="relative">
                                         <i
@@ -457,7 +520,7 @@
                                 </div>
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Occupation</label>
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Occupation</label>
                                     <div class="relative">
                                         <i
                                             class="fas fa-briefcase absolute left-3 sm:left-4 top-3 sm:top-4 text-purple-500 text-sm"></i>
@@ -476,13 +539,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-purple-600 to-purple-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-purple-700 hover:to-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
                         </div>
 
                         <!-- Lifestyle Services Tab -->
@@ -490,8 +546,7 @@
                             <div
                                 class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-items-center">
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Service
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Service
                                         Category</label>
                                     <div class="relative">
                                         <i
@@ -510,7 +565,7 @@
                                 </div>
                                 <div class="relative w-full max-w-sm">
                                     <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Location</label>
+                                        class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Location</label>
                                     <div class="relative">
                                         <i
                                             class="fas fa-map-marker-alt absolute left-3 sm:left-4 top-3 sm:top-4 text-orange-500 text-sm"></i>
@@ -524,8 +579,7 @@
                                     </div>
                                 </div>
                                 <div class="relative w-full max-w-sm">
-                                    <label
-                                        class="block text-l font-semibold text-gray-700 mb-2 sm:mb-3 text-left">Service
+                                    <label class="block text-l font-semibold text-white mb-2 sm:mb-3 text-left">Service
                                         Type</label>
                                     <div class="relative">
                                         <i
@@ -541,102 +595,162 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex justify-center mt-6">
-                                <button
-                                    class="search-btn-hover bg-gradient-to-r from-orange-600 to-orange-700 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-orange-700 hover:to-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
-                                    <i class="fas fa-search mr-1 sm:mr-2"></i>
-                                    Search
-                                </button>
-                            </div>
+                        </div>
+
+                        <div class="flex justify-center mt-6">
+                            <button id="searchBtn"
+                                class="search-btn-hover bg-gradient-to-r from-green-400 to-green-600 text-white py-3 sm:py-4 px-8 sm:px-12 rounded-xl hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-4 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl font-semibold text-sm sm:text-lg">
+                                <i class="fas fa-search mr-1 sm:mr-2"></i>
+                                Search
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+    </section>
 
+    <!-- Results Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6">
+            <!-- Results Header -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6">
+                <div class="animate-fade-in">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+                        <span id="resultsLocation">Dhaka</span> Properties
+                    </h2>
+                    <p class="text-gray-600 flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span id="resultCount">247</span> properties found
+                    </p>
+                </div>
 
-
-        <!-- Results Header -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Properties in Dhaka</h3>
-                <p class="text-gray-600 flex items-center text-sm md:text-l">
-                    <i class="fas fa-check-circle text-primary mr-2"></i>
-                    Found<span class="font-semibold text-primary" id="resultCount"></span> matching your
-                    criteria
-                </p>
-            </div>
-
-            <div class="flex items-center space-x-4 mt-4 md:mt-0">
-                <!-- View Toggle -->
-                <div class="bg-white rounded-lg shadow-md p-1 flex">
-                    <button id="gridView" onclick="toggleView('grid')"
-                        class="px-3 py-2 rounded-md bg-primary text-white transition-all duration-300">
-                        <i class="fas fa-th-large"></i>
+                <div class="flex flex-wrap items-center gap-3">
+                    <!-- Advanced Filters -->
+                    <button id="filtersToggle"
+                        class="flex items-center bg-white border border-gray-200 px-4 py-3 rounded-xl hover:bg-gray-50 transition-all duration-300">
+                        <i class="fas fa-sliders-h mr-2 text-gray-600"></i>
+                        <span class="text-gray-700 font-medium">Filters</span>
                     </button>
-                    <button id="listView" onclick="toggleView('list')"
-                        class="px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300">
-                        <i class="fas fa-list"></i>
-                    </button>
-                </div>
 
-                <!-- Sort Options -->
-                <div class="relative">
-                    <select id="sortBy" onchange="sortProperties()"
-                        class="bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none">
-                        <option value="default">Sort By</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="newest">Newest First</option>
-                        <option value="area">Area Size</option>
-                    </select>
-                    <i class="fas fa-chevron-down absolute right-3 top-3 text-gray-400"></i>
-                </div>
-            </div>
-        </div>
+                    <!-- View Toggle -->
+                    <div class="bg-white border border-gray-200 rounded-xl p-1 flex">
+                        <button id="gridView"
+                            class="px-3 py-2 rounded-lg bg-primary text-white transition-all duration-300">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button id="listView"
+                            class="px-3 py-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-all duration-300">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
 
-        <!-- Property Grid -->
-        <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Properties will be dynamically loaded here -->
-        </div>
-
-        <!-- Loading Animation -->
-        <div id="loadingAnimation" class="hidden text-center py-12">
-            <div class="search-animation">
-                <i class="fas fa-search text-4xl text-primary mb-4"></i>
-                <p class="text-gray-600">Searching for properties...</p>
-            </div>
-        </div>
-
-        <!-- No Results -->
-        <div id="noResults" class="hidden text-center py-12">
-            <i class="fas fa-home text-6xl text-gray-300 mb-4"></i>
-            <h3 class="text-xl font-semibold text-gray-600 mb-2">No Properties Found</h3>
-            <p class="text-gray-500">Try adjusting your search criteria or explore other areas.</p>
-        </div>
-    </main>
-
-    <!-- Property Details Modal -->
-    <div id="propertyModal"
-        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl max-h-5xl overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
-                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div id="modalContent" class="max-h-[70vh] overflow-y-auto">
-                    <!-- Modal content will be dynamically loaded -->
+                    <!-- Sort -->
+                    <div class="relative">
+                        <select id="sortBy"
+                            class="bg-white border border-gray-200 rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none cursor-pointer">
+                            <option value="default">Sort By</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                            <option value="area">Area Size</option>
+                        </select>
+                        <i
+                            class="fas fa-chevron-down absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!-- Advanced Filters Panel -->
+            <div id="filtersPanel" class="hidden mb-8 animate-slide-up">
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Min Area (sqft)</label>
+                            <input type="number" placeholder="500"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Max Area (sqft)</label>
+                            <input type="number" placeholder="2000"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Bathrooms</label>
+                            <select
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+                                <option>Any</option>
+                                <option>1+</option>
+                                <option>2+</option>
+                                <option>3+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Amenities</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox"
+                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <span class="ml-2 text-gray-700">Parking</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox"
+                                        class="rounded border-gray-300 text-primary focus:ring-primary">
+                                    <span class="ml-2 text-gray-700">Security</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3 mt-6">
+                        <button class="px-6 py-2 text-gray-600 hover:text-gray-800 transition-colors">Clear</button>
+                        <button
+                            class="px-6 py-2 bg-primary text-white rounded-xl hover:bg-darkPrimary transition-colors">Apply</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Grid -->
+            <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Properties will be loaded here -->
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="hidden text-center py-16">
+                <div class="animate-bounce-subtle">
+                    <i class="fas fa-search text-6xl text-primary/50 mb-4"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Finding perfect properties...</h3>
+                <p class="text-gray-500">Please wait while we search for you</p>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMore"
+                    class="bg-white border-2 border-primary text-primary font-semibold px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105">
+                    Load More Properties
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Modal -->
+    <div id="propertyModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-100 p-6 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold text-gray-800"></h3>
+                <button onclick="closeModal()"
+                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6">
+                <!-- Modal content will be loaded here -->
+            </div>
+        </div>
     </div>
 
     <script>
-        // Property data with multiple images for each property
+        // Sample property data
         const properties = [
             {
                 id: 1,
@@ -653,8 +767,8 @@
                     "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&h=600&fit=crop"
                 ],
                 image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
-                features: ["Parking", "Gym", "Security", "Generator"],
-                description: "Beautiful modern apartment with all amenities in prime Uttara location."
+                features: ["Parking", "Gym", "Security", "Generator", "Swimming Pool"],
+                description: "Beautiful modern apartment with all amenities in prime Uttara location. Perfect for families with spacious rooms and contemporary design."
             },
             {
                 id: 2,
@@ -671,8 +785,8 @@
                     "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
                 ],
                 image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-                features: ["Swimming Pool", "Garden", "Parking", "Security"],
-                description: "Spacious luxury villa in the heart of Banani with premium amenities."
+                features: ["Swimming Pool", "Garden", "Parking", "Security", "Gym"],
+                description: "Spacious luxury villa in the heart of Banani with premium amenities and modern architecture."
             },
             {
                 id: 3,
@@ -689,8 +803,8 @@
                     "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
                 ],
                 image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
-                features: ["Furnished", "AC", "Internet"],
-                description: "Perfect studio apartment for young professionals in Dhanmondi."
+                features: ["Furnished", "AC", "Internet", "Security"],
+                description: "Perfect studio apartment for young professionals in Dhanmondi with modern furnishing."
             },
             {
                 id: 4,
@@ -749,161 +863,249 @@
         ];
 
         let currentView = 'grid';
-        let filteredProperties = [...properties];
+        let displayedProperties = [...properties];
 
-        // Initialize the page
+        // Initialize app
         function init() {
             renderProperties();
-            updateResultCount();
+            setupEventListeners();
         }
 
-        // Render properties based on current view
+        // Setup event listeners
+        function setupEventListeners() {
+            // Tab navigation
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            // Search button
+            document.getElementById('searchBtn').addEventListener('click', performSearch);
+
+            // View toggle
+            document.getElementById('gridView').addEventListener('click', () => toggleView('grid'));
+            document.getElementById('listView').addEventListener('click', () => toggleView('list'));
+
+            // Filters toggle
+            document.getElementById('filtersToggle').addEventListener('click', toggleFilters);
+
+            // Sort
+            document.getElementById('sortBy').addEventListener('change', sortProperties);
+
+            // Load more
+            document.getElementById('loadMore').addEventListener('click', loadMoreProperties);
+        }
+
+        // Switch tabs
+        function switchTab(tab) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.dataset.tab === tab) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`${tab}-tab`).classList.remove('hidden');
+        }
+
+        // Perform search
+        function performSearch() {
+            const loadingState = document.getElementById('loadingState');
+            const propertyGrid = document.getElementById('propertyGrid');
+
+            // Show loading
+            propertyGrid.style.display = 'none';
+            loadingState.classList.remove('hidden');
+
+            // Simulate search delay
+            setTimeout(() => {
+                loadingState.classList.add('hidden');
+                propertyGrid.style.display = 'grid';
+                renderProperties();
+            }, 1500);
+        }
+
+        // Toggle view
+        function toggleView(view) {
+            currentView = view;
+            const gridBtn = document.getElementById('gridView');
+            const listBtn = document.getElementById('listView');
+            const grid = document.getElementById('propertyGrid');
+
+            if (view === 'grid') {
+                gridBtn.classList.add('bg-primary', 'text-white');
+                gridBtn.classList.remove('text-gray-600');
+                listBtn.classList.remove('bg-primary', 'text-white');
+                listBtn.classList.add('text-gray-600');
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+            } else {
+                listBtn.classList.add('bg-primary', 'text-white');
+                listBtn.classList.remove('text-gray-600');
+                gridBtn.classList.remove('bg-primary', 'text-white');
+                gridBtn.classList.add('text-gray-600');
+                grid.className = 'space-y-6';
+            }
+            renderProperties();
+        }
+
+        // Toggle filters
+        function toggleFilters() {
+            const panel = document.getElementById('filtersPanel');
+            panel.classList.toggle('hidden');
+        }
+
+        // Sort properties
+        function sortProperties() {
+            const sortBy = document.getElementById('sortBy').value;
+
+            switch (sortBy) {
+                case 'price-low':
+                    displayedProperties.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    displayedProperties.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    displayedProperties.sort((a, b) => b.id - a.id);
+                    break;
+                case 'area':
+                    displayedProperties.sort((a, b) => b.area - a.area);
+                    break;
+                default:
+                    displayedProperties = [...properties];
+            }
+            renderProperties();
+        }
+
+        // Create property card
+        function createPropertyCard(property) {
+            const isListView = currentView === 'list';
+            const card = document.createElement('div');
+
+            if (isListView) {
+                card.className = 'property-card bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300';
+                card.innerHTML = `
+                    <div class="md:flex">
+                        <div class="md:w-1/3 relative">
+                            <img src="${property.image}" alt="${property.title}" class="w-full h-64 md:h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-primary/90 text-white px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm">
+                                    ${property.type}
+                                </span>
+                            </div>
+                            <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300">
+                                <i class="far fa-heart text-gray-600 hover:text-red-500"></i>
+                            </button>
+                        </div>
+                        <div class="md:w-2/3 p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">${property.title}</h3>
+                                <p class="text-gray-600 mb-4 flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                    ${property.location}
+                                </p>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-3xl font-bold text-primary">৳${property.price.toLocaleString()}</span>
+                                    <div class="flex items-center space-x-4 text-gray-600">
+                                        <span class="flex items-center"><i class="fas fa-bed mr-1"></i>${property.bedrooms}</span>
+                                        <span class="flex items-center"><i class="fas fa-bath mr-1"></i>${property.bathrooms}</span>
+                                        <span class="flex items-center"><i class="fas fa-expand mr-1"></i>${property.area} sqft</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 mb-4 line-clamp-2">${property.description}</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${property.features.slice(0, 4).map(feature =>
+                    `<span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">${feature}</span>`
+                ).join('')}
+                                    ${property.features.length > 4 ?
+                        `<span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">+${property.features.length - 4} more</span>` : ''
+                    }
+                                </div>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button class="flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
+                                    <i class="fas fa-phone mr-2"></i>Contact
+                                </button>
+                                <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
+                                    <i class="fas fa-calendar mr-2"></i>Visit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                card.className = 'property-card bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 group';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden">
+                        <img src="${property.image}" alt="${property.title}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-primary/90 text-white px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm">
+                                ${property.type}
+                            </span>
+                        </div>
+                        <button class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-all duration-300">
+                            <i class="far fa-heart text-gray-600 hover:text-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-4 right-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                ৳${property.price.toLocaleString()}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors">${property.title}</h3>
+                        <p class="text-gray-600 mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            ${property.location}
+                        </p>
+                        <div class="flex items-center justify-between mb-4 text-gray-600">
+                            <span class="flex items-center"><i class="fas fa-bed mr-2 text-primary"></i>${property.bedrooms} Bed</span>
+                            <span class="flex items-center"><i class="fas fa-bath mr-2 text-primary"></i>${property.bathrooms} Bath</span>
+                            <span class="flex items-center"><i class="fas fa-expand mr-2 text-primary"></i>${property.area} sqft</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            ${property.features.slice(0, 3).map(feature =>
+                    `<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-lg text-xs">${feature}</span>`
+                ).join('')}
+                            ${property.features.length > 3 ?
+                        `<span class="bg-primary/10 text-primary px-2 py-1 rounded-lg text-xs">+${property.features.length - 3} more</span>` : ''
+                    }
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-phone mr-2"></i>Contact
+                            </button>
+                            <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300">
+                                <i class="fas fa-eye mr-2"></i>View
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            card.addEventListener('click', () => openPropertyModal(property));
+            return card;
+        }
+
+        // Render properties
         function renderProperties() {
             const grid = document.getElementById('propertyGrid');
             grid.innerHTML = '';
 
-            filteredProperties.forEach((property, index) => {
-                const propertyCard = currentView === 'grid' ?
-                    createPropertyCard(property) :
-                    createListPropertyCard(property);
-
-                propertyCard.style.animationDelay = `${index * 0.1}s`;
-                propertyCard.classList.add('fade-in');
-                grid.appendChild(propertyCard);
+            displayedProperties.forEach((property, index) => {
+                const card = createPropertyCard(property);
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-fade-in');
+                grid.appendChild(card);
             });
         }
 
-        // Create property card element for grid view
-        function createPropertyCard(property) {
-            const card = document.createElement('div');
-            card.className = 'property-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer';
-            card.onclick = () => openPropertyModal(property);
-
-            card.innerHTML = `
-    <div class="relative">
-        <img src="${property.image}" alt="${property.title}" class="w-full h-40 sm:h-48 object-cover">
-        <div class="absolute top-3 left-3 sm:top-4 sm:left-4">
-            <span class="bg-primary text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium">
-                ${property.type}
-            </span>
-        </div>
-        <div class="absolute top-3 right-3 sm:top-4 sm:right-4">
-            <button class="bg-white bg-opacity-80 text-gray-600 p-1.5 sm:p-2 rounded-full hover:bg-opacity-100 transition-all duration-300">
-                <i class="fas fa-heart text-xs sm:text-sm"></i>
-            </button>
-        </div>
-    </div>
-    
-    <div class="p-4 sm:p-6">
-        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 truncate">${property.title}</h3>
-        <p class="text-gray-600 mb-2 sm:mb-3 flex items-center text-sm sm:text-base">
-            <i class="fas fa-map-marker-alt text-primary mr-1 sm:mr-2"></i>
-            ${property.location}
-        </p>
-        
-        <div class="flex items-center justify-between mb-3 sm:mb-4 gap-4 flex-wrap">
-            <span class="text-lg sm:text-2xl font-bold text-primary">৳${property.price.toLocaleString()}/mo</span>
-            <div class="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm text-gray-600">
-                <span><i class="fas fa-bed mr-1"></i>${property.bedrooms}</span>
-                <span><i class="fas fa-bath mr-1"></i>${property.bathrooms}</span>
-                <span><i class="fas fa-expand mr-1"></i>${property.area} sqft</span>
-            </div>
-        </div>
-        
-        <div class="flex flex-wrap gap-1 sm:gap-2 mb-3 sm:mb-4">
-            ${property.features.slice(0, 3).map(feature =>
-                `<span class="bg-gray-100 text-gray-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs">${feature}</span>`
-            ).join('')}
-            ${property.features.length > 3 ?
-                    `<span class="bg-gray-100 text-gray-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs">+${property.features.length - 3} more</span>`
-                    : ''
-                }
-        </div>
-        
-        <div class="flex space-x-2">
-            <button class="flex-1 bg-primary hover:bg-blue-600 text-white py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base">
-                <i class="fas fa-phone mr-1 sm:mr-2"></i>Call
-            </button>
-            <button class="flex-1 border border-primary text-primary hover:bg-primary hover:text-white py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base">
-                <i class="fas fa-envelope mr-1 sm:mr-2"></i>Email
-            </button>
-        </div>
-    </div>
-    `;
-
-            return card;
-        }
-
-        // Create property card element for list view
-        function createListPropertyCard(property) {
-            const card = document.createElement('div');
-            card.className = 'property-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300';
-            card.onclick = () => openPropertyModal(property);
-
-            card.innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-2 h-auto md:h-64">
-            <!-- Left Column - Image -->
-            <div class="relative">
-                <img src="${property.image}" alt="${property.title}" class="w-full h-48 md:h-full object-cover">
-                <div class="absolute top-4 left-4">
-                    <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                        ${property.type}
-                    </span>
-                </div>
-                <div class="absolute top-4 right-4">
-                    <button class="bg-white bg-opacity-80 text-gray-600 p-2 rounded-full hover:bg-opacity-100 transition-all duration-300">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Right Column - Details -->
-            <div class="p-6 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">${property.title}</h3>
-                    <p class="text-gray-600 mb-3 flex items-center">
-                        <i class="fas fa-map-marker-alt text-primary mr-2"></i>
-                        ${property.location}
-                    </p>
-                    
-                    <div class="flex items-center justify-between mb-4 gap-4 flex-wrap">
-                        <span class="text-2xl font-bold text-primary">৳${property.price.toLocaleString()}/mo</span>
-                        <div class="flex items-center space-x-4 text-sm text-gray-600">
-                            <span><i class="fas fa-bed mr-1"></i>${property.bedrooms}</span>
-                            <span><i class="fas fa-bath mr-1"></i>${property.bathrooms}</span>
-                            <span><i class="fas fa-expand mr-1"></i>${property.area} sqft</span>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 text-sm mb-4 line-clamp-2">${property.description}</p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        ${property.features.slice(0, 4).map(feature =>
-                `<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs">${feature}</span>`
-            ).join('')}
-                        ${property.features.length > 4 ?
-                    `<span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-md text-xs">+${property.features.length - 4} more</span>`
-                    : ''
-                }
-                    </div>
-                </div>
-                
-                <div class="flex space-x-2 mt-4">
-                    <button class="flex-1 bg-primary hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-medium transition-all duration-300">
-                        <i class="fas fa-phone mr-2"></i>Call
-                    </button>
-                    <button class="flex-1 border border-primary text-primary hover:bg-primary hover:text-white py-2 px-4 rounded-lg font-medium transition-all duration-300">
-                        <i class="fas fa-envelope mr-2"></i>Email
-                    </button>
-                </div>
-            </div>
-        </div>
-    `;
-
-            return card;
-        }
-
-        // Open property details modal with Swiper carousel
+        // Open property modal
         function openPropertyModal(property) {
             const modal = document.getElementById('propertyModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -911,86 +1113,111 @@
 
             modalTitle.textContent = property.title;
             modalContent.innerHTML = `
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-        <div>
-            <!-- Swiper Carousel -->
-            <div class="swiper propertySwiper mb-3 sm:mb-4 rounded-lg overflow-hidden">
-                <div class="swiper-wrapper">
-                    ${property.images.map((image, index) => `
-                        <div class="swiper-slide">
-                            <img src="${image}" alt="${property.title} - Image ${index + 1}" class="w-full h-48 sm:h-64 object-cover">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <!-- Image Gallery -->
+                        <div class="swiper propertySwiper mb-6 rounded-xl overflow-hidden">
+                            <div class="swiper-wrapper">
+                                ${property.images.map((image, index) => `
+                                    <div class="swiper-slide">
+                                        <img src="${image}" alt="${property.title} - Image ${index + 1}" class="w-full h-80 object-cover">
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
-                    `).join('')}
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3 sm:gap-4">
-                <div class="bg-gray-50 p-3 sm:p-4 rounded-lg text-center">
-                    <i class="fas fa-bed text-primary text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                    <p class="text-gray-600 text-xs sm:text-sm">Bedrooms</p>
-                    <p class="font-semibold text-sm sm:text-base">${property.bedrooms}</p>
-                </div>
-                <div class="bg-gray-50 p-3 sm:p-4 rounded-lg text-center">
-                    <i class="fas fa-bath text-primary text-xl sm:text-2xl mb-1 sm:mb-2"></i>
-                    <p class="text-gray-600 text-xs sm:text-sm">Bathrooms</p>
-                    <p class="font-semibold text-sm sm:text-base">${property.bathrooms}</p>
-                </div>
-            </div>
-        </div>
-        
-        <div>
-            <div class="mb-4 sm:mb-6">
-                <h4 class="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Price</h4>
-                <p class="text-2xl sm:text-3xl font-bold text-primary">৳${property.price.toLocaleString()}/month</p>
-            </div>
-            
-            <div class="mb-4 sm:mb-6">
-                <h4 class="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Location</h4>
-                <p class="text-gray-600 flex items-center text-sm sm:text-base">
-                    <i class="fas fa-map-marker-alt text-primary mr-1 sm:mr-2"></i>
-                    ${property.location}
-                </p>
-            </div>
-            
-            <div class="mb-4 sm:mb-6">
-                <h4 class="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Description</h4>
-                <p class="text-gray-600 text-sm sm:text-base">${property.description}</p>
-            </div>
-            
-            <div class="mb-4 sm:mb-6">
-                <h4 class="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Features & Amenities</h4>
-                <div class="grid grid-cols-2 gap-1 sm:gap-2">
-                    ${property.features.map(feature =>
-                `<div class="flex items-center text-xs sm:text-sm">
-                            <i class="fas fa-check text-primary mr-1 sm:mr-2"></i>
-                            <span class="text-gray-600">${feature}</span>
-                        </div>`
+                        
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl text-center">
+                                <i class="fas fa-bed text-2xl text-primary mb-2"></i>
+                                <p class="text-gray-600 text-sm">Bedrooms</p>
+                                <p class="font-bold text-lg">${property.bedrooms}</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl text-center">
+                                <i class="fas fa-bath text-2xl text-green-600 mb-2"></i>
+                                <p class="text-gray-600 text-sm">Bathrooms</p>
+                                <p class="font-bold text-lg">${property.bathrooms}</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl text-center">
+                                <i class="fas fa-expand text-2xl text-purple-600 mb-2"></i>
+                                <p class="text-gray-600 text-sm">Area</p>
+                                <p class="font-bold text-lg">${property.area} sqft</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <!-- Price & Location -->
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-4xl font-bold text-primary">৳${property.price.toLocaleString()}</span>
+                                <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
+                                    ${property.type}
+                                </span>
+                            </div>
+                            <p class="text-gray-600 flex items-center text-lg">
+                                <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                                ${property.location}
+                            </p>
+                        </div>
+                        
+                        <!-- Description -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">Description</h4>
+                            <p class="text-gray-600 leading-relaxed">${property.description}</p>
+                        </div>
+                        
+                        <!-- Features -->
+                        <div class="mb-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Features & Amenities</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                ${property.features.map(feature =>
+                `<div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                        <span class="text-gray-700">${feature}</span>
+                                    </div>`
             ).join('')}
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-gradient-to-r from-primary to-darkPrimary text-white font-bold py-4 px-6 rounded-xl hover:from-darkPrimary hover:to-primary transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-phone mr-2"></i>Contact Agent
+                            </button>
+                            <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-4 px-6 rounded-xl transition-all duration-300">
+                                <i class="fas fa-calendar-alt mr-2"></i>Schedule Tour
+                            </button>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="mt-6 p-4 bg-gray-50 rounded-xl">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-user text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Property Agent</p>
+                                    <p class="text-gray-600">+8801712757397</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="flex space-x-2 sm:space-x-3">
-                <button class="flex-1 bg-primary hover:bg-blue-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium sm:font-semibold transition-all duration-300 text-sm sm:text-base">
-                    <i class="fas fa-phone mr-1 sm:mr-2"></i>Contact Agent
-                </button>
-                <button class="flex-1 border border-primary text-primary hover:bg-primary hover:text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium sm:font-semibold transition-all duration-300 text-sm sm:text-base">
-                    <i class="fas fa-calendar mr-1 sm:mr-2"></i>Schedule Visit
-                </button>
-            </div>
-        </div>
-    </div>
-    `;
+            `;
 
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
 
-            // Initialize Swiper after modal content is loaded
+            // Initialize Swiper
             setTimeout(() => {
                 new Swiper('.propertySwiper', {
                     loop: true,
                     autoplay: {
-                        delay: 3000,
+                        delay: 4000,
                         disableOnInteraction: false,
                     },
                     pagination: {
@@ -1016,639 +1243,31 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Toggle between grid and list view
-        function toggleView(viewType) {
-            currentView = viewType;
-            const gridBtn = document.getElementById('gridView');
-            const listBtn = document.getElementById('listView');
-            const grid = document.getElementById('propertyGrid');
-
-            if (viewType === 'grid') {
-                gridBtn.className = 'px-3 py-2 rounded-md bg-primary text-white transition-all duration-300';
-                listBtn.className = 'px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300';
-                grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
-            } else {
-                listBtn.className = 'px-3 py-2 rounded-md bg-primary text-white transition-all duration-300';
-                gridBtn.className = 'px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 transition-all duration-300';
-                // Make list view a single column where each card has its own 1/3 + 2/3 layout
-                grid.className = 'space-y-4';
-            }
-            renderProperties();
-        }
-
-
-        // Search properties
-        function searchProperties() {
-            const location = document.getElementById('locationInput').value.toLowerCase();
-            const bedrooms = document.getElementById('bedroomSelect').value;
-            const priceRange = document.getElementById('priceRange').value;
-
-            // Show loading animation
-            showLoading();
+        // Load more properties
+        function loadMoreProperties() {
+            const loadMoreBtn = document.getElementById('loadMore');
+            loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
 
             setTimeout(() => {
-                filteredProperties = properties.filter(property => {
-                    let matches = true;
-
-                    if (location && !property.location.toLowerCase().includes(location)) {
-                        matches = false;
-                    }
-
-                    if (bedrooms && property.bedrooms.toString() !== bedrooms) {
-                        matches = false;
-                    }
-
-                    if (priceRange) {
-                        const [min, max] = priceRange.split('-').map(Number);
-                        if (max) {
-                            if (property.price < min || property.price > max) {
-                                matches = false;
-                            }
-                        } else {
-                            if (property.price < min) {
-                                matches = false;
-                            }
-                        }
-                    }
-
-                    return matches;
-                });
-
-                hideLoading();
+                // In real app, this would fetch more data
+                loadMoreBtn.innerHTML = 'Load More Properties';
+                // For demo, just show the same properties again
+                const additionalProperties = [...properties];
+                displayedProperties = [...displayedProperties, ...additionalProperties];
                 renderProperties();
-                updateResultCount();
-
-                if (filteredProperties.length === 0) {
-                    showNoResults();
-                } else {
-                    hideNoResults();
-                }
             }, 1000);
         }
 
-        // Sort properties
-        function sortProperties() {
-            const sortBy = document.getElementById('sortBy').value;
-
-            switch (sortBy) {
-                case 'price-low':
-                    filteredProperties.sort((a, b) => a.price - b.price);
-                    break;
-                case 'price-high':
-                    filteredProperties.sort((a, b) => b.price - a.price);
-                    break;
-                case 'newest':
-                    filteredProperties.sort((a, b) => b.id - a.id);
-                    break;
-                case 'area':
-                    filteredProperties.sort((a, b) => b.area - a.area);
-                    break;
-                default:
-                    filteredProperties = [...properties];
-            }
-
-            renderProperties();
-        }
-
-        // Update result count
-        function updateResultCount() {
-            const nbSpace = '\u00A0';
-            const txt = `${nbSpace}${filteredProperties.length} results${nbSpace}`;
-            document.getElementById('resultCount').textContent = txt;
-        }
-
-        // Show/hide loading animation
-        function showLoading() {
-            document.getElementById('propertyGrid').classList.add('hidden');
-            document.getElementById('loadingAnimation').classList.remove('hidden');
-        }
-
-        function hideLoading() {
-            document.getElementById('loadingAnimation').classList.add('hidden');
-            document.getElementById('propertyGrid').classList.remove('hidden');
-        }
-
-        // Show/hide no results
-        function showNoResults() {
-            document.getElementById('propertyGrid').classList.add('hidden');
-            document.getElementById('noResults').classList.remove('hidden');
-        }
-
-        function hideNoResults() {
-            document.getElementById('noResults').classList.add('hidden');
-            document.getElementById('propertyGrid').classList.remove('hidden');
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('propertyModal').addEventListener('click', function (e) {
-            if (e.target === this) {
+        // Close modal on outside click
+        document.getElementById('propertyModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
                 closeModal();
             }
         });
 
-        // Initialize the application
+        // Initialize the app
         init();
     </script>
-
-    <script>
-        // Filter Toggle Functionality
-        const filterToggle = document.getElementById('filterToggle');
-        const advancedFilters = document.getElementById('advancedFilters');
-
-        filterToggle.addEventListener('click', function () {
-            advancedFilters.classList.toggle('open');
-            const icon = this.querySelector('svg');
-            if (advancedFilters.classList.contains('open')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        });
-
-        // View Toggle Functionality
-        const gridView = document.getElementById('gridView');
-        const listView = document.getElementById('listView');
-        const propertiesContainer = document.getElementById('propertiesContainer');
-
-        gridView.addEventListener('click', function () {
-            propertiesContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
-            gridView.classList.add('bg-blue-500', 'text-white');
-            gridView.classList.remove('text-gray-700');
-            listView.classList.remove('bg-blue-500', 'text-white');
-            listView.classList.add('text-gray-700');
-        });
-
-        listView.addEventListener('click', function () {
-            propertiesContainer.className = 'grid grid-cols-1 gap-4';
-            listView.classList.add('bg-blue-500', 'text-white');
-            listView.classList.remove('text-gray-700');
-            gridView.classList.remove('bg-blue-500', 'text-white');
-            gridView.classList.add('text-gray-700');
-
-            // Modify cards for list view
-            const cards = document.querySelectorAll('.property-card');
-            cards.forEach(card => {
-                if (propertiesContainer.className.includes('grid-cols-1 gap-4')) {
-                    card.classList.add('md:flex');
-                    const img = card.querySelector('img');
-                    const content = card.querySelector('.p-6');
-                    if (img && content) {
-                        img.parentElement.classList.add('md:w-1/3');
-                        content.classList.add('md:w-2/3');
-                    }
-                } else {
-                    card.classList.remove('md:flex');
-                    const img = card.querySelector('img');
-                    const content = card.querySelector('.p-6');
-                    if (img && content) {
-                        img.parentElement.classList.remove('md:w-1/3');
-                        content.classList.remove('md:w-2/3');
-                    }
-                }
-            });
-        });
-
-        // Complex Sorting System
-        const sortSelect = document.getElementById('sortSelect');
-
-        sortSelect.addEventListener('change', function () {
-            const sortBy = this.value;
-            const cards = Array.from(document.querySelectorAll('.property-card'));
-
-            cards.sort((a, b) => {
-                switch (sortBy) {
-                    case 'price-low':
-                        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
-                    case 'price-high':
-                        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
-                    case 'newest':
-                        return new Date(b.dataset.date) - new Date(a.dataset.date);
-                    case 'oldest':
-                        return new Date(a.dataset.date) - new Date(b.dataset.date);
-                    case 'area-large':
-                        return parseInt(b.dataset.area) - parseInt(a.dataset.area);
-                    case 'area-small':
-                        return parseInt(a.dataset.area) - parseInt(b.dataset.area);
-                    case 'bedrooms':
-                        return parseInt(b.dataset.bedrooms) - parseInt(a.dataset.bedrooms);
-                    default:
-                        return 0;
-                }
-            });
-
-            // Clear container and re-append sorted cards
-            propertiesContainer.innerHTML = '';
-            cards.forEach(card => propertiesContainer.appendChild(card));
-        });
-
-        // Add smooth scrolling animation when sorting
-        sortSelect.addEventListener('change', function () {
-            propertiesContainer.style.opacity = '0.5';
-            setTimeout(() => {
-                propertiesContainer.style.opacity = '1';
-            }, 300);
-        });
-
-        // Favorite button functionality
-        document.addEventListener('click', function (e) {
-            if (e.target.closest('button') && e.target.closest('button').querySelector('svg')) {
-                const button = e.target.closest('button');
-                const svg = button.querySelector('svg');
-                if (svg && svg.getAttribute('viewBox') === '0 0 24 24' && svg.querySelector('path[d*="4.318"]')) {
-                    svg.classList.toggle('text-red-500');
-                    svg.classList.toggle('text-gray-600');
-                    if (svg.classList.contains('text-red-500')) {
-                        svg.setAttribute('fill', 'currentColor');
-                    } else {
-                        svg.setAttribute('fill', 'none');
-                    }
-                }
-            }
-        });
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-                <!-- Company Info -->
-                <div>
-                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach" class="h-14 w-14 mb-4">
-                    <h3 class="text-xl font-bold text-white mb-2">One-Reach Services</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        Your One Stop Solution for Land, Living, and Lifestyle.
-                        Building trust through innovation and quality service.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#about" class="transition hover:text-blue-400">About Us</a></li>
-                        <li><a href="#services" class="transition hover:text-blue-400">Our Services</a></li>
-                        <li><a href="#projects" class="transition hover:text-blue-400">Projects</a></li>
-                        <li><a href="#contact" class="transition hover:text-blue-400">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Our Expertise</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="transition hover:text-blue-400">Consultation</a></li>
-                        <li><a href="#" class="transition hover:text-blue-400">Design & Build</a></li>
-                        <li><a href="#" class="transition hover:text-blue-400">Electrical & Mechanical</a></li>
-                        <li><a href="#" class="transition hover:text-blue-400">Maintenance</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div>
-                    <h4 class="text-lg font-semibold text-white mb-4">Get in Touch</h4>
-                    <p class="flex items-center mb-3 transition hover:brightness-125">
-                        <i data-feather="map-pin" class="w-5 h-5 mr-2 text-blue-400"></i>
-                        44, Tatipara, Zindabazar, Sylhet, Bangladesh
-                    </p>
-                    <p class="flex items-center mb-3 transition hover:brightness-125">
-                        <i data-feather="phone" class="w-5 h-5 mr-2 text-blue-400"></i>
-                        +8801712757397 / +8801732370479
-                    </p>
-                    <p class="flex items-center transition hover:brightness-125">
-                        <i data-feather="mail" class="w-5 h-5 mr-2 text-blue-400"></i>
-                        info@one-reachbd.com
-                    </p>
-
-                    <!-- Social Links -->
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
-                            <i data-feather="facebook"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
-                            <i data-feather="twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
-                            <i data-feather="linkedin"></i>
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-gray-400 transition hover:bg-blue-500 hover:text-white hover:scale-110">
-                            <i data-feather="instagram"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Divider -->
-            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500 text-sm">
-                &copy; 2024 One-Reach. All rights reserved. | Developed by <a class="hover:text-blue-400"
-                    href="https://kehem.com">KEHEM IT</a>
-            </div><br>
-        </div>
-    </footer>
-
-    <script>
-
-        // Initialize Feather Icons
-        feather.replace();
-
-        // Initialize AOS
-        AOS.init();
-
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let menuOpen = false;
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('hidden', !menuOpen);
-            menuBtn.innerHTML = menuOpen
-                ? '<i data-feather="x" class="w-7 h-7"></i>'
-                : '<i data-feather="menu" class="w-7 h-7"></i>';
-            feather.replace();
-        });
-
-        // Desktop dropdown functionality
-        const desktopDropdowns = document.querySelectorAll('.dropdown-container');
-        let activeDropdown = null;
-
-        // Wait for feather icons to be initialized
-        setTimeout(() => {
-            desktopDropdowns.forEach(dropdown => {
-                const button = dropdown.querySelector('button');
-                const menu = dropdown.querySelector('.absolute');
-
-                // Click handler for dropdown button
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    // Check if this dropdown is currently open
-                    const isCurrentlyOpen = menu.classList.contains('opacity-100');
-
-                    // Close all open dropdowns first
-                    closeAllDropdowns();
-
-                    // If this dropdown wasn't open, open it
-                    if (!isCurrentlyOpen) {
-                        openDropdown(dropdown);
-                    }
-                });
-
-                // Prevent dropdown from closing when clicking inside the menu
-                menu.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            });
-        }, 100);
-
-        function openDropdown(dropdown) {
-            const menu = dropdown.querySelector('.absolute');
-            const chevron = dropdown.querySelector('button svg');
-
-            menu.classList.remove('opacity-0', 'invisible');
-            menu.classList.add('opacity-100', 'visible');
-
-            // Force chevron rotation using SVG element
-            if (chevron) {
-                chevron.style.transform = 'rotate(180deg)';
-                chevron.style.transition = 'transform 0.3s ease';
-            }
-
-            activeDropdown = dropdown;
-        }
-
-        function closeDropdown(dropdown) {
-            const menu = dropdown.querySelector('.absolute');
-            const chevron = dropdown.querySelector('button svg');
-
-            menu.classList.remove('opacity-100', 'visible');
-            menu.classList.add('opacity-0', 'invisible');
-
-            // Reset chevron rotation using SVG element
-            if (chevron) {
-                chevron.style.transform = 'rotate(0deg)';
-                chevron.style.transition = 'transform 0.3s ease';
-            }
-
-            if (activeDropdown === dropdown) {
-                activeDropdown = null;
-            }
-        }
-
-        function closeAllDropdowns() {
-            desktopDropdowns.forEach(dropdown => {
-                const menu = dropdown.querySelector('.absolute');
-                const chevron = dropdown.querySelector('button svg');
-
-                menu.classList.remove('opacity-100', 'visible');
-                menu.classList.add('opacity-0', 'invisible');
-
-                if (chevron) {
-                    chevron.style.transform = 'rotate(0deg)';
-                    chevron.style.transition = 'transform 0.3s ease';
-                }
-            });
-            activeDropdown = null;
-        }
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', (e) => {
-            // Close mobile menu if clicking outside
-            if (menuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                menuOpen = false;
-                mobileMenu.classList.add('hidden');
-                menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
-                feather.replace();
-            }
-
-            // Close desktop dropdowns if clicking outside
-            let clickedInsideDropdown = false;
-            desktopDropdowns.forEach(dropdown => {
-                if (dropdown.contains(e.target)) {
-                    clickedInsideDropdown = true;
-                }
-            });
-
-            if (!clickedInsideDropdown && activeDropdown) {
-                closeAllDropdowns();
-            }
-        });
-
-        // Mobile submenu toggle with smooth transitions
-        setTimeout(() => {
-            document.querySelectorAll('[data-toggle="mobile-submenu"]').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const submenu = button.nextElementSibling;
-                    const chevron = button.querySelector('svg');
-                    const isOpen = !submenu.classList.contains('hidden');
-
-                    if (isOpen) {
-                        // Closing animation
-                        submenu.style.maxHeight = '0px';
-                        submenu.style.opacity = '0';
-                        submenu.style.paddingTop = '0';
-                        submenu.style.paddingBottom = '0';
-
-                        setTimeout(() => {
-                            submenu.classList.add('hidden');
-                            submenu.style.maxHeight = '';
-                            submenu.style.opacity = '';
-                            submenu.style.paddingTop = '';
-                            submenu.style.paddingBottom = '';
-                        }, 300);
-
-                        // Reset chevron rotation
-                        if (chevron) {
-                            chevron.style.transform = 'rotate(0deg)';
-                            chevron.style.transition = 'transform 0.3s ease';
-                        }
-                    } else {
-                        // Opening animation
-                        submenu.classList.remove('hidden');
-                        submenu.style.maxHeight = '0px';
-                        submenu.style.opacity = '0';
-                        submenu.style.paddingTop = '0';
-                        submenu.style.paddingBottom = '0';
-
-                        // Force reflow
-                        submenu.offsetHeight;
-
-                        // Animate to full height
-                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                        submenu.style.opacity = '1';
-                        submenu.style.paddingTop = '0.5rem';
-                        submenu.style.paddingBottom = '0.5rem';
-
-                        // Rotate chevron
-                        if (chevron) {
-                            chevron.style.transform = 'rotate(180deg)';
-                            chevron.style.transition = 'transform 0.3s ease';
-                        }
-                    }
-                });
-            });
-        }, 100);
-
-        // Close dropdowns on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (activeDropdown) {
-                    closeAllDropdowns();
-                }
-                if (menuOpen) {
-                    menuOpen = false;
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
-                    feather.replace();
-                }
-            }
-        });
-
-        // Carousel functionality
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            currentSlide = (n + totalSlides) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Auto slide
-        if (slides.length > 0) {
-            setInterval(nextSlide, 5000);
-            showSlide(0); // Initial setup
-        }
-
-        // Manual controls
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-
-        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-        // Tab functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const targetTab = this.getAttribute('data-tab');
-
-                    // Remove active class from all tabs
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-600', 'active');
-                        btn.classList.add('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
-                    });
-
-                    // Add active class to clicked tab
-                    this.classList.add('bg-blue-500', 'text-white', 'border-blue-600', 'active');
-                    this.classList.remove('text-gray-600', 'hover:text-blue-600', 'hover:bg-blue-50');
-
-                    // Hide all tab contents
-                    tabContents.forEach(content => {
-                        content.classList.add('hidden');
-                    });
-
-                    // Show target tab content
-                    const targetContent = document.getElementById(targetTab + '-tab');
-                    if (targetContent) {
-                        targetContent.classList.remove('hidden');
-                    }
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            const cards = document.querySelectorAll('.group');
-
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-2px)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-        })
-    </script>
-
 </body>
 
 </html>
