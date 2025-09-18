@@ -14,30 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     feather.replace();
   });
 
-  // FAQ Accordion
-  document.querySelectorAll(".faq-toggle").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const content = btn.nextElementSibling;
-      const icon = btn.querySelector("i");
-
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        icon.classList.remove("rotate-180");
-      } else {
-        // close other open items
-        document
-          .querySelectorAll(".faq-content")
-          .forEach((c) => (c.style.maxHeight = null));
-        document
-          .querySelectorAll(".faq-toggle i")
-          .forEach((i) => i.classList.remove("rotate-180"));
-
-        content.style.maxHeight = content.scrollHeight + "px";
-        icon.classList.add("rotate-180");
-      }
-    });
-  });
-
   // Desktop dropdown functionality
   const desktopDropdowns = document.querySelectorAll(".dropdown-container");
   let activeDropdown = null;
@@ -262,6 +238,30 @@ document.addEventListener("DOMContentLoaded", () => {
           dropdown.classList.add("opacity-0", "invisible");
         }
       });
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll(".faq-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector("i");
+
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        icon.classList.remove("rotate-180");
+      } else {
+        // close other open items
+        document
+          .querySelectorAll(".faq-content")
+          .forEach((c) => (c.style.maxHeight = null));
+        document
+          .querySelectorAll(".faq-toggle i")
+          .forEach((i) => i.classList.remove("rotate-180"));
+
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.classList.add("rotate-180");
+      }
+    });
   });
 
   function showToast(type, message, duration = 3000) {

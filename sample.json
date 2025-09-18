@@ -1,11 +1,134 @@
+// {
+//   "id": 1,
+//   "name": "Asad Rahman",
+//   "email": "asad.rahman@example.com",
+//   "phone": "+8801712345678",
+//   "date": "1990-05-01",
+//   "division": "Dhaka",
+//   "district": "Dhaka",
+//   "area": "Mirpur-10",
+//   "profile": "https://randomuser.me/api/portraits/men/32.jpg"
+// }
+
 {
-  "id": 1,
-  "name": "Asad Rahman",
-  "email": "asad.rahman@example.com",
-  "phone": "+8801712345678",
-  "date": "1990-05-01",
-  "division": "Dhaka",
-  "district": "Dhaka",
-  "area": "Mirpur-10",
-  "profile": "https://randomuser.me/api/portraits/men/32.jpg"
+  "count": 2,
+  "num_pages": 1,
+  "current_page": 1,
+  "has_next": false,
+  "has_previous": false,
+  "results": [
+    {
+      "id": 1,
+      "title": "Modern Apartment in Uttara Sector-7",
+      "location": "Uttara Sector-7, Dhaka",
+      "price": 35000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": 1200,
+      "type": "Apartment",
+      "images": [
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
+      "features": ["Parking", "Gym", "Security", "Generator", "Swimming Pool"],
+      "description": "Beautiful modern apartment with all amenities in prime Uttara location. Perfect for families with spacious rooms and contemporary design."
+    },
+
+    {
+      "id": 2,
+      "title": "Luxury Villa in Banani",
+      "location": "Banani, Dhaka",
+      "price": 85000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": 2200,
+      "type": "Villa",
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+      "features": ["Swimming Pool", "Garden", "Parking", "Security", "Gym"],
+      "description": "Spacious luxury villa in the heart of Banani with premium amenities and modern architecture."
+    },
+    {
+      "id": 3,
+      "title": "Cozy Studio in Dhanmondi 15",
+      "location": "Dhanmondi 15, Dhaka",
+      "price": 18000,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "area": 650,
+      "type": "Studio",
+      "images": [
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448075-bb485b067938?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
+      "features": ["Furnished", "AC", "Internet", "Security"],
+      "description": "Perfect studio apartment for young professionals in Dhanmondi with modern furnishing."
+    },
+    {
+      "id": 4,
+      "title": "Family Home in Bashundhara R/A",
+      "location": "Bashundhara R/A, Dhaka",
+      "price": 65000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "area": 1800,
+      "type": "House",
+      "images": [
+        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&h=300&fit=crop",
+      "features": ["Garden", "Garage", "Security", "Playground"],
+      "description": "Spacious family home in well-planned Bashundhara residential area."
+    },
+    {
+      "id": 5,
+      "title": "Modern Flat in Mirpur-10",
+      "location": "Mirpur-10, Dhaka",
+      "price": 28000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "area": 900,
+      "type": "Apartment",
+      "images": [
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+      "features": ["Lift", "Security", "Backup Power"],
+      "description": "Well-maintained apartment in developing Mirpur area."
+    },
+    {
+      "id": 6,
+      "title": "Heritage Property in Old Dhaka",
+      "location": "Wari, Old Dhaka",
+      "price": 22000,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "area": 1100,
+      "type": "Traditional",
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+      ],
+      "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
+      "features": [
+        "Traditional Architecture",
+        "Central Location",
+        "Heritage Value"
+      ],
+      "description": "Beautiful traditional property in historic Old Dhaka area."
+    }
+  ]
 }
