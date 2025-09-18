@@ -11,23 +11,23 @@ body {
 }
 
 .toast-success {
-    background: linear-gradient(135deg, #10b981, #059669) !important;
-    color: white !important;
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: white !important;
 }
 
 .toast-warning {
-    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
-    color: white !important;
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: white !important;
 }
 
 .toast-error {
-    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-    color: white !important;
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: white !important;
 }
 
 .toast-default {
-    background: linear-gradient(135deg, #6b7280, #4b5563) !important;
-    color: white !important;
+  background: linear-gradient(135deg, #6b7280, #4b5563) !important;
+  color: white !important;
 }
 
 .tab-btn {
@@ -58,6 +58,33 @@ body {
 .search-btn-hover {
   position: relative;
   overflow: hidden;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  width: 2px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.text-shadow-open {
+  position: relative;
+}
+.text-shadow-open .shawod {
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke: 2px #1e293b;
+  text-stroke: 2px #1e293b;
+  left: 50%;
+  transform: translateX(-50%);
+  text-wrap: nowrap;
+  top: -1rem;
+  opacity: 0.3;
 }
 
 .search-btn-hover::before {

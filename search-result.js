@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isLoading = false;
 
   // API configuration
-  const API_BASE_URL = "https://onereachbd.com/api"; // Adjust this to your actual API endpoint
+  const API_BASE_URL = "https://archimartbd.com/api";
 
   // Initialize app
   function init() {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const apiParams = new URLSearchParams(searchParams);
       apiParams.set("page", page);
 
-      const apiUrl = `${API_BASE_URL}/properties/?${apiParams.toString()}`;
+      const apiUrl = `${API_BASE_URL}/properties?${apiParams.toString()}`;
 
       const response = await fetch(apiUrl, {
         method: "GET",
