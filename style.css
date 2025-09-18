@@ -66,6 +66,9 @@ body {
   width: 2px;
   animation: blink 0.7s steps(1) infinite;
 }
+#typed-text {
+  color: var(--primary);
+}
 
 @keyframes blink {
   50% {
