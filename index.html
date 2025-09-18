@@ -37,6 +37,7 @@
         }
     </script>
     <script src="main.js"></script>
+    <script src="search.js"></script>
 </head>
 
 <body class="bg-gray-50">
@@ -123,9 +124,15 @@
                             About Us
                         </span>
                     </a>
+                    <a href="/login.html" data-user-login
+                        class="relative hidden inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-green-500 to-green-500 focus:ring-4 focus:outline-none focus:ring-green-200">
+                        <span
+                            class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                            <i class="fas fa-user"></i> Login
+                        </span>
+                    </a>
 
-                    <!-- Login & User Icon -->
-                    <div class="relative" data-user="users">
+                    <div class="relative" data-user>
                         <button id="user-btn"
                             class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
                             <img src="" class="w-[100%] h-[100%] border rounded-full object-cover" data-user-profile>
@@ -223,11 +230,18 @@
                     </span>
                 </a>
 
+                <a href="/login.html" data-user-login
+                    class="relative hidden inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-green-500 to-green-500 focus:ring-4 focus:outline-none focus:ring-green-200">
+                    <span
+                        class="px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent text-white group-hover:text-white">
+                        <i class="fas fa-user"></i> Login
+                    </span>
+                </a>
 
 
                 <!-- Mobile Login & User -->
                 <div class="flex items-center space-x-4 mt-2">
-                    <div class="relative" data-user="users">
+                    <div class="relative" data-user>
                         <button id="mobile-user-btn"
                             class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
                             <img src="" class="w-[100%] h-[100%] border rounded-full object-cover" data-user-profile>

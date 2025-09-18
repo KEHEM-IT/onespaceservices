@@ -1,9 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const searchProperty = document.getElementById("searchBtn");
-  searchProperty.addEventListener("click", () => {
-    window.location.href = "search.html";
-  });
-
   // Mobile menu toggle
   const menuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -299,8 +294,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedUser = JSON.parse(localStorage.getItem("userData"));
 
   const userData = document.querySelectorAll("[data-user]");
+  const isUserData = document.querySelectorAll("[data-user-login]");
 
-  if (savedUser) {
+  if (savedUser == null) {
+    // Hide user-related elements
+    userData.forEach((item) => {
+      item.classList.add("hidden");
+    });
+
+    // Show login-related elements
+    isUserData.forEach((item) => {
+      item.classList.remove("hidden");
+    });
+  } else {
     userData.forEach((item) => {
       const profile = item.querySelector("[data-user-profile]");
       const name = item.querySelector("[data-user-name]");
