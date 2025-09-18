@@ -1,311 +1,325 @@
-
-
-// Initialize Feather Icons
-feather.replace();
-
-// Tab functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const tabContents = document.querySelectorAll(".tab-content");
-
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetTab = button.getAttribute("data-tab");
-
-      // Remove active class from all buttons
-      tabButtons.forEach((btn) => {
-        btn.classList.remove("active");
-        btn.classList.remove("text-white");
-        btn.classList.add("text-white");
-        btn.style.background = "";
-        btn.style.boxShadow = "";
-      });
-
-      // Add active class to clicked button
-      button.classList.add("active");
-      button.classList.remove("text-white");
-      button.classList.add("text-white");
-
-      // Hide all tab contents
-      tabContents.forEach((content) => {
-        content.classList.add("hidden");
-      });
-
-      // Show target tab content
-      const targetContent = document.getElementById(`${targetTab}-tab`);
-      if (targetContent) {
-        targetContent.classList.remove("hidden");
-      }
-
-      // Add animation to tab content
-      anime({
-        targets: targetContent,
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 500,
-        easing: "easeOutCubic",
-      });
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const searchProperty = document.getElementById("searchBtn");
+  searchProperty.addEventListener("click", () => {
+    window.location.href = "search.html";
   });
 
-  // Search button functionality
-  const searchButtons = document.querySelectorAll(
-    'button[class*="search-btn-hover"]'
-  );
-  searchButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      // Add click animation
-      anime({
-        targets: this,
-        scale: [1, 0.95, 1],
-        duration: 200,
-        easing: "easeInOutQuad",
-      });
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  let menuOpen = false;
 
-      // Get current active tab
-      const activeTab = document.querySelector(".tab-btn.active");
-      const tabType = activeTab.getAttribute("data-tab");
-
-      // Simulate search action
-      this.innerHTML =
-        '<i class="fas fa-spinner fa-spin mr-2"></i>Searching...';
-      this.disabled = true;
-
-      setTimeout(() => {
-        // Reset button after search
-        if (tabType === "buy") {
-          this.innerHTML =
-            '<i class="fas fa-search mr-2"></i>Search Properties';
-        } else if (tabType === "rent") {
-          this.innerHTML = '<i class="fas fa-search mr-2"></i>Search Rentals';
-        } else if (tabType === "roommate") {
-          this.innerHTML = '<i class="fas fa-search mr-2"></i>Find Roommates';
-        } else if (tabType === "services") {
-          this.innerHTML = '<i class="fas fa-search mr-2"></i>Find Services';
-        }
-        this.disabled = false;
-
-        // Redirect based on tab type
-        if (tabType === "buy") {
-          window.location.href = "search?type=buy";
-        } else if (tabType === "rent") {
-          window.location.href = "search?type=rent";
-        } else if (tabType === "roommate") {
-          window.location.href = "search?type=roommate";
-        } else if (tabType === "services") {
-          window.location.href = "services";
-        }
-      }, 2000);
-    });
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle("hidden", !menuOpen);
+    menuBtn.innerHTML = menuOpen
+      ? '<i data-feather="x" class="w-7 h-7"></i>'
+      : '<i data-feather="menu" class="w-7 h-7"></i>';
+    feather.replace();
   });
 
-  // Add hover effects to stat cards
-  const statCards = document.querySelectorAll(".property-card");
-  statCards.forEach((card) => {
-    card.addEventListener("mouseenter", function () {
-      anime({
-        targets: this,
-        scale: 1.05,
-        boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-        duration: 300,
-        easing: "easeOutCubic",
-      });
-    });
+  // FAQ Accordion
+  document.querySelectorAll(".faq-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector("i");
 
-    card.addEventListener("mouseleave", function () {
-      anime({
-        targets: this,
-        scale: 1,
-        boxShadow: "0 10px 15px rgba(0,0,0,0.1)",
-        duration: 300,
-        easing: "easeOutCubic",
-      });
-    });
-  });
-
-  // Add floating animation to background elements
-  anime({
-    targets: ".floating-animation",
-    translateY: [-20, 20],
-    duration: 4000,
-    direction: "alternate",
-    loop: true,
-    easing: "easeInOutSine",
-  });
-
-  // Counter animation for stats
-  const animateCounter = (element, target) => {
-    anime({
-      targets: element,
-      innerHTML: [0, target],
-      duration: 2000,
-      round: 1,
-      easing: "easeOutCubic",
-      complete: function () {
-        if (target >= 1000) {
-          element.innerHTML = (target / 1000).toFixed(1) + "K+";
-        } else {
-          element.innerHTML = target + "+";
-        }
-      },
-    });
-  };
-
-  // Intersection Observer for counter animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const counterElement = entry.target.querySelector("h3");
-        const text = counterElement.textContent;
-        const number = parseInt(text.replace(/[^0-9]/g, ""));
-
-        if (text.includes("4.8")) {
-          anime({
-            targets: counterElement,
-            innerHTML: [0, 4.8],
-            duration: 2000,
-            round: 10,
-            easing: "easeOutCubic",
-            complete: function () {
-              counterElement.innerHTML = "4.8/5";
-            },
-          });
-        } else {
-          animateCounter(counterElement, number);
-        }
-
-        observer.unobserve(entry.target);
-      }
-    });
-  });
-
-  // Observe stat cards
-  document.querySelectorAll(".property-card").forEach((card) => {
-    observer.observe(card);
-  });
-
-  // Add smooth scrolling for any anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    });
-  });
-
-  // Add keyboard navigation for tabs
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-      const activeTab = document.querySelector(".tab-btn.active");
-      const tabs = Array.from(document.querySelectorAll(".tab-btn"));
-      const currentIndex = tabs.indexOf(activeTab);
-
-      let nextIndex;
-      if (e.key === "ArrowRight") {
-        nextIndex = (currentIndex + 1) % tabs.length;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        icon.classList.remove("rotate-180");
       } else {
-        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-      }
+        // close other open items
+        document
+          .querySelectorAll(".faq-content")
+          .forEach((c) => (c.style.maxHeight = null));
+        document
+          .querySelectorAll(".faq-toggle i")
+          .forEach((i) => i.classList.remove("rotate-180"));
 
-      tabs[nextIndex].click();
-      tabs[nextIndex].focus();
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon.classList.add("rotate-180");
+      }
+    });
+  });
+
+  // Desktop dropdown functionality
+  const desktopDropdowns = document.querySelectorAll(".dropdown-container");
+  let activeDropdown = null;
+
+  // Wait for feather icons to be initialized
+  setTimeout(() => {
+    desktopDropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector("button");
+      const menu = dropdown.querySelector(".absolute");
+
+      // Click handler for dropdown button
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Check if this dropdown is currently open
+        const isCurrentlyOpen = menu.classList.contains("opacity-100");
+
+        // Close all open dropdowns first
+        closeAllDropdowns();
+
+        // If this dropdown wasn't open, open it
+        if (!isCurrentlyOpen) {
+          openDropdown(dropdown);
+        }
+      });
+
+      // Prevent dropdown from closing when clicking inside the menu
+      menu.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    });
+  }, 100);
+
+  function openDropdown(dropdown) {
+    const menu = dropdown.querySelector(".absolute");
+    const chevron = dropdown.querySelector("button svg");
+
+    menu.classList.remove("opacity-0", "invisible");
+    menu.classList.add("opacity-100", "visible");
+
+    // Force chevron rotation using SVG element
+    if (chevron) {
+      chevron.style.transform = "rotate(180deg)";
+      chevron.style.transition = "transform 0.3s ease";
+    }
+
+    activeDropdown = dropdown;
+  }
+
+  function closeDropdown(dropdown) {
+    const menu = dropdown.querySelector(".absolute");
+    const chevron = dropdown.querySelector("button svg");
+
+    menu.classList.remove("opacity-100", "visible");
+    menu.classList.add("opacity-0", "invisible");
+
+    // Reset chevron rotation using SVG element
+    if (chevron) {
+      chevron.style.transform = "rotate(0deg)";
+      chevron.style.transition = "transform 0.3s ease";
+    }
+
+    if (activeDropdown === dropdown) {
+      activeDropdown = null;
+    }
+  }
+
+  function closeAllDropdowns() {
+    desktopDropdowns.forEach((dropdown) => {
+      const menu = dropdown.querySelector(".absolute");
+      const chevron = dropdown.querySelector("button svg");
+
+      menu.classList.remove("opacity-100", "visible");
+      menu.classList.add("opacity-0", "invisible");
+
+      if (chevron) {
+        chevron.style.transform = "rotate(0deg)";
+        chevron.style.transition = "transform 0.3s ease";
+      }
+    });
+    activeDropdown = null;
+  }
+
+  // Close dropdowns when clicking outside
+  document.addEventListener("click", (e) => {
+    // Close mobile menu if clicking outside
+    if (
+      menuOpen &&
+      !mobileMenu.contains(e.target) &&
+      !menuBtn.contains(e.target)
+    ) {
+      menuOpen = false;
+      mobileMenu.classList.add("hidden");
+      menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+      feather.replace();
+    }
+
+    // Close desktop dropdowns if clicking outside
+    let clickedInsideDropdown = false;
+    desktopDropdowns.forEach((dropdown) => {
+      if (dropdown.contains(e.target)) {
+        clickedInsideDropdown = true;
+      }
+    });
+
+    if (!clickedInsideDropdown && activeDropdown) {
+      closeAllDropdowns();
     }
   });
 
-  // Add form validation
-  const forms = document.querySelectorAll(".tab-content");
-  forms.forEach((form) => {
-    const selects = form.querySelectorAll("select");
-    selects.forEach((select) => {
-      select.addEventListener("change", function () {
-        if (this.value) {
-          this.classList.add("border-green-300");
-          this.classList.remove("border-gray-200");
-        } else {
-          this.classList.remove("border-green-300");
-          this.classList.add("border-gray-200");
-        }
+  // Mobile submenu toggle with smooth transitions
+  setTimeout(() => {
+    document
+      .querySelectorAll('[data-toggle="mobile-submenu"]')
+      .forEach((button) => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const submenu = button.nextElementSibling;
+          const chevron = button.querySelector("svg");
+          const isOpen = !submenu.classList.contains("hidden");
+
+          if (isOpen) {
+            // Closing animation
+            submenu.style.maxHeight = "0px";
+            submenu.style.opacity = "0";
+            submenu.style.paddingTop = "0";
+            submenu.style.paddingBottom = "0";
+
+            setTimeout(() => {
+              submenu.classList.add("hidden");
+              submenu.style.maxHeight = "";
+              submenu.style.opacity = "";
+              submenu.style.paddingTop = "";
+              submenu.style.paddingBottom = "";
+            }, 300);
+
+            // Reset chevron rotation
+            if (chevron) {
+              chevron.style.transform = "rotate(0deg)";
+              chevron.style.transition = "transform 0.3s ease";
+            }
+          } else {
+            // Opening animation
+            submenu.classList.remove("hidden");
+            submenu.style.maxHeight = "0px";
+            submenu.style.opacity = "0";
+            submenu.style.paddingTop = "0";
+            submenu.style.paddingBottom = "0";
+
+            // Force reflow
+            submenu.offsetHeight;
+
+            // Animate to full height
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+            submenu.style.opacity = "1";
+            submenu.style.paddingTop = "0.5rem";
+            submenu.style.paddingBottom = "0.5rem";
+
+            // Rotate chevron
+            if (chevron) {
+              chevron.style.transform = "rotate(180deg)";
+              chevron.style.transition = "transform 0.3s ease";
+            }
+          }
+        });
       });
-    });
+  }, 100);
+
+  // Close dropdowns on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (activeDropdown) {
+        closeAllDropdowns();
+      }
+      if (menuOpen) {
+        menuOpen = false;
+        mobileMenu.classList.add("hidden");
+        menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
+        feather.replace();
+      }
+    }
   });
 
-  // Add loading states for search buttons
-  const addLoadingState = (button) => {
-    const originalText = button.innerHTML;
-    button.innerHTML =
-      '<i class="fas fa-spinner fa-spin mr-2"></i>Searching...';
-    button.disabled = true;
+  // User dropdown functionality (desktop + mobile)
+  const userButtons = document.querySelectorAll("#user-btn, #mobile-user-btn");
 
-    return () => {
-      button.innerHTML = originalText;
-      button.disabled = false;
-    };
-  };
+  userButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent document click from immediately closing
+      const dropdown = btn.nextElementSibling;
+      const isOpen = dropdown.classList.contains("opacity-100");
 
-  // Enhanced search button click handlers
-  document
-    .getElementById("search-property")
-    ?.addEventListener("click", function (e) {
-      e.preventDefault();
-      const resetLoading = addLoadingState(this);
+      // Close all other user dropdowns first
+      document
+        .querySelectorAll("#user-btn + div, #mobile-user-btn + div")
+        .forEach((d) => {
+          d.classList.remove("opacity-100", "visible");
+          d.classList.add("opacity-0", "invisible");
+        });
 
-      // Collect form data
-      const tabContent = document.getElementById("buy-tab");
-      const formData = {
-        location: tabContent.querySelector("select").value,
-        propertyType: tabContent.querySelectorAll("select")[1].value,
-        priceRange: tabContent.querySelectorAll("select")[2].value,
-        type: "buy",
-      };
-
-      // Simulate API call
-      setTimeout(() => {
-        resetLoading();
-        // Redirect with parameters
-        const params = new URLSearchParams(formData);
-        window.location.href = `search?${params.toString()}`;
-      }, 2000);
-    });
-});
-
-// Add resize handler for responsive design
-window.addEventListener("resize", function () {
-  // Recalculate animations on resize
-  if (window.innerWidth < 768) {
-    // Mobile-specific adjustments
-    document.querySelectorAll(".floating-animation").forEach((el) => {
-      el.style.display = "none";
-    });
-  } else {
-    document.querySelectorAll(".floating-animation").forEach((el) => {
-      el.style.display = "block";
-    });
-  }
-});
-
-// Performance optimization: Lazy load background images
-const lazyLoadImages = () => {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.style.backgroundImage = `url(${img.dataset.bg})`;
-        img.classList.remove("lazy");
-        imageObserver.unobserve(img);
+      // Toggle current dropdown
+      if (!isOpen) {
+        dropdown.classList.remove("opacity-0", "invisible");
+        dropdown.classList.add("opacity-100", "visible");
+      } else {
+        dropdown.classList.remove("opacity-100", "visible");
+        dropdown.classList.add("opacity-0", "invisible");
       }
     });
   });
 
-  document.querySelectorAll("[data-bg]").forEach((img) => {
-    imageObserver.observe(img);
+  // Close user dropdowns when clicking outside
+  document.addEventListener("click", (e) => {
+    document
+      .querySelectorAll("#user-btn + div, #mobile-user-btn + div")
+      .forEach((dropdown) => {
+        if (!dropdown.contains(e.target)) {
+          dropdown.classList.remove("opacity-100", "visible");
+          dropdown.classList.add("opacity-0", "invisible");
+        }
+      });
   });
-};
 
-// Initialize lazy loading
-lazyLoadImages();
+  function showToast(type, message, duration = 3000) {
+    let className;
+    switch (type) {
+      case "success":
+        className = "toast-success";
+        break;
+      case "warning":
+        className = "toast-warning";
+        break;
+      case "error":
+        className = "toast-error";
+        break;
+      default:
+        className = "toast-default";
+    }
 
+    Toastify({
+      text: message,
+      duration: duration,
+      close: true,
+      gravity: "bottom",
+      position: "center",
+      stopOnFocus: true,
+      className: className,
+    }).showToast();
+  }
+
+  const savedUser = JSON.parse(localStorage.getItem("userData"));
+
+  const userData = document.querySelectorAll("[data-user]");
+
+  if (savedUser) {
+    userData.forEach((item) => {
+      const profile = item.querySelector("[data-user-profile]");
+      const name = item.querySelector("[data-user-name]");
+      const logout = item.querySelector("[data-user-logout]");
+
+      const firstName = savedUser.name.split(" ")[0];
+
+      if (profile) profile.src = savedUser.profile;
+      if (name) name.textContent = firstName;
+
+      if (logout) {
+        logout.addEventListener("click", () => {
+          localStorage.removeItem("userData");
+          showToast("warning", "You are successfully logged out.", 2000);
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000);
+        });
+      }
+    });
+  }
+});

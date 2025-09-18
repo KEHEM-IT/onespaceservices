@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <script src="main.js"></script>
+    <!-- Toastify CSS + JS CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!-- Add Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -123,19 +126,20 @@
                     </a>
 
                     <!-- Login & User Icon -->
-                    <div class="relative">
+                    <div class="relative" data-user="users">
                         <button id="user-btn"
                             class="w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
-                            <i data-feather="user" class="w-6 h-6 text-gray-800"></i>
+                            <img src="" class="w-[100%] h-[100%] border rounded-full object-cover" data-user-profile>
                         </button>
+
                         <div
                             class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
                             <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
-                                <i class="fas fa-user mr-2"></i> John Doe
+                                <i class="fas fa-user mr-2"></i> <span data-user-name></span>
                             </div>
-                            <button
+                            <button data-user-logout
                                 class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
-                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                <i class="fas fa-sign-out-alt mr-2"></i> <span>Logout</span>
                             </button>
                         </div>
                     </div>
@@ -220,19 +224,21 @@
                     </span>
                 </a>
 
+
+
                 <!-- Mobile Login & User -->
                 <div class="flex items-center space-x-4 mt-2">
-                    <div class="relative">
+                    <div class="relative" data-user="users">
                         <button id="mobile-user-btn"
                             class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
-                            <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                            <img src="" class="w-[100%] h-[100%] border rounded-full object-cover" data-user-profile>
                         </button>
                         <div
                             class="absolute top-0 left-full ml-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
                             <div class="px-4 py-3 text-white font-medium flex items-center">
-                                <i class="fas fa-user mr-2"></i> John Doe
+                                <i class="fas fa-user mr-2"></i> <span data-user-name></span>
                             </div>
-                            <button
+                            <button data-user-logout
                                 class="block w-full text-left px-4 py-3 text-white hover:text-secondary transition-colors duration-200 flex items-center">
                                 <i class="fas fa-sign-out-alt mr-2"></i> Logout
                             </button>
@@ -361,12 +367,6 @@
 
                 </div>
             </aside>
-
-
-            <!-- Architectural Design, Structural Design, Electrical Design, Mechanical Design, Plumbing & Water Services, 
-                    Interior Design & Implementation, Landscape Design, Construction Services, Project Management & Consultancy, 
-                    Building Maintenance & Facility Management, Land Development & Real Estate Services  -->
-
             <!-- Right Column - Portfolio Carousel (30% width) -->
             <aside class="md:w-[20%] w-full" style="height: -webkit-fill-available;">
                 <div class="rounded-xl overflow-hidden h-full" data-aos="fade-up" data-aos-delay="100">
@@ -449,7 +449,7 @@
                 const swiper = new Swiper('.swiper', {
                     loop: true,
                     autoplay: {
-                        delay: 3000, // 3s per slide
+                        delay: 3000,
                         disableOnInteraction: false,
                     },
                     pagination: {
@@ -944,30 +944,6 @@
         </div>
     </section>
 
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-toggle').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const content = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
-
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.classList.remove('rotate-180');
-                } else {
-                    // close other open items
-                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
-                    document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
-
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    icon.classList.add('rotate-180');
-                }
-            });
-        });
-    </script>
-
-
-
     <!-- Footer -->
     <footer class="relative bg-darkPrimary text-white pt-16">
         <div class="sky-lines">
@@ -1058,267 +1034,13 @@
     <script>
         AOS.init({
             duration: 400,
-            easing: 'ease-in-out',
-            once: true
+            easing: "ease-in-out",
+            once: true,
         });
-        const searchProperty = document.getElementById('searchBtn');
-        searchProperty.addEventListener('click', () => {
-            window.location.href = 'search.html';
-        });
-        // Initialize Feather Icons
         feather.replace();
-
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        let menuOpen = false;
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('hidden', !menuOpen);
-            menuBtn.innerHTML = menuOpen
-                ? '<i data-feather="x" class="w-7 h-7"></i>'
-                : '<i data-feather="menu" class="w-7 h-7"></i>';
-            feather.replace();
-        });
-
-        // Desktop dropdown functionality
-        const desktopDropdowns = document.querySelectorAll('.dropdown-container');
-        let activeDropdown = null;
-
-        // Wait for feather icons to be initialized
-        setTimeout(() => {
-            desktopDropdowns.forEach(dropdown => {
-                const button = dropdown.querySelector('button');
-                const menu = dropdown.querySelector('.absolute');
-
-                // Click handler for dropdown button
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    // Check if this dropdown is currently open
-                    const isCurrentlyOpen = menu.classList.contains('opacity-100');
-
-                    // Close all open dropdowns first
-                    closeAllDropdowns();
-
-                    // If this dropdown wasn't open, open it
-                    if (!isCurrentlyOpen) {
-                        openDropdown(dropdown);
-                    }
-                });
-
-                // Prevent dropdown from closing when clicking inside the menu
-                menu.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            });
-        }, 100);
-
-        function openDropdown(dropdown) {
-            const menu = dropdown.querySelector('.absolute');
-            const chevron = dropdown.querySelector('button svg');
-
-            menu.classList.remove('opacity-0', 'invisible');
-            menu.classList.add('opacity-100', 'visible');
-
-            // Force chevron rotation using SVG element
-            if (chevron) {
-                chevron.style.transform = 'rotate(180deg)';
-                chevron.style.transition = 'transform 0.3s ease';
-            }
-
-            activeDropdown = dropdown;
-        }
-
-        function closeDropdown(dropdown) {
-            const menu = dropdown.querySelector('.absolute');
-            const chevron = dropdown.querySelector('button svg');
-
-            menu.classList.remove('opacity-100', 'visible');
-            menu.classList.add('opacity-0', 'invisible');
-
-            // Reset chevron rotation using SVG element
-            if (chevron) {
-                chevron.style.transform = 'rotate(0deg)';
-                chevron.style.transition = 'transform 0.3s ease';
-            }
-
-            if (activeDropdown === dropdown) {
-                activeDropdown = null;
-            }
-        }
-
-        function closeAllDropdowns() {
-            desktopDropdowns.forEach(dropdown => {
-                const menu = dropdown.querySelector('.absolute');
-                const chevron = dropdown.querySelector('button svg');
-
-                menu.classList.remove('opacity-100', 'visible');
-                menu.classList.add('opacity-0', 'invisible');
-
-                if (chevron) {
-                    chevron.style.transform = 'rotate(0deg)';
-                    chevron.style.transition = 'transform 0.3s ease';
-                }
-            });
-            activeDropdown = null;
-        }
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', (e) => {
-            // Close mobile menu if clicking outside
-            if (menuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                menuOpen = false;
-                mobileMenu.classList.add('hidden');
-                menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
-                feather.replace();
-            }
-
-            // Close desktop dropdowns if clicking outside
-            let clickedInsideDropdown = false;
-            desktopDropdowns.forEach(dropdown => {
-                if (dropdown.contains(e.target)) {
-                    clickedInsideDropdown = true;
-                }
-            });
-
-            if (!clickedInsideDropdown && activeDropdown) {
-                closeAllDropdowns();
-            }
-        });
-
-        // Mobile submenu toggle with smooth transitions
-        setTimeout(() => {
-            document.querySelectorAll('[data-toggle="mobile-submenu"]').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const submenu = button.nextElementSibling;
-                    const chevron = button.querySelector('svg');
-                    const isOpen = !submenu.classList.contains('hidden');
-
-                    if (isOpen) {
-                        // Closing animation
-                        submenu.style.maxHeight = '0px';
-                        submenu.style.opacity = '0';
-                        submenu.style.paddingTop = '0';
-                        submenu.style.paddingBottom = '0';
-
-                        setTimeout(() => {
-                            submenu.classList.add('hidden');
-                            submenu.style.maxHeight = '';
-                            submenu.style.opacity = '';
-                            submenu.style.paddingTop = '';
-                            submenu.style.paddingBottom = '';
-                        }, 300);
-
-                        // Reset chevron rotation
-                        if (chevron) {
-                            chevron.style.transform = 'rotate(0deg)';
-                            chevron.style.transition = 'transform 0.3s ease';
-                        }
-                    } else {
-                        // Opening animation
-                        submenu.classList.remove('hidden');
-                        submenu.style.maxHeight = '0px';
-                        submenu.style.opacity = '0';
-                        submenu.style.paddingTop = '0';
-                        submenu.style.paddingBottom = '0';
-
-                        // Force reflow
-                        submenu.offsetHeight;
-
-                        // Animate to full height
-                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                        submenu.style.opacity = '1';
-                        submenu.style.paddingTop = '0.5rem';
-                        submenu.style.paddingBottom = '0.5rem';
-
-                        // Rotate chevron
-                        if (chevron) {
-                            chevron.style.transform = 'rotate(180deg)';
-                            chevron.style.transition = 'transform 0.3s ease';
-                        }
-                    }
-                });
-            });
-        }, 100);
-
-        // Close dropdowns on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (activeDropdown) {
-                    closeAllDropdowns();
-                }
-                if (menuOpen) {
-                    menuOpen = false;
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.innerHTML = '<i data-feather="menu" class="w-7 h-7"></i>';
-                    feather.replace();
-                }
-            }
-        });
-
-
-        // User dropdown functionality (desktop + mobile)
-        const userButtons = document.querySelectorAll('#user-btn, #mobile-user-btn');
-
-        userButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent document click from immediately closing
-                const dropdown = btn.nextElementSibling;
-                const isOpen = dropdown.classList.contains('opacity-100');
-
-                // Close all other user dropdowns first
-                document.querySelectorAll('#user-btn + div, #mobile-user-btn + div').forEach(d => {
-                    d.classList.remove('opacity-100', 'visible');
-                    d.classList.add('opacity-0', 'invisible');
-                });
-
-                // Toggle current dropdown
-                if (!isOpen) {
-                    dropdown.classList.remove('opacity-0', 'invisible');
-                    dropdown.classList.add('opacity-100', 'visible');
-                } else {
-                    dropdown.classList.remove('opacity-100', 'visible');
-                    dropdown.classList.add('opacity-0', 'invisible');
-                }
-            });
-        });
-
-        // Close user dropdowns when clicking outside
-        document.addEventListener('click', (e) => {
-            document.querySelectorAll('#user-btn + div, #mobile-user-btn + div').forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('opacity-100', 'visible');
-                    dropdown.classList.add('opacity-0', 'invisible');
-                }
-            });
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 </body>
+
+<script src="main.js"></script>
 
 </html>

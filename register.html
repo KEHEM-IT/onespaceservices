@@ -347,8 +347,30 @@
 
             xhr.send(formData);
         });
+
     </script>
 
+    <script>
+        // Your JSON object
+        const user = {
+            id: 1,
+            name: "Asad Rahman",
+            email: "asad.rahman@example.com",
+            phone: "+8801712345678",
+            date: "1990-05-01",
+            division: "Dhaka",
+            district: "Dhaka",
+            area: "Mirpur-10",
+            profile: "https://randomuser.me/api/portraits/men/32.jpg"
+        };
+
+        // Save to localStorage
+        localStorage.setItem("userData", JSON.stringify(user));
+
+        // Retrieve it back (for testing)
+        const savedUser = JSON.parse(localStorage.getItem("userData"));
+        console.log(savedUser);
+    </script>
 
 
 
