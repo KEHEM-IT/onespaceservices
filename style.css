@@ -87,7 +87,7 @@ body {
   transform: translateX(-50%);
   text-wrap: nowrap;
   top: -1rem;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .search-btn-hover::before {
@@ -231,16 +231,28 @@ body {
   height: 4rem;
   font-weight: 600;
   font-size: 1.1rem;
-  border: 3px solid var(--primary);
   padding: 0.4rem;
   background: linear-gradient(to top, var(--primary), #5494e9);
   width: 100%;
   transition: background 0.3s ease;
 }
 
-.service-card .service-name:hover {
+/* .service-card .service-name:hover {
   background: linear-gradient(to bottom, var(--primary), #5494e9);
   transition: background 0.3s ease;
+} */
+.service-card .cssbuttons-io-button {
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  background: linear-gradient(to bottom, var(--primary), #5494e9);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  transition: all 0.3s ease;
+}
+.cssbuttons-io-button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+  background: linear-gradient(to bottom, var(--primary), #8abfff);
+  scale: 1.02;
+  transition: all 0.3s ease;
 }
 
 .service-card .service-img {
@@ -282,10 +294,31 @@ body {
 }
 
 .pattern-architect {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-image: radial-gradient(rgba(12, 12, 12, 0.082) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
+  background-image: url(./statics/123.jpg);
+  background-size: cover;
+  background-position-y: bottom;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
+.pattern-architect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000098;
+}
+
 .sky-lines {
   position: absolute;
   left: 0;
@@ -298,16 +331,27 @@ body {
 
 .sky-line {
   position: absolute;
-  height: 100%;
-  bottom: 1rem;
+  width: 60%;
+  bottom: -50%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0.1;
+  opacity: 0.3;
+}
+@media screen and (min-width: 1080px) {
+  .sky-line {
+    bottom: -35%;
+  }
+}
+@media screen and (min-width: 1420px) {
+  .sky-line {
+    bottom: -60%;
+  }
 }
 
 .sky-line img {
   height: 100%;
-  width: auto;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* WHY CHOOSE US  */
@@ -438,6 +482,10 @@ body {
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 1rem;
+  }
+
+  .pattern-architect {
+    position: relative;
   }
 }
 

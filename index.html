@@ -20,6 +20,8 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- ONLY INDEX -->
 
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
     <!-- Toastify CSS + JS CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -74,7 +76,8 @@
                             class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
                             <span
                                 class="flex items-center gap-2 px-4 py-1.5 font-semibold transition-all ease-in duration-75 bg-[#014CAF] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent">
-                                Services <i data-feather="chevron-down" class="transition-transform duration-300"></i>
+                                Services <i data-feather="chevron-down"
+                                    class="fas fa-chevron-down transition-transform duration-300"></i>
                             </span>
                         </button>
                         <div
@@ -275,11 +278,12 @@
     </nav>
 
     <!-- Services Section -->
-    <section class="min-h-screen mt-4 py-20 bg-white flex items-center pattern-architect">
+    <section class="min-h-screen mt-4 py-20 flex items-center">
         <div class="container mx-auto h-full flex gap-8 flex-wrap md:flex-nowrap">
             <!-- Left Column - Services (70% width) -->
-            <aside class="w-full lg:w-[80%]">
-                <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Our Services</h2>
+            <aside class="w-full lg:w-[80%] z-5">
+                <h2 class="text-3xl font-bold text-center mb-4 text-black md:text-white" data-aos="fade-up">Our Services
+                </h2>
                 <div class="services-grid">
 
                     <!-- ARCHITECTURAL DESIGN -->
@@ -288,7 +292,7 @@
                         <div class="service-img">
                             <img src="./statics/architectural.png" alt="">
                         </div>
-                        <h3 class="service-name">Architectural Design</h3>
+                        <h3 class="service-name cssbuttons-io-button">Architectural Design</h3>
                     </a>
 
                     <!-- STRUCTURAL DESIGN -->
@@ -393,9 +397,10 @@
                 </div>
             </aside>
             <!-- Right Column - Portfolio Carousel (30% width) -->
-            <aside class="md:w-[20%] w-full" style="height: -webkit-fill-available;">
+            <aside class="md:w-[20%] w-full h-[ -webkit-fill-available ] z-5">
                 <div class="rounded-xl overflow-hidden h-full" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="text-3xl font-bold text-center mb-4" data-aos="fade-up">Portfolio</h2>
+                    <h2 class="text-3xl font-bold text-center mb-4  text-black md:text-white" data-aos="fade-up">
+                        Portfolio</h2>
 
                     <div class="carousel-container h-full p-4 bg-gray-100 shadow-lg rounded-lg border border-gray-200">
                         <!-- Swiper wrapper -->
@@ -487,6 +492,7 @@
                     },
                 });
             </script>
+            <span class="pattern-architect"></span>
 
         </div>
     </section>
@@ -502,17 +508,17 @@
             <div class="text-center mb-16" data-aos="fade-up">
                 <div class="text-shadow-open">
                     <h2 class="shawod text-6xl font-black text-gray-800 mb-6 tracking-tight hidden md:block">
-                        Find Your Perfect Solution
+                        Search Your Perfect Solution
                     </h2>
                     <h2 class="text-6xl font-black text-gray-800 mb-6 tracking-tight">
-                        Find Your Perfect Solution
+                        Search Your Perfect Solution
                     </h2>
                 </div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" id="text-auto-update">
                     Find <span id="typed-text"></span><span class="cursor">|</span>
                 </p>
                 <script>
-                    const words = ["Land Living", "Accommodation", "Rent Property"];
+                    const words = ["Your Dream Home", "Perfect Accommodation", "Rental Solutions"];
                     const typingSpeed = 100;
                     const erasingSpeed = 50;
                     const delayBetweenWords = 1500;
@@ -857,7 +863,7 @@
     <section class="py-20 bg-gradient-to-r from-blue-300 to-blue-100">
         <div class="container mx-auto px-4">
             <!-- HEADING -->
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800" data-aos="fade-up">
+            <h2 class="text-6xl font-bold text-center mb-16 text-gray-800" data-aos="fade-up">
                 Why Choose Us
             </h2>
 
@@ -1020,7 +1026,7 @@
     <!-- Footer -->
     <footer class="relative bg-darkPrimary text-white pt-16">
         <div class="sky-lines">
-            <div class="sky-line"><img src="./statics/skylines.svg" alt="" srcset=""></div>
+            <div class="sky-line"><img src="./statics/skylines2.svg" alt="" srcset=""></div>
         </div>
         <div class="container mx-auto px-6 z-10 relative">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -1060,16 +1066,19 @@
                 <!-- Contact -->
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4">Get in Touch</h4>
+
                     <p class="flex items-center mb-3 transition hover:brightness-125">
-                        <i data-feather="map-pin" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        <i class="fas fa-map-marker-alt w-5 h-5 mr-2 text-blue-400"></i>
                         44, Tatipara, Zindabazar, Sylhet, Bangladesh
                     </p>
+
                     <p class="flex items-center mb-3 transition hover:brightness-125">
-                        <i data-feather="phone" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        <i class="fas fa-phone-alt w-5 h-5 mr-2 text-blue-400"></i>
                         +8801712757397 / +8801732370479
                     </p>
+
                     <p class="flex items-center transition hover:brightness-125">
-                        <i data-feather="mail" class="w-5 h-5 mr-2 text-blue-400"></i>
+                        <i class="fas fa-envelope w-5 h-5 mr-2 text-blue-400"></i>
                         info@one-reachbd.com
                     </p>
 
@@ -1077,30 +1086,36 @@
                     <div class="flex space-x-4 mt-4">
                         <a href="/"
                             class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-900 text-gray-300 transition hover:bg-blue-500 hover:text-green hover:scale-110">
-                            <i data-feather="facebook"></i>
+                            <i class="fab fa-facebook-f"></i>
                         </a>
                         <a href="/"
                             class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-900 text-gray-300 transition hover:bg-blue-500 hover:text-green hover:scale-110">
-                            <i data-feather="twitter"></i>
+                            <i class="fab fa-twitter"></i>
                         </a>
                         <a href="/"
                             class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-900 text-gray-300 transition hover:bg-blue-500 hover:text-green hover:scale-110">
-                            <i data-feather="linkedin"></i>
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="/"
                             class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-900 text-gray-300 transition hover:bg-blue-500 hover:text-green hover:scale-110">
-                            <i data-feather="instagram"></i>
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
+
 
             </div>
 
             <!-- Divider -->
             <div class="border-t border-gray-500 mt-12 pt-6 text-center text-gray-300 text-sm">
-                &copy; 2024 One-Reach. All rights reserved. | Developed by <a class="hover:text-blue-400"
-                    href="https://kehem.com">KEHEM IT</a>
-            </div><br>
+                &copy; <span id="year"></span> One-Reach BD. All rights reserved |
+                Developed by <a class="hover:text-blue-400" href="https://kehem.com">KEHEM IT</a>
+            </div>
+
+            <script>
+                document.getElementById("year").textContent = new Date().getFullYear();
+            </script>
+            <br>
         </div>
     </footer>
 
@@ -1112,29 +1127,6 @@
         });
         feather.replace();
 
-
-        function typeEffect() {
-            const currentWord = words[wordIndex];
-
-            if (!isDeleting && charIndex <= currentWord.length) {
-                typedText.textContent = currentWord.substring(0, charIndex);
-                charIndex++;
-                setTimeout(typeEffect, typingSpeed);
-            } else if (isDeleting && charIndex >= 0) {
-                typedText.textContent = currentWord.substring(0, charIndex);
-                charIndex--;
-                setTimeout(typeEffect, erasingSpeed);
-            } else {
-                if (!isDeleting) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, delayBetweenWords);
-                } else {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    setTimeout(typeEffect, typingSpeed);
-                }
-            }
-        }
 
     </script>
 </body>
