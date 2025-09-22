@@ -1,14 +1,14 @@
-// {
-//   "id": 1,
-//   "name": "Asad Rahman",
-//   "email": "asad.rahman@example.com",
-//   "phone": "+8801712345678",
-//   "date": "1990-05-01",
-//   "division": "Dhaka",
-//   "district": "Dhaka",
-//   "area": "Mirpur-10",
-//   "profile": "https://randomuser.me/api/portraits/men/32.jpg"
-// }
+{
+  "id": 1,
+  "name": "Asad Rahman",
+  "email": "asad.rahman@example.com",
+  "phone": "+8801712345678",
+  "date": "1990-05-01",
+  "division": "Dhaka",
+  "district": "Dhaka",
+  "area": "Mirpur-10",
+  "profile": "https://randomuser.me/api/portraits/men/32.jpg"
+}
 
 {
   "count": 2,
