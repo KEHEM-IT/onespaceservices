@@ -193,8 +193,6 @@
 <script>
 
     const savedUser = JSON.parse(localStorage.getItem("userData"));
-    console.log(savedUser);
-
     if (savedUser !== null) {
         window.location.href = window.referrer || '/';
     }
