@@ -10,6 +10,7 @@
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- Toastify CSS + JS CDN -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -36,96 +37,6 @@
         }
     </script>
 
-    <style>
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounceSubtle {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 20px rgba(0, 72, 167, 0.3);
-            }
-
-            100% {
-                box-shadow: 0 0 30px rgba(0, 72, 167, 0.6);
-            }
-        }
-
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .input-floating:focus+label,
-        .input-floating:not(:placeholder-shown)+label {
-            transform: translateY(-35px) scale(0.8);
-            color: #0048a7;
-            background: white;
-            padding: 0 4px;
-            border-radius: 4px;
-        }
-
-        .input-floating+label {
-            transition: all 0.2s ease-in-out;
-            transform-origin: left top;
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #0048a7 0%, #0063e4 50%, #85ffff 100%);
-        }
-
-        .loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
-        .spinner {
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 
 <main class="flex items-center justify-center min-h-screen">
@@ -292,12 +203,13 @@
             if (response.ok) {
 
                 localStorage.setItem("userData", JSON.stringify(response));
+                
                 showToast('Login successful! Welcome back!', 'success');
 
                 // Redirect after 2 seconds
                 setTimeout(() => {
                     window.location.href = document.referrer || '/';
-                }, 2000);
+                }, 1000);
 
             } else if (response.status === 401) {
                 showToast('Invalid credentials. Please check your email and phone number.', 'error');
