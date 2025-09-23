@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isLoading = false;
 
   // API configuration
-  const API_BASE_URL = "https://archimartbd.com/api";
+  const API_BASE_URL = "https://onereachservices.com/api";
 
   // Initialize app
   function init() {
