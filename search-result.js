@@ -18,6 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
     setupEventListeners();
   }
 
+  // CATEGORIES
+  const architectural = document.querySelectorAll("#architectural");
+  const structural = document.querySelectorAll("#structural");
+  const electrical = document.querySelectorAll("#electrical");
+  const mechanical = document.querySelectorAll("#mechanical");
+  const plumbing = document.querySelectorAll("#plumbing");
+  const interior = document.querySelectorAll("#interior");
+  const landscape = document.querySelectorAll("#landscape");
+  const construction = document.querySelectorAll("#construction");
+  const projectManagement = document.querySelectorAll("#project-management");
+  const maintenance = document.querySelectorAll("#maintenance");
+  const realState = document.querySelectorAll("#real-state");
+
+  architectural.forEach((item) => {
+  });
   // Get URL parameters
   function getUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);

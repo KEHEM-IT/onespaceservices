@@ -31,48 +31,11 @@
         }
     </script>
     <style>
-        .service-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 72, 167, 0.25);
-        }
-
         .hero-gradient {
-            background: linear-gradient(135deg, #0048a7 0%, #0063e4 50%, #85ffff 100%);
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .icon-animation {
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover .icon-animation {
-            transform: scale(1.1) rotate(5deg);
+            background:
+                linear-gradient(135deg, rgba(0, 72, 167, 0.85), rgba(0, 99, 228, 0.85), rgba(133, 255, 255, 0.3)),
+                url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            background-attachment: fixed;
         }
     </style>
     <script src="main.js"></script>
@@ -243,7 +206,11 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section
+        class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16 parallax-bg">
+        <!-- Dark overlay for better text readability -->
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 opacity-10">
             <div class="floating-animation absolute top-20 left-10 w-32 h-32 bg-white rounded-full"></div>
@@ -251,39 +218,39 @@
                 style="animation-delay: -2s;"></div>
             <div class="floating-animation absolute bottom-32 left-1/3 w-20 h-20 bg-white rounded-full"
                 style="animation-delay: -4s;"></div>
+            <div class="floating-animation absolute top-1/2 right-1/4 w-16 h-16 bg-white rounded-full"
+                style="animation-delay: -6s;"></div>
         </div>
 
+        <!-- Content -->
         <div class="container mx-auto px-4 text-center text-white relative z-10">
             <div data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-shadow">
                     Architectural <span class="text-secondary">Design</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-shadow">
                     Transforming visions into extraordinary architectural masterpieces. From residential homes to
                     commercial complexes, we design spaces that inspire and endure.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button
-                        class="glass-effect px-8 py-4 rounded-full text-white font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
-                        <i class="fas fa-drafting-compass mr-2"></i>
-                        Start Your Project
-                    </button>
-                    <button
-                        class="border-2 border-white px-8 py-4 rounded-full text-white font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300">
-                        <i class="fas fa-play mr-2"></i>
-                        View Portfolio
-                    </button>
-                </div>
             </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl opacity-70"></i>
         </div>
     </section>
 
     <!-- Services Overview -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Architectural Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+    <section class="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+                    Our Architectural Services
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                     From concept to completion, we deliver comprehensive architectural solutions tailored to your vision
                     and needs
                 </p>
@@ -293,135 +260,332 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Residential Architecture -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-home text-white text-2xl"></i>
+                    <!-- Image Section -->
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Residential Architecture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <!-- Gradient Overlay -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Residential
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Residential Architecture</h3>
-                    <p class="text-gray-600 mb-6">Designing beautiful homes, apartments, villas, and duplexes that
-                        reflect your lifestyle and dreams.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Custom Homes</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Luxury Villas</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Modern Apartments</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Duplex Designs</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                            Residential Architecture
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Designing beautiful homes, apartments, villas, and duplexes that reflect your lifestyle and
+                            dreams.
+                        </p>
+
+                        <!-- Service Features -->
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Custom Homes</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Luxury Villas</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Modern Apartments</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Duplex Designs</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Commercial Architecture -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-building text-white text-2xl"></i>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Commercial Architecture"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Commercial
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Commercial Architecture</h3>
-                    <p class="text-gray-600 mb-6">Professional spaces designed for business success, from offices to
-                        retail environments.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Corporate Offices</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Shopping Malls</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Retail Spaces</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Business Centers</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                            Commercial Architecture
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Professional spaces designed for business success, from offices to retail environments.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Corporate Offices</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Shopping Malls</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Retail Spaces</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Business Centers</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Mixed-Use Developments -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-city text-white text-2xl"></i>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Mixed-Use Development"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Mixed-Use
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Mixed-Use Developments</h3>
-                    <p class="text-gray-600 mb-6">Integrated developments combining residential, commercial, and
-                        recreational spaces.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Live-Work-Play Complexes</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Urban Planning</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Community Centers</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Transit-Oriented Development</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                            Mixed-Use Developments
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Integrated developments combining residential, commercial, and recreational spaces.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Live-Work-Play</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Urban Planning</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Community Centers</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Transit-Oriented</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Religious Buildings -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-place-of-worship text-white text-2xl"></i>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Religious Buildings"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Religious
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Religious Buildings</h3>
-                    <p class="text-gray-600 mb-6">Sacred spaces designed with reverence, tradition, and spiritual
-                        significance.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Mosques</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Temples</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Prayer Halls</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Community Centers</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                            Religious Buildings
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Sacred spaces designed with reverence, tradition, and spiritual significance.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Mosques</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Temples</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Prayer Halls</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Community Centers</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Hospitality & Leisure -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-hotel text-white text-2xl"></i>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Hospitality & Leisure"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Hospitality
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Hospitality & Leisure</h3>
-                    <p class="text-gray-600 mb-6">Creating memorable experiences through thoughtfully designed
-                        hospitality spaces.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Luxury Hotels</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Resorts</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Restaurants</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Entertainment Venues</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                            Hospitality & Leisure
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Creating memorable experiences through thoughtfully designed hospitality spaces.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Luxury Hotels</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Resorts</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Restaurants</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Entertainment</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Institutional Buildings -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
                     data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-primary to-litePrimary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-university text-white text-2xl"></i>
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Institutional Buildings"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                            Institutional
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Institutional Buildings</h3>
-                    <p class="text-gray-600 mb-6">Educational and healthcare facilities designed for functionality and
-                        inspiration.</p>
-                    <ul class="text-gray-600 space-y-2 mb-6">
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Schools & Universities</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Hospitals & Clinics</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Research Centers</li>
-                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Government Buildings</li>
-                    </ul>
-                    <button
-                        class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-darkPrimary transition-colors duration-300">
-                        Contact Us
-                    </button>
+
+                    <div class="p-8">
+                        <h3
+                            class="text-2xl font-bold text-gray-800 mb-4-colors duration-300">
+                            Institutional Buildings
+                        </h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Educational and healthcare facilities designed for functionality and inspiration.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-3 mb-8">
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Schools</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Hospitals</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Research Centers</div>
+                            </div>
+                            <div
+                                class="bg-gray-50 rounded-lg p-3 text-center transition-colors duration-300">
+                                <div class="text-sm font-medium text-gray-700">Government</div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                            <span class="relative z-10">Explore Services</span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -505,7 +669,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white h-screen">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Design Process</h2>
@@ -560,7 +724,7 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="py-16 bg-gradient-to-br from-primary to-darkPrimary text-white">
+    <section class="py-16 bg-gradient-to-br from-primary to-darkPrimary text-white h-screen flex justify-center aligns-center">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">Why Choose Our Architectural Services</h2>
