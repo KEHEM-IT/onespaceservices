@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architectural Design - One-Reach Services</title>
+    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0048a7',
+                        secondary: '#85ffff',
+                        darkPrimary: '#00306e',
+                        litePrimary: '#0063e4',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background:
+                linear-gradient(135deg, rgba(0, 72, 167, 0.85), rgba(0, 99, 228, 0.85), rgba(133, 255, 255, 0.3)),
+                url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <script src="main.js"></script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Navigation (Same as your existing nav) -->
+    <nav class="fixed top-0 w-full bg-primary backdrop-blur-md shadow-md z-50">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="/index.html" class="flex items-center">
+                    <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                        class="h-10 w-10 mr-3 rounded-full shadow-md">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl text-white">One Reach Services</span>
+                        <span class="text-sm text-gray-300">Land • Living • Lifestyle</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex ml-10 space-x-8 items-center">
+                    <!-- Services Dropdown -->
+                    <div class="dropdown-container relative">
+                        <button
+                            class="flex items-center text-white hover:text-secondary font-semibold text-lg transition duration-300 focus:outline-none">
+                            Services <i data-feather="chevron-down"
+                                class="w-4 h-4 ml-1 transition-transform duration-300"></i>
+                        </button>
+                        <div
+                            class="absolute left-0 mt-2 w-64 bg-primary border-t border-green-500 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <a href="#property-management"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary first:rounded-t-md">Property
+                                Management</a>
+                            <a href="architectural.html"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary bg-darkPrimary">Architectural
+                                Design</a>
+                            <a href="#interior-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Interior
+                                Design</a>
+                            <a href="#structural-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Structural
+                                Design</a>
+                            <a href="#electrical-plumbing"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Electrical &
+                                Plumbing Design</a>
+                            <a href="#construction"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Construction</a>
+                            <a href="#landscape-design"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary">Landscape
+                                Design</a>
+                            <a href="#renovation"
+                                class="block px-4 py-3 text-sm font-medium text-white hover:text-secondary last:rounded-b-md">Renovation</a>
+                        </div>
+                    </div>
+
+                    <a href="/contact.html"
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        Contact
+                    </a>
+
+                    <a href="about-us.html"
+                        class="relative text-white hover:text-secondary font-semibold text-lg transition duration-300 after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full">
+                        About Us
+                    </a>
+
+                    <!-- Login & User Icon (Desktop) -->
+                    <div class="flex items-center space-x-4 ml-4">
+                        <button
+                            class="bg-litePrimary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                            Login
+                        </button>
+                        <div class="relative">
+                            <button id="user-btn"
+                                class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                                <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                            </button>
+                            <div
+                                class="absolute right-0 mt-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                                <div class="px-4 py-3 text-white font-medium hover:bg-litePrimary flex items-center">
+                                    <i class="fas fa-user mr-2"></i> John Doe
+                                </div>
+                                <button
+                                    class="block w-full text-left px-4 py-3 text-white hover:bg-litePrimary hover:text-secondary transition-colors duration-200 flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-secondary focus:outline-none">
+                        <i data-feather="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="bg-primary border-t shadow-lg hidden">
+            <div class="px-4 py-4 space-y-2">
+                <div class="border-b border-gray-400">
+                    <input type="checkbox" id="services-mobile" class="peer hidden">
+                    <label for="services-mobile"
+                        class="w-full flex justify-between items-center px-3 py-2 text-white font-semibold text-base hover:text-secondary cursor-pointer">
+                        Services
+                        <i data-feather="chevron-down"
+                            class="w-4 h-4 transition-transform duration-300 peer-checked:rotate-180"></i>
+                    </label>
+                    <div
+                        class="pl-5 space-y-1 max-h-0 overflow-hidden peer-checked:max-h-96 transition-all duration-300">
+                        <a href="#property-management"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Property
+                            Management</a>
+                        <a href="architectural.html"
+                            class="block bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Architectural
+                            Design</a>
+                        <a href="#interior-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Interior
+                            Design</a>
+                        <a href="#structural-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Structural
+                            Design</a>
+                        <a href="#electrical-plumbing"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Electrical
+                            & Plumbing Design</a>
+                        <a href="#construction"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Construction</a>
+                        <a href="#landscape-design"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Landscape
+                            Design</a>
+                        <a href="#renovation"
+                            class="block hover:bg-darkPrimary p-2 text-white text-sm font-medium hover:text-secondary transition-colors duration-200 rounded">Renovation</a>
+                    </div>
+                </div>
+                <a href="/contact.html"
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded border-b border-gray-400">Contact</a>
+                <a href="/about-us.html"
+                    class="block px-3 py-2 text-white font-semibold text-base hover:text-secondary transition-colors duration-200 rounded">About
+                    Us</a>
+                <div class="flex items-center space-x-4 mt-2">
+                    <button
+                        class="bg-secondary text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                        Login
+                    </button>
+                    <div class="flex items-center space-x-4 mt-2 relative">
+                        <button id="mobile-user-btn"
+                            class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none">
+                            <i data-feather="user" class="w-5 h-5 text-gray-800"></i>
+                        </button>
+                        <div
+                            class="absolute top-0 left-full ml-2 w-40 bg-primary border border-gray-400 shadow-lg rounded-md opacity-0 invisible transition-all duration-300 divide-y divide-gray-100">
+                            <div class="px-4 py-3 text-white font-medium flex items-center">
+                                <i class="fas fa-user mr-2"></i> John Doe
+                            </div>
+                            <button
+                                class="block w-full text-left px-4 py-3 text-white hover:text-secondary transition-colors duration-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="antialiased">
+
+        <!-- Hero Section -->
+        <section
+            class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16 parallax-bg">
+            <!-- Dark overlay for better text readability -->
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="floating-animation absolute top-20 left-10 w-32 h-32 bg-white rounded-full"></div>
+                <div class="floating-animation absolute top-40 right-20 w-24 h-24 bg-white rounded-full"
+                    style="animation-delay: -2s;"></div>
+                <div class="floating-animation absolute bottom-32 left-1/3 w-20 h-20 bg-white rounded-full"
+                    style="animation-delay: -4s;"></div>
+                <div class="floating-animation absolute top-1/2 right-1/4 w-16 h-16 bg-white rounded-full"
+                    style="animation-delay: -6s;"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-4 text-center text-white relative z-10">
+                <div data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-shadow">
+                        Electrical <span class="text-secondary">Engineering</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-shadow">
+                        Powering the future with innovative electrical solutions. From smart building automation
+                        to renewable energy systems, we deliver reliable, efficient, and cutting-edge electrical
+                        engineering.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+                <i class="fas fa-chevron-down text-2xl opacity-70"></i>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section class="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+            <div class="container mx-auto px-4 relative z-10">
+                <!-- Section Header -->
+                <div class="text-center mb-24" data-aos="fade-up">
+                    <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+                        Our Electrical Services
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                        Comprehensive electrical engineering solutions that power modern infrastructure with safety,
+                        efficiency, and advanced technology integration
+                    </p>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- Building Electrical Systems -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <!-- Image Section -->
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Building Electrical Systems"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <!-- Gradient Overlay -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <!-- Floating Badge -->
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Building Systems
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Building Electrical Systems
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Complete electrical design and installation for residential, commercial, and industrial
+                                buildings.
+                            </p>
+
+                            <!-- Service Features -->
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Power Distribution</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Wiring Systems</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Panel Boards</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Load Calculations</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Smart Electrical Solutions -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Smart Electrical Solutions"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Smart Solutions
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Smart Electrical Solutions
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Advanced home automation and energy-saving systems for modern intelligent buildings.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Home Automation</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Energy Management</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Smart Controls</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">IoT Integration</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Substation Design & Installation -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Substation Design & Installation"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Substations
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Substation Design & Installation
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                High-voltage substation design and installation for power transmission and distribution.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">HV Substations</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Control Systems</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Protection Systems</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Grid Integration</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lighting Design -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Lighting Design"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Lighting Design
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Lighting Design
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Comprehensive lighting solutions for indoor, outdoor, and architectural façade
+                                applications.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Indoor Lighting</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Outdoor Lighting</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Façade Lighting</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">LED Solutions</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Fire Detection & Safety Systems -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Fire Detection & Safety Systems"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Safety Systems
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Fire Detection & Safety Systems
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Advanced fire detection, alarm, and safety systems to protect lives and property.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Fire Alarms</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Smoke Detection</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Emergency Lighting</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Suppression Systems</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Industrial Electrical Installations -->
+                    <div class="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                                alt="Industrial Electrical Installations"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500">
+                            </div>
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                                Industrial Systems
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h3
+                                class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
+                                Industrial Electrical Installations
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Heavy-duty electrical systems for industrial facilities, manufacturing plants, and
+                                commercial complexes.
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-3 mb-8">
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Motor Control</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Power Factor</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">HV Installations</div>
+                                </div>
+                                <div
+                                    class="bg-gray-50 rounded-lg p-3 text-center group-hover:bg-primary/5 transition-colors duration-300">
+                                    <div class="text-sm font-medium text-gray-700">Automation</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] relative overflow-hidden group/btn">
+                                <span class="relative z-10">Explore Services</span>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-darkPrimary to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Services -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Advanced Electrical Solutions</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Cutting-edge electrical engineering services that leverage the latest technology and innovation
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                    <!-- Electrical Design & Analysis -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-drafting-compass text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Electrical Design & Analysis</h3>
+                        <p class="text-gray-600 mb-6">Advanced electrical system design and analysis using
+                            state-of-the-art CAD software and simulation tools.</p>
+                        <div class="space-y-2 text-left">
+                            <div class="flex items-center"><i class="fas fa-bolt text-blue-500 mr-3"></i>Load Analysis
+                            </div>
+                            <div class="flex items-center"><i class="fas fa-chart-line text-blue-500 mr-3"></i>Power
+                                Studies</div>
+                            <div class="flex items-center"><i class="fas fa-shield-alt text-blue-500 mr-3"></i>Safety
+                                Analysis</div>
+                        </div>
+                    </div>
+
+                    <!-- Energy Management & Automation -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-microchip text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Energy Management & Automation</h3>
+                        <p class="text-gray-600 mb-6">Smart energy management systems and building automation for
+                            optimal efficiency and cost savings.</p>
+                        <div class="space-y-2 text-left">
+                            <div class="flex items-center"><i
+                                    class="fas fa-tachometer-alt text-green-500 mr-3"></i>Energy Monitoring</div>
+                            <div class="flex items-center"><i class="fas fa-cogs text-green-500 mr-3"></i>Smart Controls
+                            </div>
+                            <div class="flex items-center"><i class="fas fa-leaf text-green-500 mr-3"></i>Efficiency
+                                Optimization</div>
+                        </div>
+                    </div>
+
+                    <!-- Testing & Commissioning -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-all duration-300"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tools text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Testing & Commissioning</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive electrical testing and commissioning services to
+                            ensure system reliability and performance.</p>
+                        <div class="space-y-2 text-left">
+                            <div class="flex items-center"><i class="fas fa-vial text-emerald-500 mr-3"></i>System
+                                Testing</div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-check-circle text-emerald-500 mr-3"></i>Quality Assurance</div>
+                            <div class="flex items-center"><i
+                                    class="fas fa-clipboard-check text-emerald-500 mr-3"></i>Certification</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="py-16 bg-white min-h-screen">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Electrical Engineering Process
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        From initial assessment to final testing, we follow a systematic approach that ensures safety,
+                        efficiency, and reliability
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+
+                        <!-- Step 1 -->
+                        <div class="flex items-start mb-8" data-aos="fade-up" data-aos-delay="100">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold relative z-10 flex-shrink-0">
+                                1
+                            </div>
+                            <div class="ml-8 flex-1">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Site Assessment & Requirements</h3>
+                                <p class="text-gray-600">Comprehensive evaluation of electrical requirements, load
+                                    calculations, and site conditions.</p>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 1 -->
+                        <div class="flex justify-start mb-8">
+                            <div class="ml-7 w-0.5 h-12 bg-gray-300 relative">
+                                <div
+                                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-6 border-t-gray-300 border-l-3 border-l-transparent border-r-3 border-r-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex items-start mb-8" data-aos="fade-up" data-aos-delay="200">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold relative z-10 flex-shrink-0">
+                                2
+                            </div>
+                            <div class="ml-8 flex-1">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">System Design & Engineering</h3>
+                                <p class="text-gray-600">Detailed electrical system design, circuit analysis, and
+                                    equipment specification using advanced software.</p>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 2 -->
+                        <div class="flex justify-start mb-8">
+                            <div class="ml-7 w-0.5 h-12 bg-gray-300 relative">
+                                <div
+                                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-6 border-t-gray-300 border-l-3 border-l-transparent border-r-3 border-r-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex items-start mb-8" data-aos="fade-up" data-aos-delay="300">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold relative z-10 flex-shrink-0">
+                                3
+                            </div>
+                            <div class="ml-8 flex-1">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Installation & Implementation</h3>
+                                <p class="text-gray-600">Professional installation of electrical systems, components,
+                                    and infrastructure with strict quality control.</p>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 3 -->
+                        <div class="flex justify-start mb-8">
+                            <div class="ml-7 w-0.5 h-12 bg-gray-300 relative">
+                                <div
+                                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0 border-t-6 border-t-gray-300 border-l-3 border-l-transparent border-r-3 border-r-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="flex items-start" data-aos="fade-up" data-aos-delay="400">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl font-bold relative z-10 flex-shrink-0">
+                                4
+                            </div>
+                            <div class="ml-8 flex-1">
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">Testing & Maintenance</h3>
+                                <p class="text-gray-600">Comprehensive testing, commissioning, and ongoing maintenance
+                                    support to ensure optimal performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section
+            class="py-20 bg-gradient-to-br from-primary to-darkPrimary text-white min-h-screen flex items-center relative overflow-hidden mb-40">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-10 w-32 h-32 bg-secondary rounded-full blur-xl"></div>
+                <div class="absolute bottom-20 right-10 w-40 h-40 bg-white rounded-full blur-2xl"></div>
+                <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-secondary rounded-full blur-lg"></div>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <span
+                        class="inline-block px-4 py-2 bg-secondary bg-opacity-20 text-secondary font-semibold rounded-full text-sm uppercase tracking-wide mb-4">
+                        Electrical Excellence
+                    </span>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Why Choose Our
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">
+                            Electrical Engineering
+                        </span>
+                    </h2>
+                    <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                        Powering innovation with safe, efficient, and sustainable electrical solutions
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="group text-center p-8 rounded-2xl bg-white bg-opacity-5 backdrop-blur-sm border border-white border-opacity-10 hover:bg-opacity-10 hover:border-secondary hover:border-opacity-30 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-secondary to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                            <i class="fas fa-shield-alt text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors duration-300">
+                            Safety & Compliance</h3>
+                        <p class="text-gray-300 leading-relaxed">Strict adherence to electrical codes and safety
+                            standards with comprehensive risk assessment and mitigation.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="group text-center p-8 rounded-2xl bg-white bg-opacity-5 backdrop-blur-sm border border-white border-opacity-10 hover:bg-opacity-10 hover:border-secondary hover:border-opacity-30 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-secondary to-blue-400 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                            <i class="fas fa-robot text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors duration-300">
+                            Smart Technology</h3>
+                        <p class="text-gray-300 leading-relaxed">Integration of IoT, automation, and smart building
+                            technologies for enhanced efficiency and control.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="group text-center p-8 rounded-2xl bg-white bg-opacity-5 backdrop-blur-sm border border-white border-opacity-10 hover:bg-opacity-10 hover:border-secondary hover:border-opacity-30 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-secondary to-purple-400 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                            <i class="fas fa-solar-panel text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors duration-300">
+                            Renewable Integration</h3>
+                        <p class="text-gray-300 leading-relaxed">Expert integration of solar, hybrid, and renewable
+                            energy systems for sustainable power solutions.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="group text-center p-8 rounded-2xl bg-white bg-opacity-5 backdrop-blur-sm border border-white border-opacity-10 hover:bg-opacity-10 hover:border-secondary hover:border-opacity-30 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-secondary to-green-400 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-500 shadow-lg">
+                            <i class="fas fa-users text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors duration-300">
+                            Expert Engineering Team</h3>
+                        <p class="text-gray-300 leading-relaxed">Licensed electrical engineers with extensive experience
+                            in complex industrial and commercial projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+
+            // Smooth scroll for internal links
+            document.addEventListener('DOMContentLoaded', function () {
+                const links = document.querySelectorAll('a[href^="#"]');
+                links.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            });
+
+            // Parallax effect for hero background
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-bg');
+                const speed = 0.5;
+
+                parallaxElements.forEach(element => {
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // Add dynamic interaction to service cards
+            const serviceCards = document.querySelectorAll('.group');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        </script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkPrimary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="https://kehem.com/static/kehem.webp" alt="One-Reach"
+                            class="h-12 w-12 mr-3 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-bold">One Reach Services</h3>
+                            <p class="text-secondary">Land • Living • Lifestyle</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Your trusted partner for comprehensive architectural design services. From residential homes
+                        to
+                        commercial complexes, we create spaces that inspire and endure.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-twitter text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-litePrimary transition-colors duration-300">
+                            <i class="fab fa-instagram text-white"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Residential
+                                Design</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Commercial
+                                Architecture</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Interior
+                                Design</a>
+                        </li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Landscape
+                                Architecture</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Construction</a>
+                        </li>
+                        <li><a href="#" class="hover:text-secondary transition-colors duration-300">Renovation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mt-1 mr-3"></i>
+                            <span>123 Architecture Street<br>Design City, DC 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-secondary mr-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-secondary mr-3"></i>
+                            <span>info@onereachservices.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-secondary mr-3"></i>
+                            <span>Mon - Fri: 9AM - 6PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 One Reach Services. All rights reserved. | Designed with excellence and innovation.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</html>
