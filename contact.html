@@ -52,64 +52,8 @@
     <script src="main.js"></script>
     <script src="search.js"></script>
 </head>
+
 <body>
-
-    <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - One Reach Services</title>
-    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-
-    <!-- Toastify CSS + JS CDN -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0048a7',
-                        secondary: '#85ffff',
-                        darkPrimary: '#00306e',
-                        litePrimary: '#0063e4',
-                    },
-                    backdropBlur: {
-                        xs: '2px',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'bounce-subtle': 'bounceSubtle 2s infinite',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script src="main.js"></script>
-    <script src="search.js"></script>
-</head>
-<body>
-
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
         <div class="text-center mb-12" data-aos="fade-up">
@@ -156,11 +100,6 @@
                                     <span id="userLocation"></span>
                                 </div>
                             </div>
-
-                            <button type="button" id="editProfileBtn"
-                                class="w-full bg-white text-primary py-3 px-6 rounded-lg font-semibold hover:bg-gray-100 transition-colors mt-6">
-                                Edit Profile
-                            </button>
                         </div>
 
                         <!-- Personal Information Form -->
@@ -242,6 +181,9 @@
                                     class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white file:text-primary file:font-medium hover:file:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
                             </div>
                         </div>
+
+                        <!-- Hidden user_id field for existing users -->
+                        <input type="hidden" id="userId" name="user_id" value="">
                     </div>
 
                     <!-- Right Column - Contact Details -->
@@ -264,17 +206,13 @@
                                     <option value="electrical">Electrical Design</option>
                                     <option value="mechanical">Mechanical Design</option>
                                     <option value="plumbing">Plumbing & Water Services</option>
-                                    <option value="interior">Interior Design & Implementation
-                                    </option>
+                                    <option value="interior">Interior Design & Implementation</option>
                                     <option value="landscape">Landscape Design</option>
                                     <option value="construction">Construction Services</option>
                                     <option value="renovation">Renovation & Repairing</option>
-                                    <option value="propertym">Project Management & Consultancy
-                                    </option>
-                                    <option value="facility">Building Maintenance &
-                                        Facility Management</option>
-                                    <option value="realestate">Land Development & Real
-                                        Estate Services</option>
+                                    <option value="propertym">Project Management & Consultancy</option>
+                                    <option value="facility">Building Maintenance & Facility Management</option>
+                                    <option value="realestate">Land Development & Real Estate Services</option>
                                 </select>
                             </div>
 
@@ -326,45 +264,60 @@
             "Sylhet": ["Habiganj", "Moulvibazar", "Sunamganj", "Sylhet"]
         };
 
+        // DOM elements
+        const personalInfoForm = document.getElementById('personalInfoForm');
+        const userDataDisplay = document.getElementById('userDataDisplay');
+        const divisionSelect = document.getElementById('division');
+        const districtSelect = document.getElementById('district');
+        const contactForm = document.getElementById('contactForm');
+        const userIdField = document.getElementById('userId');
+
         // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        // DOM elements
-        const personalInfoForm = document.getElementById('personalInfoForm');
-        const userDataDisplay = document.getElementById('userDataDisplay');
-        const editProfileBtn = document.getElementById('editProfileBtn');
-        const divisionSelect = document.getElementById('division');
-        const districtSelect = document.getElementById('district');
-        const contactForm = document.getElementById('contactForm');
-
         // Check for existing user data on page load
         document.addEventListener('DOMContentLoaded', function () {
             checkUserData();
+            handleURLParams();
 
             // Division change handler
             divisionSelect.addEventListener('change', function () {
                 updateDistricts(this.value);
             });
 
-            // Edit profile button handler
-            editProfileBtn.addEventListener('click', function () {
-                showPersonalInfoForm();
-            });
-
             // Form submit handler
             contactForm.addEventListener('submit', handleFormSubmit);
         });
+
+        // Handle URL parameters for auto-selecting service
+        function handleURLParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const serviceParam = urlParams.get('service') || window.location.pathname.split('?')[1];
+
+            if (serviceParam) {
+                const serviceSelect = document.getElementById('serviceInterest');
+                // Check if the service parameter matches any option value
+                const option = Array.from(serviceSelect.options).find(opt =>
+                    opt.value === serviceParam || opt.value.includes(serviceParam)
+                );
+                if (option) {
+                    serviceSelect.value = option.value;
+                }
+            }
+        }
 
         function checkUserData() {
             const userData = JSON.parse(localStorage.getItem('userData') || 'null');
             if (userData) {
                 displayUserData(userData);
                 hidePersonalInfoForm();
+                userIdField.value = userData.id;
             } else {
                 showPersonalInfoForm();
+                userIdField.value = '';
             }
         }
 
@@ -374,23 +327,36 @@
             document.getElementById('userPhone').textContent = userData.phone;
             document.getElementById('userDate').textContent = new Date(userData.date).toLocaleDateString();
             document.getElementById('userLocation').textContent = `${userData.area}, ${userData.district}, ${userData.division}`;
-            document.getElementById('userProfileImage').src = userData.profile;
+
+            // Handle profile image display
+            if (userData.profile) {
+                document.getElementById('userProfileImage').src = userData.profile;
+            }
 
             userDataDisplay.classList.remove('hidden');
         }
 
         function hidePersonalInfoForm() {
             personalInfoForm.classList.add('hidden');
+            // Remove required attributes from hidden fields to prevent validation errors
+            const requiredFields = personalInfoForm.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                field.removeAttribute('required');
+                field.setAttribute('data-was-required', 'true');
+            });
         }
 
         function showPersonalInfoForm() {
             personalInfoForm.classList.remove('hidden');
             userDataDisplay.classList.add('hidden');
-        }
+            userIdField.value = '';
 
-        function clearUserData() {
-            localStorage.removeItem('userData');
-            contactForm.reset();
+            // Restore required attributes when showing the form
+            const wasRequiredFields = personalInfoForm.querySelectorAll('[data-was-required]');
+            wasRequiredFields.forEach(field => {
+                field.setAttribute('required', 'true');
+                field.removeAttribute('data-was-required');
+            });
         }
 
         function updateDistricts(selectedDivision) {
@@ -409,7 +375,60 @@
         async function handleFormSubmit(e) {
             e.preventDefault();
 
-            const formData = new FormData(contactForm);
+            // Validate only visible required fields
+            const visibleRequiredFields = Array.from(contactForm.querySelectorAll('[required]'))
+                .filter(field => {
+                    const rect = field.getBoundingClientRect();
+                    return rect.width > 0 && rect.height > 0;
+                });
+
+            let isValid = true;
+            for (let field of visibleRequiredFields) {
+                if (!field.value.trim()) {
+                    field.focus();
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                Toastify({
+                    text: "Please fill in all required fields.",
+                    duration: 3000,
+                    gravity: "top",
+                    position: "right",
+                    style: {
+                        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                    }
+                }).showToast();
+                return;
+            }
+
+            const formData = new FormData();
+
+            // Add user_id if exists
+            if (userIdField.value) {
+                formData.append('user_id', userIdField.value);
+            } else {
+                // Add personal info only for new users
+                formData.append('name', document.getElementById('fullName').value);
+                formData.append('email', document.getElementById('email').value);
+                formData.append('phone', document.getElementById('phone').value);
+                formData.append('date', document.getElementById('dateOfBirth').value);
+                formData.append('division', document.getElementById('division').value);
+                formData.append('district', document.getElementById('district').value);
+                formData.append('area', document.getElementById('area').value);
+
+                const profileFile = document.getElementById('profile').files[0];
+                if (profileFile) {
+                    formData.append('profile', profileFile);
+                }
+            }
+
+            // Always add contact details
+            formData.append('service_interest', document.getElementById('serviceInterest').value);
+            formData.append('message', document.getElementById('message').value);
+            formData.append('contact_time', document.getElementById('contactTime').value);
 
             // Show loading toast
             Toastify({
@@ -441,20 +460,19 @@
                             background: "linear-gradient(to right, #00b09b, #96c93d)",
                         }
                     }).showToast();
-                    clearUserData();
 
-                    // Save user data to localStorage if personal info was filled
-                    if (!localStorage.getItem('userData')) {
+                    // Save new user data only for first-time users
+                    if (!userIdField.value) {
                         const userData = {
                             id: Date.now(),
-                            name: formData.get('name'),
-                            email: formData.get('email'),
-                            phone: formData.get('phone'),
-                            date: formData.get('date'),
-                            division: formData.get('division'),
-                            district: formData.get('district'),
-                            area: formData.get('area'),
-                            profile: URL.createObjectURL(formData.get('profile'))
+                            name: document.getElementById('fullName').value,
+                            email: document.getElementById('email').value,
+                            phone: document.getElementById('phone').value,
+                            date: document.getElementById('dateOfBirth').value,
+                            division: document.getElementById('division').value,
+                            district: document.getElementById('district').value,
+                            area: document.getElementById('area').value,
+                            profile: document.getElementById('profile').files[0] ? URL.createObjectURL(document.getElementById('profile').files[0]) : null
                         };
                         localStorage.setItem('userData', JSON.stringify(userData));
                         checkUserData();
@@ -464,6 +482,17 @@
                     document.getElementById('serviceInterest').value = '';
                     document.getElementById('message').value = '';
                     document.getElementById('contactTime').value = '';
+
+                    // Redirect to referrer page after 2 seconds
+                    setTimeout(() => {
+                        const referrer = document.referrer;
+                        if (referrer && referrer !== window.location.href) {
+                            window.location.href = referrer;
+                        } else {
+                            // Fallback to home page if no referrer
+                            window.location.href = '/';
+                        }
+                    }, 2000);
 
                 } else {
                     throw new Error('Failed to send message');
@@ -482,7 +511,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
