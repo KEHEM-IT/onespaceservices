@@ -52,566 +52,441 @@
     <script src="main.js"></script>
     <script src="search.js"></script>
 </head>
+<body>
 
-<body class="bg-gray-50 min-h-screen flex items-center justify-center py-8 px-4">
-    <main class="w-full max-w-2xl">
-        <div class="w-full bg-white shadow-lg rounded-2xl p-8">
-            <h1 class="text-3xl font-bold text-center text-primary mb-2">
-                One Reach Services
-            </h1>
-            <p class="text-center text-gray-600 mb-6">Your One Stop Solution for Land, Living, and Lifestyle</p>
+    <!DOCTYPE html>
+<html lang="en">
 
-            <h2 class="text-xl font-semibold text-gray-700 mb-6 text-center">Contact Us</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - One Reach Services</title>
+    <link rel="icon" type="image/x-icon" href="https://kehem.com/static/kehem.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-            <!-- User Information Display (for logged-in users) -->
-            <div id="userInfo" class="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg" style="display: none;">
-                <h3 class="text-lg font-semibold text-gray-700 mb-3">Your Information</h3>
-                <div class="flex items-center space-x-4">
-                    <img id="userAvatar" src="" alt="Profile"
-                        class="w-16 h-16 rounded-full object-cover border-2 border-primary">
-                    <div class="flex-1">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
-                            <div><strong>Name:</strong> <span id="userName"></span></div>
-                            <div><strong>Email:</strong> <span id="userEmail"></span></div>
-                            <div><strong>Phone:</strong> <span id="userPhone"></span></div>
-                            <div><strong>Location:</strong> <span id="userLocation"></span></div>
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+    <!-- Toastify CSS + JS CDN -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0048a7',
+                        secondary: '#85ffff',
+                        darkPrimary: '#00306e',
+                        litePrimary: '#0063e4',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-subtle': 'bounceSubtle 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="main.js"></script>
+    <script src="search.js"></script>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Ready to bring your vision to life? Contact us today and let's discuss your project requirements.
+            </p>
+        </div>
+
+        <div class="max-w-7xl mx-auto">
+            <form id="contactForm" class="bg-white rounded-2xl shadow-2xl overflow-hidden" data-aos="fade-up"
+                data-aos-delay="200">
+                <div class="grid lg:grid-cols-2 gap-0">
+                    <!-- Left Column - Personal Information -->
+                    <div class="bg-gradient-to-br from-primary to-darkPrimary text-white p-8 lg:p-12">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold mb-2">Personal Information</h3>
+                            <p class="text-blue-200">Tell us about yourself</p>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Guest User Form (for non-logged-in users) -->
-            <div id="guestUserSection" class="mb-6" style="display: none;">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Left Column: User Registration Info -->
-                    <div class="bg-gray-50 p-4 rounded-lg border">
-                        <h3 class="text-lg font-semibold text-gray-700 mb-3">Your Information</h3>
-                        <div class="space-y-3">
-                            <!-- Name -->
-                            <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Full Name <span class="text-red-500">*</span>
-                                </label>
-                                <input type="text" id="guestName" required placeholder="Enter your full name"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <!-- User Data Display (when userData exists) -->
+                        <div id="userDataDisplay" class="hidden space-y-6">
+                            <div class="text-center mb-8">
+                                <img id="userProfileImage" src="" alt="Profile"
+                                    class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
+                                <h4 id="userName" class="text-xl font-semibold"></h4>
                             </div>
 
-                            <!-- Email -->
-                            <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Email Address <span class="text-red-500">*</span>
-                                </label>
-                                <input type="email" id="guestEmail" required placeholder="Enter your email"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-envelope w-5"></i>
+                                    <span id="userEmail"></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-phone w-5"></i>
+                                    <span id="userPhone"></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-birthday-cake w-5"></i>
+                                    <span id="userDate"></span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-map-marker-alt w-5"></i>
+                                    <span id="userLocation"></span>
+                                </div>
                             </div>
 
-                            <!-- Phone -->
+                            <button type="button" id="editProfileBtn"
+                                class="w-full bg-white text-primary py-3 px-6 rounded-lg font-semibold hover:bg-gray-100 transition-colors mt-6">
+                                Edit Profile
+                            </button>
+                        </div>
+
+                        <!-- Personal Information Form -->
+                        <div id="personalInfoForm" class="space-y-6">
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Phone Number <span class="text-red-500">*</span>
+                                <label for="fullName" class="block text-sm font-medium mb-2">
+                                    Full Name <span class="text-red-300">*</span>
                                 </label>
-                                <input type="tel" id="guestPhone" required placeholder="Enter your phone"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="text" id="fullName" name="name" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
                             </div>
 
-                            <!-- Date of Birth -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Date of Birth <span class="text-red-500">*</span>
+                                <label for="email" class="block text-sm font-medium mb-2">
+                                    Email <span class="text-red-300">*</span>
                                 </label>
-                                <input type="date" id="guestDate" required
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
                             </div>
 
-                            <!-- Division -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Division <span class="text-red-500">*</span>
+                                <label for="phone" class="block text-sm font-medium mb-2">
+                                    Phone <span class="text-red-300">*</span>
                                 </label>
-                                <select id="guestDivision" required
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                                    <option value="">Select Division</option>
-                                    <option value="dhaka">Dhaka</option>
-                                    <option value="chattogram">Chattogram</option>
-                                    <option value="rajshahi">Rajshahi</option>
-                                    <option value="khulna">Khulna</option>
-                                    <option value="barishal">Barishal</option>
-                                    <option value="sylhet">Sylhet</option>
-                                    <option value="rangpur">Rangpur</option>
-                                    <option value="mymensingh">Mymensingh</option>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
+                            </div>
+
+                            <div>
+                                <label for="dateOfBirth" class="block text-sm font-medium mb-2">
+                                    Date of Birth <span class="text-red-300">*</span>
+                                </label>
+                                <input type="date" id="dateOfBirth" name="date" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
+                            </div>
+
+                            <div>
+                                <label for="division" class="block text-sm font-medium mb-2">
+                                    Division <span class="text-red-300">*</span>
+                                </label>
+                                <select id="division" name="division" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
+                                    <option value="" class="text-gray-800">Select Division</option>
+                                    <option value="Barishal" class="text-gray-800">Barishal</option>
+                                    <option value="Chattogram" class="text-gray-800">Chattogram</option>
+                                    <option value="Dhaka" class="text-gray-800">Dhaka</option>
+                                    <option value="Khulna" class="text-gray-800">Khulna</option>
+                                    <option value="Mymensingh" class="text-gray-800">Mymensingh</option>
+                                    <option value="Rajshahi" class="text-gray-800">Rajshahi</option>
+                                    <option value="Rangpur" class="text-gray-800">Rangpur</option>
+                                    <option value="Sylhet" class="text-gray-800">Sylhet</option>
                                 </select>
                             </div>
 
-                            <!-- District -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    District <span class="text-red-500">*</span>
+                                <label for="district" class="block text-sm font-medium mb-2">
+                                    District <span class="text-red-300">*</span>
                                 </label>
-                                <input type="text" id="guestDistrict" required placeholder="Enter your district"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <select id="district" name="district" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
+                                    <option value="" class="text-gray-800">Select District</option>
+                                </select>
                             </div>
 
-                            <!-- Area -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Area <span class="text-red-500">*</span>
+                                <label for="area" class="block text-sm font-medium mb-2">
+                                    Area <span class="text-red-300">*</span>
                                 </label>
-                                <input type="text" id="guestArea" required placeholder="Enter your area"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="text" id="area" name="area" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm"
+                                    placeholder="Enter your area">
+                            </div>
+
+                            <div>
+                                <label for="profile" class="block text-sm font-medium mb-2">
+                                    Profile Picture <span class="text-red-300">*</span>
+                                </label>
+                                <input type="file" id="profile" name="profile" accept="image/*" required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white file:text-primary file:font-medium hover:file:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent backdrop-blur-sm">
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Column: Contact Details -->
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <h3 class="text-lg font-semibold text-gray-700 mb-3">Contact Details</h3>
-                        <div class="space-y-3">
-                            <!-- Service Interest -->
+                    <!-- Right Column - Contact Details -->
+                    <div class="p-8 lg:p-12">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">Contact Details</h3>
+                            <p class="text-gray-600">How can we help you?</p>
+                        </div>
+
+                        <div class="space-y-6">
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
+                                <label for="serviceInterest" class="block text-sm font-medium text-gray-700 mb-2">
                                     Service Interest <span class="text-red-500">*</span>
                                 </label>
-                                <select id="guestService" required
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <select id="serviceInterest" name="service_interest" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                                     <option value="">Select a service</option>
-                                    <option value="land-purchase">Land Purchase</option>
-                                    <option value="property-rental">Property Rental</option>
-                                    <option value="property-sale">Property Sale</option>
-                                    <option value="property-management">Property Management</option>
-                                    <option value="real-estate-consultation">Real Estate Consultation</option>
-                                    <option value="investment-advice">Investment Advice</option>
-                                    <option value="legal-documentation">Legal Documentation</option>
-                                    <option value="property-valuation">Property Valuation</option>
-                                    <option value="other">Other</option>
+                                    <option value="architecture">Architectural Design</option>
+                                    <option value="structure">Structural Design</option>
+                                    <option value="electrical">Electrical Design</option>
+                                    <option value="mechanical">Mechanical Design</option>
+                                    <option value="plumbing">Plumbing & Water Services</option>
+                                    <option value="interior">Interior Design & Implementation
+                                    </option>
+                                    <option value="landscape">Landscape Design</option>
+                                    <option value="construction">Construction Services</option>
+                                    <option value="renovation">Renovation & Repairing</option>
+                                    <option value="propertym">Project Management & Consultancy
+                                    </option>
+                                    <option value="facility">Building Maintenance &
+                                        Facility Management</option>
+                                    <option value="realestate">Land Development & Real
+                                        Estate Services</option>
                                 </select>
                             </div>
 
-                            <!-- Budget Range -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Budget Range (BDT)
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Message
                                 </label>
-                                <select id="guestBudget"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                                    <option value="">Select budget (optional)</option>
-                                    <option value="under-10lac">Under 10 Lac</option>
-                                    <option value="10lac-25lac">10 Lac - 25 Lac</option>
-                                    <option value="25lac-50lac">25 Lac - 50 Lac</option>
-                                    <option value="50lac-1crore">50 Lac - 1 Crore</option>
-                                    <option value="1crore-2crore">1 Crore - 2 Crore</option>
-                                    <option value="above-2crore">Above 2 Crore</option>
-                                </select>
+                                <textarea id="message" name="message" rows="6"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                                    placeholder="Tell us about your project requirements..."></textarea>
                             </div>
 
-                            <!-- Message -->
                             <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
-                                    Message/Comments <span class="text-red-500">*</span>
-                                </label>
-                                <textarea id="guestMessage" required rows="4"
-                                    placeholder="Describe your requirements..."
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-vertical"></textarea>
-                            </div>
-
-                            <!-- Preferred Contact Time -->
-                            <div>
-                                <label class="block text-gray-600 mb-1 text-sm">
+                                <label for="contactTime" class="block text-sm font-medium text-gray-700 mb-2">
                                     Preferred Contact Time
                                 </label>
-                                <select id="guestContactTime"
-                                    class="w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                                    <option value="">Select time (optional)</option>
-                                    <option value="morning">Morning (9 AM - 12 PM)</option>
-                                    <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-                                    <option value="evening">Evening (5 PM - 8 PM)</option>
-                                    <option value="anytime">Anytime</option>
+                                <select id="contactTime" name="contact_time"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    <option value="">Select preferred time</option>
+                                    <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                    <option value="Afternoon (12 PM - 5 PM)">Afternoon (12 PM - 5 PM)</option>
+                                    <option value="Evening (5 PM - 8 PM)">Evening (5 PM - 8 PM)</option>
+                                    <option value="Anytime">Anytime</option>
                                 </select>
                             </div>
+
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-primary to-litePrimary text-white py-4 px-8 rounded-lg font-semibold text-lg hover:from-darkPrimary hover:to-primary transform hover:scale-[1.02] transition-all duration-200 shadow-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Guest Submit Button -->
-                <button type="button" id="guestSubmitBtn"
-                    class="w-full mt-4 py-3 bg-primary text-white rounded-lg hover:bg-darkPrimary transition font-medium">
-                    <i class="fas fa-paper-plane mr-2"></i>Send Message
-                </button>
-            </div>
-
-            <!-- Success Message (hidden by default) -->
-            <div id="successMessage"
-                class="hidden mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
-                ✅ Message sent successfully! We'll get back to you soon.
-            </div>
-
-            <!-- Logged-in User Contact Form -->
-            <form id="contactForm" action="#" method="POST" class="space-y-4" style="display: none;">
-
-                <!-- Subject/Service Interest -->
-                <div>
-                    <label class="block text-gray-600 mb-1">
-                        Service Interest <span class="text-red-500">*</span>
-                    </label>
-                    <select name="service" required
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="">Select a service</option>
-                        <option value="land-purchase">Land Purchase</option>
-                        <option value="property-rental">Property Rental</option>
-                        <option value="property-sale">Property Sale</option>
-                        <option value="property-management">Property Management</option>
-                        <option value="real-estate-consultation">Real Estate Consultation</option>
-                        <option value="investment-advice">Investment Advice</option>
-                        <option value="legal-documentation">Legal Documentation</option>
-                        <option value="property-valuation">Property Valuation</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-
-
-                <!-- Budget Range (for real estate) -->
-                <div>
-                    <label class="block text-gray-600 mb-1">
-                        Budget Range (BDT)
-                    </label>
-                    <select name="budget"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="">Select budget range (optional)</option>
-                        <option value="under-10lac">Under 10 Lac</option>
-                        <option value="10lac-25lac">10 Lac - 25 Lac</option>
-                        <option value="25lac-50lac">25 Lac - 50 Lac</option>
-                        <option value="50lac-1crore">50 Lac - 1 Crore</option>
-                        <option value="1crore-2crore">1 Crore - 2 Crore</option>
-                        <option value="above-2crore">Above 2 Crore</option>
-                    </select>
-                </div>
-
-                <!-- Comments/Message -->
-                <div>
-                    <label class="block text-gray-600 mb-1">
-                        Message/Comments <span class="text-red-500">*</span>
-                    </label>
-                    <textarea name="message" required rows="5"
-                        placeholder="Please describe your requirements, questions, or any specific details about the property/service you're looking for..."
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-vertical"></textarea>
-                </div>
-
-                <!-- Preferred Contact Time -->
-                <div>
-                    <label class="block text-gray-600 mb-1">
-                        Preferred Contact Time
-                    </label>
-                    <select name="contact_time"
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="">Select preferred time (optional)</option>
-                        <option value="morning">Morning (9 AM - 12 PM)</option>
-                        <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
-                        <option value="evening">Evening (5 PM - 8 PM)</option>
-                        <option value="anytime">Anytime</option>
-                    </select>
-                </div>
-
-                <!-- Submit -->
-                <button type="submit"
-                    class="w-full py-3 bg-primary text-white rounded-lg hover:bg-darkPrimary transition font-medium">
-                    <i class="fas fa-paper-plane mr-2"></i>Send Message
-                </button>
             </form>
-
-            <!-- Contact Information -->
-            <div class="mt-8 pt-6 border-t border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-700 mb-4 text-center">Get in Touch</h3>
-                <div class="grid md:grid-cols-2 gap-4 text-sm">
-                    <div class="flex items-center">
-                        <i class="fas fa-phone text-primary mr-3"></i>
-                        <span class="text-gray-600">+8801712757397 / +8801732370479</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope text-primary mr-3"></i>
-                        <span class="text-gray-600">info@one-reachbd.com</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-map-marker-alt text-primary mr-3"></i>
-                        <span class="text-gray-600">44, Tatipara, Zindabazar, Sylhet</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-clock text-primary mr-3"></i>
-                        <span class="text-gray-600">9 AM - 8 PM (Daily)</span>
-                    </div>
-                </div>
-            </div>
-
-            <p class="text-sm text-gray-600 text-center mt-6">
-                Need to create an account?
-                <a href="register.html" class="text-primary font-medium hover:underline">Register Here</a>
-            </p>
         </div>
     </main>
 
     <script>
-        // Initialize AOS if available
-        if (typeof AOS !== 'undefined') {
-            AOS.init();
-        }
+        // Districts data organized by division
+        const districts = {
+            "Barishal": ["Barishal", "Barguna", "Bhola", "Jhalokathi", "Patuakhali", "Pirojpur"],
+            "Chattogram": ["Bandarban", "Brahmanbaria", "Chandpur", "Chattogram", "Cumilla", "Cox's Bazar", "Feni", "Khagrachari", "Lakshmipur", "Noakhali", "Rangamati"],
+            "Dhaka": ["Dhaka", "Faridpur", "Gazipur", "Gopalganj", "Kishoreganj", "Madaripur", "Manikganj", "Munshiganj", "Narayanganj", "Narsingdi", "Rajbari", "Shariatpur", "Tangail"],
+            "Khulna": ["Bagerhat", "Chuadanga", "Jessore", "Jhenaidah", "Khulna", "Kushtia", "Magura", "Meherpur", "Narail", "Satkhira"],
+            "Mymensingh": ["Jamalpur", "Mymensingh", "Netrokona", "Sherpur"],
+            "Rajshahi": ["Bogura", "Joypurhat", "Naogaon", "Natore", "Chapainawabganj", "Pabna", "Rajshahi", "Sirajganj"],
+            "Rangpur": ["Dinajpur", "Gaibandha", "Kurigram", "Lalmonirhat", "Nilphamari", "Panchagarh", "Rangpur", "Thakurgaon"],
+            "Sylhet": ["Habiganj", "Moulvibazar", "Sunamganj", "Sylhet"]
+        };
 
-        // Load user data from localStorage
-        function loadUserData() {
-            try {
-                const savedUser = JSON.parse(localStorage.getItem('userData'));
-                if (savedUser) {
-                    // Show logged-in user interface
-                    document.getElementById('userAvatar').src = savedUser.profile;
-                    document.getElementById('userName').textContent = savedUser.name;
-                    document.getElementById('userEmail').textContent = savedUser.email;
-                    document.getElementById('userPhone').textContent = savedUser.phone;
-                    document.getElementById('userLocation').textContent = `${savedUser.area}, ${savedUser.district}, ${savedUser.division}`;
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
-                    // Show logged-in user sections
-                    document.getElementById('userInfo').style.display = 'block';
-                    document.getElementById('contactForm').style.display = 'block';
-                    document.getElementById('guestUserSection').style.display = 'none';
-                } else {
-                    // Show guest user interface
-                    document.getElementById('userInfo').style.display = 'none';
-                    document.getElementById('contactForm').style.display = 'none';
-                    document.getElementById('guestUserSection').style.display = 'block';
-                }
-            } catch (error) {
-                console.log('No user data found');
-                // Show guest user interface
-                document.getElementById('userInfo').style.display = 'none';
-                document.getElementById('contactForm').style.display = 'none';
-                document.getElementById('guestUserSection').style.display = 'block';
+        // DOM elements
+        const personalInfoForm = document.getElementById('personalInfoForm');
+        const userDataDisplay = document.getElementById('userDataDisplay');
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const divisionSelect = document.getElementById('division');
+        const districtSelect = document.getElementById('district');
+        const contactForm = document.getElementById('contactForm');
+
+        // Check for existing user data on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            checkUserData();
+
+            // Division change handler
+            divisionSelect.addEventListener('change', function () {
+                updateDistricts(this.value);
+            });
+
+            // Edit profile button handler
+            editProfileBtn.addEventListener('click', function () {
+                showPersonalInfoForm();
+            });
+
+            // Form submit handler
+            contactForm.addEventListener('submit', handleFormSubmit);
+        });
+
+        function checkUserData() {
+            const userData = JSON.parse(localStorage.getItem('userData') || 'null');
+            if (userData) {
+                displayUserData(userData);
+                hidePersonalInfoForm();
+            } else {
+                showPersonalInfoForm();
             }
         }
 
-        // Handle guest user form submission
-        function handleGuestSubmission() {
-            const guestData = {
-                // User registration data
-                name: document.getElementById('guestName').value,
-                email: document.getElementById('guestEmail').value,
-                phone: document.getElementById('guestPhone').value,
-                date: document.getElementById('guestDate').value,
-                division: document.getElementById('guestDivision').value,
-                district: document.getElementById('guestDistrict').value,
-                area: document.getElementById('guestArea').value,
+        function displayUserData(userData) {
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userEmail').textContent = userData.email;
+            document.getElementById('userPhone').textContent = userData.phone;
+            document.getElementById('userDate').textContent = new Date(userData.date).toLocaleDateString();
+            document.getElementById('userLocation').textContent = `${userData.area}, ${userData.district}, ${userData.division}`;
+            document.getElementById('userProfileImage').src = userData.profile;
 
-                // Contact form data
-                service: document.getElementById('guestService').value,
-                budget: document.getElementById('guestBudget').value || null,
-                message: document.getElementById('guestMessage').value,
-                contact_time: document.getElementById('guestContactTime').value || null,
-
-                // Metadata
-                user_id: null,
-                profile: null,
-                submitted_at: new Date().toISOString(),
-                page_source: 'contact_form_guest'
-            };
-
-            return guestData;
+            userDataDisplay.classList.remove('hidden');
         }
 
-        // Validate guest form
-        function validateGuestForm() {
-            const requiredFields = [
-                'guestName', 'guestEmail', 'guestPhone', 'guestDate',
-                'guestDivision', 'guestDistrict', 'guestArea',
-                'guestService', 'guestMessage'
-            ];
-
-            for (let fieldId of requiredFields) {
-                const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    field.focus();
-                    if (typeof Toastify !== 'undefined') {
-                        Toastify({
-                            text: "Please fill in all required fields",
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#ef4444",
-                        }).showToast();
-                    }
-                    return false;
-                }
-            }
-
-            // Email validation
-            const email = document.getElementById('guestEmail').value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                document.getElementById('guestEmail').focus();
-                if (typeof Toastify !== 'undefined') {
-                    Toastify({
-                        text: "Please enter a valid email address",
-                        duration: 3000,
-                        gravity: "top",
-                        position: "right",
-                        backgroundColor: "#ef4444",
-                    }).showToast();
-                }
-                return false;
-            }
-
-            return true;
+        function hidePersonalInfoForm() {
+            personalInfoForm.classList.add('hidden');
         }
 
-        // Send contact data to server
-        async function sendContactData(contactData) {
+        function showPersonalInfoForm() {
+            personalInfoForm.classList.remove('hidden');
+            userDataDisplay.classList.add('hidden');
+        }
+
+        function clearUserData() {
+            localStorage.removeItem('userData');
+            contactForm.reset();
+        }
+
+        function updateDistricts(selectedDivision) {
+            const districtOptions = districts[selectedDivision] || [];
+            districtSelect.innerHTML = '<option value="" class="text-gray-800">Select District</option>';
+
+            districtOptions.forEach(district => {
+                const option = document.createElement('option');
+                option.value = district;
+                option.textContent = district;
+                option.className = 'text-gray-800';
+                districtSelect.appendChild(option);
+            });
+        }
+
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            // Show loading toast
+            Toastify({
+                text: "Sending your message...",
+                duration: 2000,
+                gravity: "bottom",
+                position: "center",
+                style: {
+                    background: "linear-gradient(to right, #0048a7, #0063e4)",
+                }
+            }).showToast();
+
             try {
                 const response = await fetch('https://onereachservices.com/contact_form', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(contactData)
+                    body: formData
                 });
 
+                const result = await response.text();
+
                 if (response.ok) {
-                    const result = await response.json();
-
-                    // Show success message
-                    const successMessage = document.getElementById('successMessage');
-                    successMessage.classList.remove('hidden');
-
-                    // Scroll to top to show message
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-                    // Show toast notification
-                    if (typeof Toastify !== 'undefined') {
-                        Toastify({
-                            text: "Message sent successfully! We'll contact you soon.",
-                            duration: 3000,
-                            gravity: "top",
-                            position: "right",
-                            backgroundColor: "#10b981",
-                        }).showToast();
-                    }
-
-                    return true;
-                } else {
-                    throw new Error(`Server error: ${response.status}`);
-                }
-            } catch (error) {
-                console.error('Error sending contact form:', error);
-
-                if (typeof Toastify !== 'undefined') {
+                    // Success toast
                     Toastify({
-                        text: "Failed to send message. Please try again later.",
-                        duration: 3000,
+                        text: "Message sent successfully! We'll get back to you soon.",
+                        duration: 4000,
                         gravity: "top",
                         position: "right",
-                        backgroundColor: "#ef4444",
+                        style: {
+                            background: "linear-gradient(to right, #00b09b, #96c93d)",
+                        }
                     }).showToast();
+                    clearUserData();
+
+                    // Save user data to localStorage if personal info was filled
+                    if (!localStorage.getItem('userData')) {
+                        const userData = {
+                            id: Date.now(),
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            phone: formData.get('phone'),
+                            date: formData.get('date'),
+                            division: formData.get('division'),
+                            district: formData.get('district'),
+                            area: formData.get('area'),
+                            profile: URL.createObjectURL(formData.get('profile'))
+                        };
+                        localStorage.setItem('userData', JSON.stringify(userData));
+                        checkUserData();
+                    }
+
+                    // Reset only contact details
+                    document.getElementById('serviceInterest').value = '';
+                    document.getElementById('message').value = '';
+                    document.getElementById('contactTime').value = '';
+
                 } else {
-                    alert('Failed to send message. Please try again later.');
+                    throw new Error('Failed to send message');
                 }
-                return false;
+            } catch (error) {
+                console.error('Error:', error);
+                Toastify({
+                    text: "Failed to send message. Please try again.",
+                    duration: 4000,
+                    gravity: "top",
+                    position: "right",
+                    style: {
+                        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+                    }
+                }).showToast();
             }
-        }
-
-        // Load user data when page loads
-        document.addEventListener('DOMContentLoaded', loadUserData);
-
-        // Handle guest form submission
-        document.getElementById('guestSubmitBtn').addEventListener('click', async function (e) {
-            e.preventDefault();
-
-            // Validate form
-            if (!validateGuestForm()) {
-                return;
-            }
-
-            // Show loading state
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-            this.disabled = true;
-
-            try {
-                const guestData = handleGuestSubmission();
-                const success = await sendContactData(guestData);
-
-                if (success) {
-                    // Clear guest form after successful submission
-                    setTimeout(() => {
-                        document.querySelectorAll('#guestUserSection input, #guestUserSection select, #guestUserSection textarea').forEach(field => {
-                            field.value = '';
-                        });
-                        document.getElementById('successMessage').classList.add('hidden');
-                    }, 3000);
-                }
-            } finally {
-                // Restore button state
-                this.innerHTML = originalText;
-                this.disabled = false;
-            }
-        });
-
-        // Handle logged-in user form submission
-        document.getElementById('contactForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            // Get user data from localStorage
-            const savedUser = JSON.parse(localStorage.getItem('userData')) || {};
-
-            // Get form data
-            const formData = new FormData(this);
-
-            // Prepare data to send
-            const contactData = {
-                // User information from localStorage
-                user_id: savedUser.id || null,
-                name: savedUser.name || 'Unknown',
-                email: savedUser.email || 'unknown@example.com',
-                phone: savedUser.phone || 'Not provided',
-                division: savedUser.division || 'Not specified',
-                district: savedUser.district || 'Not specified',
-                area: savedUser.area || 'Not specified',
-                profile: savedUser.profile || null,
-                date_of_birth: savedUser.date || null,
-
-                // Form data
-                service: formData.get('service'),
-                budget: formData.get('budget') || null,
-                message: formData.get('message'),
-                contact_time: formData.get('contact_time') || null,
-
-                // Additional metadata
-                submitted_at: new Date().toISOString(),
-                page_source: 'contact_form_logged_in'
-            };
-
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-            submitBtn.disabled = true;
-
-            try {
-                const success = await sendContactData(contactData);
-
-                if (success) {
-                    // Reset form after successful submission
-                    setTimeout(() => {
-                        this.reset();
-                        document.getElementById('successMessage').classList.add('hidden');
-                    }, 3000);
-                }
-            } finally {
-                // Restore button state
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-
-        // Initialize Feather icons if available
-        if (typeof feather !== 'undefined') {
-            feather.replace();
         }
     </script>
+
+</body>
+
+</html>
+
 </body>
 
 </html>
