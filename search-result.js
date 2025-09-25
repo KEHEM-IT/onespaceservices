@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let hasPrevious = false;
   let totalCount = 0;
   let isLoading = false;
+  let currentProperty = null; // Store current property for contact form
 
   // API configuration
   const API_BASE_URL = "https://onereachservices.com/api";
@@ -16,31 +17,83 @@ document.addEventListener("DOMContentLoaded", () => {
   function init() {
     loadPropertiesFromURL();
     setupEventListeners();
+    createContactModal(); // Create the contact modal
   }
 
-  // CATEGORIES
-  const architectural = document.querySelectorAll("#architectural");
-  const structural = document.querySelectorAll("#structural");
-  const electrical = document.querySelectorAll("#electrical");
-  const mechanical = document.querySelectorAll("#mechanical");
-  const plumbing = document.querySelectorAll("#plumbing");
-  const interior = document.querySelectorAll("#interior");
-  const landscape = document.querySelectorAll("#landscape");
-  const construction = document.querySelectorAll("#construction");
-  const projectManagement = document.querySelectorAll("#project-management");
-  const maintenance = document.querySelectorAll("#maintenance");
-  const realState = document.querySelectorAll("#real-state");
+  // Create contact modal HTML
+  function createContactModal() {
+    const contactModalHTML = `
+      <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto transform transition-all duration-300">
+          <div class="p-6">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="text-2xl font-bold text-gray-800">Contact Agent</h3>
+              <button id="closeContactModal" class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
+                <i class="fas fa-times text-gray-600"></i>
+              </button>
+            </div>
 
-  architectural.forEach((item) => {
-  });
-  // Get URL parameters
-  function getUrlParams() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const params = {};
-    for (const [key, value] of urlParams) {
-      params[key] = value;
-    }
-    return params;
+            <!-- Property Info -->
+            <div id="contactPropertyInfo" class="bg-gray-50 rounded-xl p-4 mb-6">
+              <!-- Property info will be populated here -->
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" class="space-y-4">
+              <!-- Comments -->
+              <div>
+                <label for="comments" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Comments
+                </label>
+                <textarea 
+                  id="comments" 
+                  name="comments" 
+                  rows="4" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 resize-none" 
+                  placeholder="Please share any specific requirements or questions about this property..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Preferred Contact Time -->
+              <div>
+                <label for="contactTime" class="block text-sm font-semibold text-gray-700 mb-2">
+                  Preferred Contact Time
+                </label>
+                <select 
+                  id="contactTime" 
+                  name="contactTime" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200"
+                  required
+                >
+                  <option value="">Select preferred time</option>
+                  <option value="morning">Morning (9 AM - 12 PM)</option>
+                  <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                  <option value="evening">Evening (5 PM - 8 PM)</option>
+                  <option value="anytime">Anytime</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-4">
+                <button 
+                  type="submit" 
+                  id="submitContact"
+                  class="w-full bg-gradient-to-r from-primary to-darkPrimary text-white font-bold py-4 px-6 rounded-xl hover:from-darkPrimary hover:to-primary transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <i class="fas fa-paper-plane mr-2"></i>
+                  Send Contact Request
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Add modal to body
+    document.body.insertAdjacentHTML("beforeend", contactModalHTML);
   }
 
   // Load properties based on URL parameters
@@ -240,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadMoreBtn.addEventListener("click", loadMoreProperties);
     }
 
-    // Modal close
+    // Main modal close
     const modal = document.getElementById("propertyModal");
     if (modal) {
       modal.addEventListener("click", (e) => {
@@ -248,6 +301,150 @@ document.addEventListener("DOMContentLoaded", () => {
           closeModal();
         }
       });
+    }
+
+    // Contact modal event listeners
+    setupContactModalListeners();
+  }
+
+  // Setup contact modal event listeners
+  function setupContactModalListeners() {
+    // Contact modal close button
+    document.addEventListener("click", (e) => {
+      if (e.target && e.target.id === "closeContactModal") {
+        closeContactModal();
+      }
+    });
+
+    // Contact modal backdrop close
+    const contactModal = document.getElementById("contactModal");
+    if (contactModal) {
+      contactModal.addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) {
+          closeContactModal();
+        }
+      });
+    }
+
+    // Contact form submission
+    document.addEventListener("submit", async (e) => {
+      if (e.target && e.target.id === "contactForm") {
+        e.preventDefault();
+        await handleContactFormSubmit();
+      }
+    });
+  }
+
+  // Open contact modal
+  function openContactModal(property) {
+    currentProperty = property;
+    const modal = document.getElementById("contactModal");
+    const propertyInfo = document.getElementById("contactPropertyInfo");
+
+    if (!modal || !propertyInfo) return;
+
+    // Populate property info
+    propertyInfo.innerHTML = `
+      <div class="flex items-center space-x-4">
+        <img src="${property.image || property.images?.[0] || ""}" alt="${
+      property.title
+    }" class="w-16 h-16 rounded-lg object-cover">
+        <div>
+          <h4 class="font-semibold text-gray-800">${property.title}</h4>
+          <p class="text-sm text-gray-600 flex items-center">
+            <i class="fas fa-map-marker-alt text-primary mr-1"></i>
+            ${property.location}
+          </p>
+          <p class="text-lg font-bold text-primary">৳${property.price.toLocaleString()}</p>
+        </div>
+      </div>
+    `;
+
+    // Reset form
+    document.getElementById("contactForm").reset();
+
+    // Show modal
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  // Close contact modal
+  function closeContactModal() {
+    const modal = document.getElementById("contactModal");
+    if (modal) {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+    currentProperty = null;
+  }
+
+  // Handle contact form submission
+  async function handleContactFormSubmit() {
+    if (!currentProperty) return;
+
+    const submitBtn = document.getElementById("submitContact");
+    const comments = document.getElementById("comments").value;
+    const contactTime = document.getElementById("contactTime").value;
+
+    // Disable submit button and show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML =
+      '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+
+    try {
+      // Get type from URL parameters
+      const urlParams = getUrlParams();
+      const type = urlParams.type || "buy"; // Default to 'buy' if not found
+
+      // Create form data with the correct field names
+      const formData = new FormData();
+      formData.append("type", type);
+      formData.append("product_id", currentProperty.id);
+      formData.append("message", comments); // Changed from 'comments' to 'message'
+      formData.append("contact_time", contactTime);
+
+      // Send to API
+      const response = await fetch(
+        "https://onereachservices.com/contact_form",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        // Success toast
+        Toastify({
+          text: "Contact request sent successfully! We'll get back to you soon.",
+          duration: 5000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#10B981",
+          className: "toastify-success",
+        }).showToast();
+
+        // Close modal
+        closeContactModal();
+      } else {
+        throw new Error("Failed to send contact request");
+      }
+    } catch (error) {
+      console.error("Error sending contact form:", error);
+
+      // Error toast
+      Toastify({
+        text: "Failed to send contact request. Please try again.",
+        duration: 5000,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "#EF4444",
+        className: "toastify-error",
+      }).showToast();
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML =
+        '<i class="fas fa-paper-plane mr-2"></i>Send Contact Request';
     }
   }
 
@@ -389,7 +586,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 </div>
                             </div>
                             <div class="flex space-x-3">
-                                <button class="flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
+                                <button class="contact-agent-btn flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300" data-property-id="${
+                                  property.id
+                                }">
                                     <i class="fas fa-phone mr-2"></i>Contact
                                 </button>
                                 <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
@@ -459,7 +658,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         </div>
                         <div class="flex space-x-3">
-                            <button class="flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105">
+                            <button class="contact-agent-btn flex-1 bg-primary hover:bg-darkPrimary text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 transform hover:scale-105" data-property-id="${
+                              property.id
+                            }">
                                 <i class="fas fa-phone mr-2"></i>Contact
                             </button>
                             <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300">
@@ -470,7 +671,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
     }
 
-    card.addEventListener("click", () => openPropertyModal(property));
+    // Add click event for the card (opens property modal)
+    card.addEventListener("click", (e) => {
+      // Don't open modal if clicking on contact button
+      if (!e.target.closest(".contact-agent-btn")) {
+        openPropertyModal(property);
+      }
+    });
+
+    // Add click event for contact button
+    const contactBtn = card.querySelector(".contact-agent-btn");
+    if (contactBtn) {
+      contactBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent card click event
+        openContactModal(property);
+      });
+    }
+
     return card;
   }
 
@@ -604,7 +821,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         <!-- Action Buttons -->
                         <div class="flex space-x-4">
-                            <button class="flex-1 bg-gradient-to-r from-primary to-darkPrimary text-white font-bold py-4 px-6 rounded-xl hover:from-darkPrimary hover:to-primary transition-all duration-300 transform hover:scale-105">
+                            <button class="modal-contact-btn flex-1 bg-gradient-to-r from-primary to-darkPrimary text-white font-bold py-4 px-6 rounded-xl hover:from-darkPrimary hover:to-primary transition-all duration-300 transform hover:scale-105" data-property-id="${
+                              property.id
+                            }">
                                 <i class="fas fa-phone mr-2"></i>Contact Agent
                             </button>
                             <button class="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-4 px-6 rounded-xl transition-all duration-300">
@@ -630,6 +849,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     modal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
+
+    // Add event listener for contact button in modal
+    const modalContactBtn = modalContent.querySelector(".modal-contact-btn");
+    if (modalContactBtn) {
+      modalContactBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openContactModal(property);
+      });
+    }
 
     // Initialize Swiper
     setTimeout(() => {
@@ -679,6 +907,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const params = getUrlParams();
     fetchProperties(params, currentPage + 1);
+  }
+
+  // Get URL parameters (this function needs to be defined)
+  function getUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const result = {};
+    for (let [key, value] of params.entries()) {
+      result[key] = value;
+    }
+    return result;
   }
 
   // Initialize the app
